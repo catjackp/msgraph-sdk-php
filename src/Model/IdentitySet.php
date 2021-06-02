@@ -32,14 +32,15 @@ class IdentitySet extends Entity
     */
     public function getApplication()
     {
-        if (array_key_exists("application", $this->_propDict)) {
-            if (is_a($this->_propDict["application"], "\Microsoft\Graph\Model\Identity") || is_null($this->_propDict["application"])) {
+        if (array_key_exists("application", $this->_propDict) && !is_null($this->_propDict["application"])) {
+     
+            if (is_a($this->_propDict["application"], "\Microsoft\Graph\Model\Identity")) {
                 return $this->_propDict["application"];
             } else {
                 $this->_propDict["application"] = new Identity($this->_propDict["application"]);
                 return $this->_propDict["application"];
-            }
-        }
+            } 
+             }
         return null;
     }
 
@@ -65,14 +66,15 @@ class IdentitySet extends Entity
     */
     public function getDevice()
     {
-        if (array_key_exists("device", $this->_propDict)) {
-            if (is_a($this->_propDict["device"], "\Microsoft\Graph\Model\Identity") || is_null($this->_propDict["device"])) {
+        if (array_key_exists("device", $this->_propDict) && !is_null($this->_propDict["device"])) {
+     
+            if (is_a($this->_propDict["device"], "\Microsoft\Graph\Model\Identity")) {
                 return $this->_propDict["device"];
             } else {
                 $this->_propDict["device"] = new Identity($this->_propDict["device"]);
                 return $this->_propDict["device"];
-            }
-        }
+            } 
+             }
         return null;
     }
 
@@ -98,14 +100,15 @@ class IdentitySet extends Entity
     */
     public function getUser()
     {
-        if (array_key_exists("user", $this->_propDict)) {
-            if (is_a($this->_propDict["user"], "\Microsoft\Graph\Model\Identity") || is_null($this->_propDict["user"])) {
+        if (array_key_exists("user", $this->_propDict) && !is_null($this->_propDict["user"])) {
+     
+            if (is_a($this->_propDict["user"], "\Microsoft\Graph\Model\Identity")) {
                 return $this->_propDict["user"];
             } else {
                 $this->_propDict["user"] = new Identity($this->_propDict["user"]);
                 return $this->_propDict["user"];
-            }
-        }
+            } 
+             }
         return null;
     }
 

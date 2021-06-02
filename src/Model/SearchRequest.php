@@ -42,7 +42,7 @@ class SearchRequest extends Entity
     * Sets the contentSources
     * Contains the connection to be targeted. Respects the following format : /external/connections/connectionid where connectionid is the ConnectionId defined in the Connectors Administration.  Note: contentSource is only applicable when entityType=externalItem. Optional.
     *
-    * @param string $val The value of the contentSources
+    * @param string[] $val The value of the contentSources
     *
     * @return SearchRequest
     */
@@ -84,18 +84,25 @@ class SearchRequest extends Entity
     * Gets the entityTypes
     * One or more types of resources expected in the response. Possible values are: list, site, listItem, message, event, drive, driveItem, externalItem. See known limitations for those combinations of two or more entity types that are supported in the same search request. Required.
     *
-    * @return EntityType|null The entityTypes
+    * @return EntityType[]|null The entityTypes
     */
     public function getEntityTypes()
     {
-        if (array_key_exists("entityTypes", $this->_propDict)) {
-            if (is_a($this->_propDict["entityTypes"], "\Microsoft\Graph\Model\EntityType") || is_null($this->_propDict["entityTypes"])) {
-                return $this->_propDict["entityTypes"];
-            } else {
-                $this->_propDict["entityTypes"] = new EntityType($this->_propDict["entityTypes"]);
-                return $this->_propDict["entityTypes"];
+        if (array_key_exists("entityTypes", $this->_propDict) && !is_null($this->_propDict["entityTypes"])) {
+       
+            if(count($this->_propDict['entityTypes']) === 0){
+              return $this->_propDict['entityTypes'];
             }
-        }
+            if (is_a($this->_propDict['entityTypes'][0], ' EntityType')) {
+               return $this->_propDict['entityTypes'];
+            }
+            $entityTypes = [];
+            foreach ($this->_propDict['entityTypes'] as $singleValue) {
+               $entityTypes []= new EntityType($singleValue);
+            }
+            $this->_propDict['entityTypes'] = $entityTypes;
+            return $this->_propDict['entityTypes'];
+            }
         return null;
     }
 
@@ -103,7 +110,7 @@ class SearchRequest extends Entity
     * Sets the entityTypes
     * One or more types of resources expected in the response. Possible values are: list, site, listItem, message, event, drive, driveItem, externalItem. See known limitations for those combinations of two or more entity types that are supported in the same search request. Required.
     *
-    * @param EntityType $val The value to assign to the entityTypes
+    * @param EntityType[] $val The value to assign to the entityTypes
     *
     * @return SearchRequest The SearchRequest
     */
@@ -131,7 +138,7 @@ class SearchRequest extends Entity
     * Sets the fields
     * Contains the fields to be returned for each resource object specified in entityTypes, allowing customization of the fields returned by default otherwise, including additional fields such as custom managed properties from SharePoint and OneDrive, or custom fields in externalItem from content that Microsoft Graph connectors bring in. The fields property can be using the semantic labels applied to properties. For example, if a property is label as title, you can retrieve it using the following syntax : label_title.Optional.
     *
-    * @param string $val The value of the fields
+    * @param string[] $val The value of the fields
     *
     * @return SearchRequest
     */
@@ -177,14 +184,15 @@ class SearchRequest extends Entity
     */
     public function getQuery()
     {
-        if (array_key_exists("query", $this->_propDict)) {
-            if (is_a($this->_propDict["query"], "\Microsoft\Graph\Model\SearchQuery") || is_null($this->_propDict["query"])) {
+        if (array_key_exists("query", $this->_propDict) && !is_null($this->_propDict["query"])) {
+     
+            if (is_a($this->_propDict["query"], "\Microsoft\Graph\Model\SearchQuery")) {
                 return $this->_propDict["query"];
             } else {
                 $this->_propDict["query"] = new SearchQuery($this->_propDict["query"]);
                 return $this->_propDict["query"];
-            }
-        }
+            } 
+             }
         return null;
     }
 

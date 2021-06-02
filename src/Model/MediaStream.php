@@ -32,14 +32,15 @@ class MediaStream extends Entity
     */
     public function getDirection()
     {
-        if (array_key_exists("direction", $this->_propDict)) {
-            if (is_a($this->_propDict["direction"], "\Microsoft\Graph\Model\MediaDirection") || is_null($this->_propDict["direction"])) {
+        if (array_key_exists("direction", $this->_propDict) && !is_null($this->_propDict["direction"])) {
+     
+            if (is_a($this->_propDict["direction"], "\Microsoft\Graph\Model\MediaDirection")) {
                 return $this->_propDict["direction"];
             } else {
                 $this->_propDict["direction"] = new MediaDirection($this->_propDict["direction"]);
                 return $this->_propDict["direction"];
-            }
-        }
+            } 
+             }
         return null;
     }
 
@@ -93,14 +94,15 @@ class MediaStream extends Entity
     */
     public function getMediaType()
     {
-        if (array_key_exists("mediaType", $this->_propDict)) {
-            if (is_a($this->_propDict["mediaType"], "\Microsoft\Graph\Model\Modality") || is_null($this->_propDict["mediaType"])) {
+        if (array_key_exists("mediaType", $this->_propDict) && !is_null($this->_propDict["mediaType"])) {
+     
+            if (is_a($this->_propDict["mediaType"], "\Microsoft\Graph\Model\Modality")) {
                 return $this->_propDict["mediaType"];
             } else {
                 $this->_propDict["mediaType"] = new Modality($this->_propDict["mediaType"]);
                 return $this->_propDict["mediaType"];
-            }
-        }
+            } 
+             }
         return null;
     }
 

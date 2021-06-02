@@ -28,18 +28,25 @@ class WorkingHours extends Entity
     * Gets the daysOfWeek
     * The days of the week on which the user works.
     *
-    * @return DayOfWeek|null The daysOfWeek
+    * @return DayOfWeek[]|null The daysOfWeek
     */
     public function getDaysOfWeek()
     {
-        if (array_key_exists("daysOfWeek", $this->_propDict)) {
-            if (is_a($this->_propDict["daysOfWeek"], "\Microsoft\Graph\Model\DayOfWeek") || is_null($this->_propDict["daysOfWeek"])) {
-                return $this->_propDict["daysOfWeek"];
-            } else {
-                $this->_propDict["daysOfWeek"] = new DayOfWeek($this->_propDict["daysOfWeek"]);
-                return $this->_propDict["daysOfWeek"];
+        if (array_key_exists("daysOfWeek", $this->_propDict) && !is_null($this->_propDict["daysOfWeek"])) {
+       
+            if(count($this->_propDict['daysOfWeek']) === 0){
+              return $this->_propDict['daysOfWeek'];
             }
-        }
+            if (is_a($this->_propDict['daysOfWeek'][0], ' DayOfWeek')) {
+               return $this->_propDict['daysOfWeek'];
+            }
+            $daysOfWeek = [];
+            foreach ($this->_propDict['daysOfWeek'] as $singleValue) {
+               $daysOfWeek []= new DayOfWeek($singleValue);
+            }
+            $this->_propDict['daysOfWeek'] = $daysOfWeek;
+            return $this->_propDict['daysOfWeek'];
+            }
         return null;
     }
 
@@ -47,7 +54,7 @@ class WorkingHours extends Entity
     * Sets the daysOfWeek
     * The days of the week on which the user works.
     *
-    * @param DayOfWeek $val The value to assign to the daysOfWeek
+    * @param DayOfWeek[] $val The value to assign to the daysOfWeek
     *
     * @return WorkingHours The WorkingHours
     */
@@ -65,14 +72,15 @@ class WorkingHours extends Entity
     */
     public function getEndTime()
     {
-        if (array_key_exists("endTime", $this->_propDict)) {
-            if (is_a($this->_propDict["endTime"], "\Microsoft\Graph\Model\TimeOfDay") || is_null($this->_propDict["endTime"])) {
+        if (array_key_exists("endTime", $this->_propDict) && !is_null($this->_propDict["endTime"])) {
+     
+            if (is_a($this->_propDict["endTime"], "\Microsoft\Graph\Model\TimeOfDay")) {
                 return $this->_propDict["endTime"];
             } else {
                 $this->_propDict["endTime"] = new TimeOfDay($this->_propDict["endTime"]);
                 return $this->_propDict["endTime"];
-            }
-        }
+            } 
+             }
         return null;
     }
 
@@ -98,14 +106,15 @@ class WorkingHours extends Entity
     */
     public function getStartTime()
     {
-        if (array_key_exists("startTime", $this->_propDict)) {
-            if (is_a($this->_propDict["startTime"], "\Microsoft\Graph\Model\TimeOfDay") || is_null($this->_propDict["startTime"])) {
+        if (array_key_exists("startTime", $this->_propDict) && !is_null($this->_propDict["startTime"])) {
+     
+            if (is_a($this->_propDict["startTime"], "\Microsoft\Graph\Model\TimeOfDay")) {
                 return $this->_propDict["startTime"];
             } else {
                 $this->_propDict["startTime"] = new TimeOfDay($this->_propDict["startTime"]);
                 return $this->_propDict["startTime"];
-            }
-        }
+            } 
+             }
         return null;
     }
 
@@ -131,14 +140,15 @@ class WorkingHours extends Entity
     */
     public function getTimeZone()
     {
-        if (array_key_exists("timeZone", $this->_propDict)) {
-            if (is_a($this->_propDict["timeZone"], "\Microsoft\Graph\Model\TimeZoneBase") || is_null($this->_propDict["timeZone"])) {
+        if (array_key_exists("timeZone", $this->_propDict) && !is_null($this->_propDict["timeZone"])) {
+     
+            if (is_a($this->_propDict["timeZone"], "\Microsoft\Graph\Model\TimeZoneBase")) {
                 return $this->_propDict["timeZone"];
             } else {
                 $this->_propDict["timeZone"] = new TimeZoneBase($this->_propDict["timeZone"]);
                 return $this->_propDict["timeZone"];
-            }
-        }
+            } 
+             }
         return null;
     }
 

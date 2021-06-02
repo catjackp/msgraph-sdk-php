@@ -60,14 +60,15 @@ class SharingInvitation extends Entity
     */
     public function getInvitedBy()
     {
-        if (array_key_exists("invitedBy", $this->_propDict)) {
-            if (is_a($this->_propDict["invitedBy"], "\Microsoft\Graph\Model\IdentitySet") || is_null($this->_propDict["invitedBy"])) {
+        if (array_key_exists("invitedBy", $this->_propDict) && !is_null($this->_propDict["invitedBy"])) {
+     
+            if (is_a($this->_propDict["invitedBy"], "\Microsoft\Graph\Model\IdentitySet")) {
                 return $this->_propDict["invitedBy"];
             } else {
                 $this->_propDict["invitedBy"] = new IdentitySet($this->_propDict["invitedBy"]);
                 return $this->_propDict["invitedBy"];
-            }
-        }
+            } 
+             }
         return null;
     }
 

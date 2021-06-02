@@ -32,14 +32,15 @@ class MediaContentRatingUnitedKingdom extends Entity
     */
     public function getMovieRating()
     {
-        if (array_key_exists("movieRating", $this->_propDict)) {
-            if (is_a($this->_propDict["movieRating"], "\Microsoft\Graph\Model\RatingUnitedKingdomMoviesType") || is_null($this->_propDict["movieRating"])) {
+        if (array_key_exists("movieRating", $this->_propDict) && !is_null($this->_propDict["movieRating"])) {
+     
+            if (is_a($this->_propDict["movieRating"], "\Microsoft\Graph\Model\RatingUnitedKingdomMoviesType")) {
                 return $this->_propDict["movieRating"];
             } else {
                 $this->_propDict["movieRating"] = new RatingUnitedKingdomMoviesType($this->_propDict["movieRating"]);
                 return $this->_propDict["movieRating"];
-            }
-        }
+            } 
+             }
         return null;
     }
 
@@ -65,14 +66,15 @@ class MediaContentRatingUnitedKingdom extends Entity
     */
     public function getTvRating()
     {
-        if (array_key_exists("tvRating", $this->_propDict)) {
-            if (is_a($this->_propDict["tvRating"], "\Microsoft\Graph\Model\RatingUnitedKingdomTelevisionType") || is_null($this->_propDict["tvRating"])) {
+        if (array_key_exists("tvRating", $this->_propDict) && !is_null($this->_propDict["tvRating"])) {
+     
+            if (is_a($this->_propDict["tvRating"], "\Microsoft\Graph\Model\RatingUnitedKingdomTelevisionType")) {
                 return $this->_propDict["tvRating"];
             } else {
                 $this->_propDict["tvRating"] = new RatingUnitedKingdomTelevisionType($this->_propDict["tvRating"]);
                 return $this->_propDict["tvRating"];
-            }
-        }
+            } 
+             }
         return null;
     }
 

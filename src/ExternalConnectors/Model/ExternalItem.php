@@ -31,8 +31,8 @@ class ExternalItem extends \Microsoft\Graph\Model\Entity
     */
     public function getContent()
     {
-        if (array_key_exists("content", $this->_propDict)) {
-            if (is_a($this->_propDict["content"], "\Microsoft\Graph\ExternalConnectors\Model\ExternalItemContent") || is_null($this->_propDict["content"])) {
+        if (array_key_exists("content", $this->_propDict) && !is_null($this->_propDict["content"])) {
+            if (is_a($this->_propDict["content"], "\Microsoft\Graph\ExternalConnectors\Model\ExternalItemContent")) {
                 return $this->_propDict["content"];
             } else {
                 $this->_propDict["content"] = new ExternalItemContent($this->_propDict["content"]);
@@ -62,8 +62,8 @@ class ExternalItem extends \Microsoft\Graph\Model\Entity
     */
     public function getExternalItemProperties()
     {
-        if (array_key_exists("properties", $this->_propDict)) {
-            if (is_a($this->_propDict["properties"], "\Microsoft\Graph\ExternalConnectors\Model\Properties") || is_null($this->_propDict["properties"])) {
+        if (array_key_exists("properties", $this->_propDict) && !is_null($this->_propDict["properties"])) {
+            if (is_a($this->_propDict["properties"], "\Microsoft\Graph\ExternalConnectors\Model\Properties")) {
                 return $this->_propDict["properties"];
             } else {
                 $this->_propDict["properties"] = new Properties($this->_propDict["properties"]);

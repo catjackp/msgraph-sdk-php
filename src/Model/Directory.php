@@ -28,21 +28,28 @@ class Directory extends Entity
      /** 
      * Gets the administrativeUnits
      *
-     * @return array|null The administrativeUnits
+     * @return AdministrativeUnit[]|null The administrativeUnits
      */
     public function getAdministrativeUnits()
     {
-        if (array_key_exists("administrativeUnits", $this->_propDict)) {
-           return $this->_propDict["administrativeUnits"];
-        } else {
-            return null;
+        if (array_key_exists('administrativeUnits', $this->_propDict) && !is_null($this->_propDict['administrativeUnits'])) {
+           $administrativeUnits = [];
+           if (count($this->_propDict['administrativeUnits']) > 0 && is_a($this->_propDict['administrativeUnits'][0], 'AdministrativeUnit')) {
+              return $this->_propDict;
+           }
+           foreach ($this->_propDict['administrativeUnits'] as $singleValue) {
+              $administrativeUnits []= new AdministrativeUnit($singleValue);
+           }
+           $this->_propDict['administrativeUnits'] = $administrativeUnits;
+           return $this->_propDict['administrativeUnits'];
         }
+        return null;
     }
     
     /** 
     * Sets the administrativeUnits
     *
-    * @param AdministrativeUnit $val The administrativeUnits
+    * @param AdministrativeUnit[] $val The administrativeUnits
     *
     * @return Directory
     */
@@ -57,22 +64,29 @@ class Directory extends Entity
      * Gets the deletedItems
     * Recently deleted items. Read-only. Nullable.
      *
-     * @return array|null The deletedItems
+     * @return DirectoryObject[]|null The deletedItems
      */
     public function getDeletedItems()
     {
-        if (array_key_exists("deletedItems", $this->_propDict)) {
-           return $this->_propDict["deletedItems"];
-        } else {
-            return null;
+        if (array_key_exists('deletedItems', $this->_propDict) && !is_null($this->_propDict['deletedItems'])) {
+           $deletedItems = [];
+           if (count($this->_propDict['deletedItems']) > 0 && is_a($this->_propDict['deletedItems'][0], 'DirectoryObject')) {
+              return $this->_propDict;
+           }
+           foreach ($this->_propDict['deletedItems'] as $singleValue) {
+              $deletedItems []= new DirectoryObject($singleValue);
+           }
+           $this->_propDict['deletedItems'] = $deletedItems;
+           return $this->_propDict['deletedItems'];
         }
+        return null;
     }
     
     /** 
     * Sets the deletedItems
     * Recently deleted items. Read-only. Nullable.
     *
-    * @param DirectoryObject $val The deletedItems
+    * @param DirectoryObject[] $val The deletedItems
     *
     * @return Directory
     */

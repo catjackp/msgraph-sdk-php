@@ -31,14 +31,15 @@ class CalendarSharingMessageAction extends Entity
     */
     public function getAction()
     {
-        if (array_key_exists("action", $this->_propDict)) {
-            if (is_a($this->_propDict["action"], "\Microsoft\Graph\Model\CalendarSharingAction") || is_null($this->_propDict["action"])) {
+        if (array_key_exists("action", $this->_propDict) && !is_null($this->_propDict["action"])) {
+     
+            if (is_a($this->_propDict["action"], "\Microsoft\Graph\Model\CalendarSharingAction")) {
                 return $this->_propDict["action"];
             } else {
                 $this->_propDict["action"] = new CalendarSharingAction($this->_propDict["action"]);
                 return $this->_propDict["action"];
-            }
-        }
+            } 
+             }
         return null;
     }
 
@@ -62,14 +63,15 @@ class CalendarSharingMessageAction extends Entity
     */
     public function getActionType()
     {
-        if (array_key_exists("actionType", $this->_propDict)) {
-            if (is_a($this->_propDict["actionType"], "\Microsoft\Graph\Model\CalendarSharingActionType") || is_null($this->_propDict["actionType"])) {
+        if (array_key_exists("actionType", $this->_propDict) && !is_null($this->_propDict["actionType"])) {
+     
+            if (is_a($this->_propDict["actionType"], "\Microsoft\Graph\Model\CalendarSharingActionType")) {
                 return $this->_propDict["actionType"];
             } else {
                 $this->_propDict["actionType"] = new CalendarSharingActionType($this->_propDict["actionType"]);
                 return $this->_propDict["actionType"];
-            }
-        }
+            } 
+             }
         return null;
     }
 
@@ -93,14 +95,15 @@ class CalendarSharingMessageAction extends Entity
     */
     public function getImportance()
     {
-        if (array_key_exists("importance", $this->_propDict)) {
-            if (is_a($this->_propDict["importance"], "\Microsoft\Graph\Model\CalendarSharingActionImportance") || is_null($this->_propDict["importance"])) {
+        if (array_key_exists("importance", $this->_propDict) && !is_null($this->_propDict["importance"])) {
+     
+            if (is_a($this->_propDict["importance"], "\Microsoft\Graph\Model\CalendarSharingActionImportance")) {
                 return $this->_propDict["importance"];
             } else {
                 $this->_propDict["importance"] = new CalendarSharingActionImportance($this->_propDict["importance"]);
                 return $this->_propDict["importance"];
-            }
-        }
+            } 
+             }
         return null;
     }
 

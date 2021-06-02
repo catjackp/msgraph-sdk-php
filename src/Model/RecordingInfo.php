@@ -32,14 +32,15 @@ class RecordingInfo extends Entity
     */
     public function getInitiator()
     {
-        if (array_key_exists("initiator", $this->_propDict)) {
-            if (is_a($this->_propDict["initiator"], "\Microsoft\Graph\Model\IdentitySet") || is_null($this->_propDict["initiator"])) {
+        if (array_key_exists("initiator", $this->_propDict) && !is_null($this->_propDict["initiator"])) {
+     
+            if (is_a($this->_propDict["initiator"], "\Microsoft\Graph\Model\IdentitySet")) {
                 return $this->_propDict["initiator"];
             } else {
                 $this->_propDict["initiator"] = new IdentitySet($this->_propDict["initiator"]);
                 return $this->_propDict["initiator"];
-            }
-        }
+            } 
+             }
         return null;
     }
 
@@ -65,14 +66,15 @@ class RecordingInfo extends Entity
     */
     public function getRecordingStatus()
     {
-        if (array_key_exists("recordingStatus", $this->_propDict)) {
-            if (is_a($this->_propDict["recordingStatus"], "\Microsoft\Graph\Model\RecordingStatus") || is_null($this->_propDict["recordingStatus"])) {
+        if (array_key_exists("recordingStatus", $this->_propDict) && !is_null($this->_propDict["recordingStatus"])) {
+     
+            if (is_a($this->_propDict["recordingStatus"], "\Microsoft\Graph\Model\RecordingStatus")) {
                 return $this->_propDict["recordingStatus"];
             } else {
                 $this->_propDict["recordingStatus"] = new RecordingStatus($this->_propDict["recordingStatus"]);
                 return $this->_propDict["recordingStatus"];
-            }
-        }
+            } 
+             }
         return null;
     }
 

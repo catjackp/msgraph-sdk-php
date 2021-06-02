@@ -32,14 +32,15 @@ class Win32LobAppInstallExperience extends Entity
     */
     public function getDeviceRestartBehavior()
     {
-        if (array_key_exists("deviceRestartBehavior", $this->_propDict)) {
-            if (is_a($this->_propDict["deviceRestartBehavior"], "\Microsoft\Graph\Model\Win32LobAppRestartBehavior") || is_null($this->_propDict["deviceRestartBehavior"])) {
+        if (array_key_exists("deviceRestartBehavior", $this->_propDict) && !is_null($this->_propDict["deviceRestartBehavior"])) {
+     
+            if (is_a($this->_propDict["deviceRestartBehavior"], "\Microsoft\Graph\Model\Win32LobAppRestartBehavior")) {
                 return $this->_propDict["deviceRestartBehavior"];
             } else {
                 $this->_propDict["deviceRestartBehavior"] = new Win32LobAppRestartBehavior($this->_propDict["deviceRestartBehavior"]);
                 return $this->_propDict["deviceRestartBehavior"];
-            }
-        }
+            } 
+             }
         return null;
     }
 
@@ -65,14 +66,15 @@ class Win32LobAppInstallExperience extends Entity
     */
     public function getRunAsAccount()
     {
-        if (array_key_exists("runAsAccount", $this->_propDict)) {
-            if (is_a($this->_propDict["runAsAccount"], "\Microsoft\Graph\Model\RunAsAccountType") || is_null($this->_propDict["runAsAccount"])) {
+        if (array_key_exists("runAsAccount", $this->_propDict) && !is_null($this->_propDict["runAsAccount"])) {
+     
+            if (is_a($this->_propDict["runAsAccount"], "\Microsoft\Graph\Model\RunAsAccountType")) {
                 return $this->_propDict["runAsAccount"];
             } else {
                 $this->_propDict["runAsAccount"] = new RunAsAccountType($this->_propDict["runAsAccount"]);
                 return $this->_propDict["runAsAccount"];
-            }
-        }
+            } 
+             }
         return null;
     }
 

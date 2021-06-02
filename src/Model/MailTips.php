@@ -32,14 +32,15 @@ class MailTips extends Entity
     */
     public function getAutomaticReplies()
     {
-        if (array_key_exists("automaticReplies", $this->_propDict)) {
-            if (is_a($this->_propDict["automaticReplies"], "\Microsoft\Graph\Model\AutomaticRepliesMailTips") || is_null($this->_propDict["automaticReplies"])) {
+        if (array_key_exists("automaticReplies", $this->_propDict) && !is_null($this->_propDict["automaticReplies"])) {
+     
+            if (is_a($this->_propDict["automaticReplies"], "\Microsoft\Graph\Model\AutomaticRepliesMailTips")) {
                 return $this->_propDict["automaticReplies"];
             } else {
                 $this->_propDict["automaticReplies"] = new AutomaticRepliesMailTips($this->_propDict["automaticReplies"]);
                 return $this->_propDict["automaticReplies"];
-            }
-        }
+            } 
+             }
         return null;
     }
 
@@ -121,14 +122,15 @@ class MailTips extends Entity
     */
     public function getEmailAddress()
     {
-        if (array_key_exists("emailAddress", $this->_propDict)) {
-            if (is_a($this->_propDict["emailAddress"], "\Microsoft\Graph\Model\EmailAddress") || is_null($this->_propDict["emailAddress"])) {
+        if (array_key_exists("emailAddress", $this->_propDict) && !is_null($this->_propDict["emailAddress"])) {
+     
+            if (is_a($this->_propDict["emailAddress"], "\Microsoft\Graph\Model\EmailAddress")) {
                 return $this->_propDict["emailAddress"];
             } else {
                 $this->_propDict["emailAddress"] = new EmailAddress($this->_propDict["emailAddress"]);
                 return $this->_propDict["emailAddress"];
-            }
-        }
+            } 
+             }
         return null;
     }
 
@@ -154,14 +156,15 @@ class MailTips extends Entity
     */
     public function getError()
     {
-        if (array_key_exists("error", $this->_propDict)) {
-            if (is_a($this->_propDict["error"], "\Microsoft\Graph\Model\MailTipsError") || is_null($this->_propDict["error"])) {
+        if (array_key_exists("error", $this->_propDict) && !is_null($this->_propDict["error"])) {
+     
+            if (is_a($this->_propDict["error"], "\Microsoft\Graph\Model\MailTipsError")) {
                 return $this->_propDict["error"];
             } else {
                 $this->_propDict["error"] = new MailTipsError($this->_propDict["error"]);
                 return $this->_propDict["error"];
-            }
-        }
+            } 
+             }
         return null;
     }
 
@@ -299,14 +302,15 @@ class MailTips extends Entity
     */
     public function getRecipientScope()
     {
-        if (array_key_exists("recipientScope", $this->_propDict)) {
-            if (is_a($this->_propDict["recipientScope"], "\Microsoft\Graph\Model\RecipientScopeType") || is_null($this->_propDict["recipientScope"])) {
+        if (array_key_exists("recipientScope", $this->_propDict) && !is_null($this->_propDict["recipientScope"])) {
+     
+            if (is_a($this->_propDict["recipientScope"], "\Microsoft\Graph\Model\RecipientScopeType")) {
                 return $this->_propDict["recipientScope"];
             } else {
                 $this->_propDict["recipientScope"] = new RecipientScopeType($this->_propDict["recipientScope"]);
                 return $this->_propDict["recipientScope"];
-            }
-        }
+            } 
+             }
         return null;
     }
 
@@ -328,18 +332,25 @@ class MailTips extends Entity
     * Gets the recipientSuggestions
     * Recipients suggested based on previous contexts where they appear in the same message.
     *
-    * @return Recipient|null The recipientSuggestions
+    * @return Recipient[]|null The recipientSuggestions
     */
     public function getRecipientSuggestions()
     {
-        if (array_key_exists("recipientSuggestions", $this->_propDict)) {
-            if (is_a($this->_propDict["recipientSuggestions"], "\Microsoft\Graph\Model\Recipient") || is_null($this->_propDict["recipientSuggestions"])) {
-                return $this->_propDict["recipientSuggestions"];
-            } else {
-                $this->_propDict["recipientSuggestions"] = new Recipient($this->_propDict["recipientSuggestions"]);
-                return $this->_propDict["recipientSuggestions"];
+        if (array_key_exists("recipientSuggestions", $this->_propDict) && !is_null($this->_propDict["recipientSuggestions"])) {
+       
+            if(count($this->_propDict['recipientSuggestions']) === 0){
+              return $this->_propDict['recipientSuggestions'];
             }
-        }
+            if (is_a($this->_propDict['recipientSuggestions'][0], ' Recipient')) {
+               return $this->_propDict['recipientSuggestions'];
+            }
+            $recipientSuggestions = [];
+            foreach ($this->_propDict['recipientSuggestions'] as $singleValue) {
+               $recipientSuggestions []= new Recipient($singleValue);
+            }
+            $this->_propDict['recipientSuggestions'] = $recipientSuggestions;
+            return $this->_propDict['recipientSuggestions'];
+            }
         return null;
     }
 
@@ -347,7 +358,7 @@ class MailTips extends Entity
     * Sets the recipientSuggestions
     * Recipients suggested based on previous contexts where they appear in the same message.
     *
-    * @param Recipient $val The value to assign to the recipientSuggestions
+    * @param Recipient[] $val The value to assign to the recipientSuggestions
     *
     * @return MailTips The MailTips
     */

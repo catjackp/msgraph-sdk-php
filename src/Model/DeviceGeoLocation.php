@@ -116,14 +116,15 @@ class DeviceGeoLocation extends Entity
     */
     public function getLastCollectedDateTime()
     {
-        if (array_key_exists("lastCollectedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastCollectedDateTime"], "\DateTime") || is_null($this->_propDict["lastCollectedDateTime"])) {
+        if (array_key_exists("lastCollectedDateTime", $this->_propDict) && !is_null($this->_propDict["lastCollectedDateTime"])) {
+     
+            if (is_a($this->_propDict["lastCollectedDateTime"], "\DateTime")) {
                 return $this->_propDict["lastCollectedDateTime"];
             } else {
                 $this->_propDict["lastCollectedDateTime"] = new \DateTime($this->_propDict["lastCollectedDateTime"]);
                 return $this->_propDict["lastCollectedDateTime"];
-            }
-        }
+            } 
+             }
         return null;
     }
 

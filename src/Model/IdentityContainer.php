@@ -31,8 +31,8 @@ class IdentityContainer extends Entity
     */
     public function getConditionalAccess()
     {
-        if (array_key_exists("conditionalAccess", $this->_propDict)) {
-            if (is_a($this->_propDict["conditionalAccess"], "\Microsoft\Graph\Model\ConditionalAccessRoot") || is_null($this->_propDict["conditionalAccess"])) {
+        if (array_key_exists("conditionalAccess", $this->_propDict) && !is_null($this->_propDict["conditionalAccess"])) {
+            if (is_a($this->_propDict["conditionalAccess"], "\Microsoft\Graph\Model\ConditionalAccessRoot")) {
                 return $this->_propDict["conditionalAccess"];
             } else {
                 $this->_propDict["conditionalAccess"] = new ConditionalAccessRoot($this->_propDict["conditionalAccess"]);
@@ -59,21 +59,28 @@ class IdentityContainer extends Entity
      /** 
      * Gets the apiConnectors
      *
-     * @return array|null The apiConnectors
+     * @return IdentityApiConnector[]|null The apiConnectors
      */
     public function getApiConnectors()
     {
-        if (array_key_exists("apiConnectors", $this->_propDict)) {
-           return $this->_propDict["apiConnectors"];
-        } else {
-            return null;
+        if (array_key_exists('apiConnectors', $this->_propDict) && !is_null($this->_propDict['apiConnectors'])) {
+           $apiConnectors = [];
+           if (count($this->_propDict['apiConnectors']) > 0 && is_a($this->_propDict['apiConnectors'][0], 'IdentityApiConnector')) {
+              return $this->_propDict;
+           }
+           foreach ($this->_propDict['apiConnectors'] as $singleValue) {
+              $apiConnectors []= new IdentityApiConnector($singleValue);
+           }
+           $this->_propDict['apiConnectors'] = $apiConnectors;
+           return $this->_propDict['apiConnectors'];
         }
+        return null;
     }
     
     /** 
     * Sets the apiConnectors
     *
-    * @param IdentityApiConnector $val The apiConnectors
+    * @param IdentityApiConnector[] $val The apiConnectors
     *
     * @return IdentityContainer
     */
@@ -87,21 +94,28 @@ class IdentityContainer extends Entity
      /** 
      * Gets the b2xUserFlows
      *
-     * @return array|null The b2xUserFlows
+     * @return B2xIdentityUserFlow[]|null The b2xUserFlows
      */
     public function getB2xUserFlows()
     {
-        if (array_key_exists("b2xUserFlows", $this->_propDict)) {
-           return $this->_propDict["b2xUserFlows"];
-        } else {
-            return null;
+        if (array_key_exists('b2xUserFlows', $this->_propDict) && !is_null($this->_propDict['b2xUserFlows'])) {
+           $b2xUserFlows = [];
+           if (count($this->_propDict['b2xUserFlows']) > 0 && is_a($this->_propDict['b2xUserFlows'][0], 'B2xIdentityUserFlow')) {
+              return $this->_propDict;
+           }
+           foreach ($this->_propDict['b2xUserFlows'] as $singleValue) {
+              $b2xUserFlows []= new B2xIdentityUserFlow($singleValue);
+           }
+           $this->_propDict['b2xUserFlows'] = $b2xUserFlows;
+           return $this->_propDict['b2xUserFlows'];
         }
+        return null;
     }
     
     /** 
     * Sets the b2xUserFlows
     *
-    * @param B2xIdentityUserFlow $val The b2xUserFlows
+    * @param B2xIdentityUserFlow[] $val The b2xUserFlows
     *
     * @return IdentityContainer
     */
@@ -115,21 +129,28 @@ class IdentityContainer extends Entity
      /** 
      * Gets the identityProviders
      *
-     * @return array|null The identityProviders
+     * @return IdentityProviderBase[]|null The identityProviders
      */
     public function getIdentityProviders()
     {
-        if (array_key_exists("identityProviders", $this->_propDict)) {
-           return $this->_propDict["identityProviders"];
-        } else {
-            return null;
+        if (array_key_exists('identityProviders', $this->_propDict) && !is_null($this->_propDict['identityProviders'])) {
+           $identityProviders = [];
+           if (count($this->_propDict['identityProviders']) > 0 && is_a($this->_propDict['identityProviders'][0], 'IdentityProviderBase')) {
+              return $this->_propDict;
+           }
+           foreach ($this->_propDict['identityProviders'] as $singleValue) {
+              $identityProviders []= new IdentityProviderBase($singleValue);
+           }
+           $this->_propDict['identityProviders'] = $identityProviders;
+           return $this->_propDict['identityProviders'];
         }
+        return null;
     }
     
     /** 
     * Sets the identityProviders
     *
-    * @param IdentityProviderBase $val The identityProviders
+    * @param IdentityProviderBase[] $val The identityProviders
     *
     * @return IdentityContainer
     */
@@ -143,21 +164,28 @@ class IdentityContainer extends Entity
      /** 
      * Gets the userFlowAttributes
      *
-     * @return array|null The userFlowAttributes
+     * @return IdentityUserFlowAttribute[]|null The userFlowAttributes
      */
     public function getUserFlowAttributes()
     {
-        if (array_key_exists("userFlowAttributes", $this->_propDict)) {
-           return $this->_propDict["userFlowAttributes"];
-        } else {
-            return null;
+        if (array_key_exists('userFlowAttributes', $this->_propDict) && !is_null($this->_propDict['userFlowAttributes'])) {
+           $userFlowAttributes = [];
+           if (count($this->_propDict['userFlowAttributes']) > 0 && is_a($this->_propDict['userFlowAttributes'][0], 'IdentityUserFlowAttribute')) {
+              return $this->_propDict;
+           }
+           foreach ($this->_propDict['userFlowAttributes'] as $singleValue) {
+              $userFlowAttributes []= new IdentityUserFlowAttribute($singleValue);
+           }
+           $this->_propDict['userFlowAttributes'] = $userFlowAttributes;
+           return $this->_propDict['userFlowAttributes'];
         }
+        return null;
     }
     
     /** 
     * Sets the userFlowAttributes
     *
-    * @param IdentityUserFlowAttribute $val The userFlowAttributes
+    * @param IdentityUserFlowAttribute[] $val The userFlowAttributes
     *
     * @return IdentityContainer
     */
