@@ -148,8 +148,8 @@ class CloudPcProvisioningPolicy extends Entity
     */
     public function getImageType()
     {
-        if (array_key_exists("imageType", $this->_propDict)) {
-            if (is_a($this->_propDict["imageType"], "\Beta\Microsoft\Graph\Model\CloudPcProvisioningPolicyImageType") || is_null($this->_propDict["imageType"])) {
+        if (array_key_exists("imageType", $this->_propDict) && !is_null($this->_propDict["imageType"])) {
+            if (is_a($this->_propDict["imageType"], "\Beta\Microsoft\Graph\Model\CloudPcProvisioningPolicyImageType")) {
                 return $this->_propDict["imageType"];
             } else {
                 $this->_propDict["imageType"] = new CloudPcProvisioningPolicyImageType($this->_propDict["imageType"]);
@@ -207,22 +207,29 @@ class CloudPcProvisioningPolicy extends Entity
      * Gets the assignments
     * A defined collection of provisioning policy assignments. Returned only on $expand. See an example of getting the assignments relationship.
      *
-     * @return array|null The assignments
+     * @return CloudPcProvisioningPolicyAssignment[]|null The assignments
      */
     public function getAssignments()
     {
-        if (array_key_exists("assignments", $this->_propDict)) {
-           return $this->_propDict["assignments"];
-        } else {
-            return null;
+        if (array_key_exists('assignments', $this->_propDict) && !is_null($this->_propDict['assignments'])) {
+           $assignments = [];
+           if (count($this->_propDict['assignments']) > 0 && is_a($this->_propDict['assignments'][0], 'CloudPcProvisioningPolicyAssignment')) {
+              return $this->_propDict;
+           }
+           foreach ($this->_propDict['assignments'] as $singleValue) {
+              $assignments []= new CloudPcProvisioningPolicyAssignment($singleValue);
+           }
+           $this->_propDict['assignments'] = $assignments;
+           return $this->_propDict['assignments'];
         }
+        return null;
     }
     
     /** 
     * Sets the assignments
     * A defined collection of provisioning policy assignments. Returned only on $expand. See an example of getting the assignments relationship.
     *
-    * @param CloudPcProvisioningPolicyAssignment $val The assignments
+    * @param CloudPcProvisioningPolicyAssignment[] $val The assignments
     *
     * @return CloudPcProvisioningPolicy
     */

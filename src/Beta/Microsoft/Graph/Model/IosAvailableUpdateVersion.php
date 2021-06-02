@@ -32,14 +32,15 @@ class IosAvailableUpdateVersion extends Entity
     */
     public function getExpirationDateTime()
     {
-        if (array_key_exists("expirationDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["expirationDateTime"], "\DateTime") || is_null($this->_propDict["expirationDateTime"])) {
+        if (array_key_exists("expirationDateTime", $this->_propDict) && !is_null($this->_propDict["expirationDateTime"])) {
+     
+            if (is_a($this->_propDict["expirationDateTime"], "\DateTime")) {
                 return $this->_propDict["expirationDateTime"];
             } else {
                 $this->_propDict["expirationDateTime"] = new \DateTime($this->_propDict["expirationDateTime"]);
                 return $this->_propDict["expirationDateTime"];
-            }
-        }
+            } 
+             }
         return null;
     }
 
@@ -65,14 +66,15 @@ class IosAvailableUpdateVersion extends Entity
     */
     public function getPostingDateTime()
     {
-        if (array_key_exists("postingDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["postingDateTime"], "\DateTime") || is_null($this->_propDict["postingDateTime"])) {
+        if (array_key_exists("postingDateTime", $this->_propDict) && !is_null($this->_propDict["postingDateTime"])) {
+     
+            if (is_a($this->_propDict["postingDateTime"], "\DateTime")) {
                 return $this->_propDict["postingDateTime"];
             } else {
                 $this->_propDict["postingDateTime"] = new \DateTime($this->_propDict["postingDateTime"]);
                 return $this->_propDict["postingDateTime"];
-            }
-        }
+            } 
+             }
         return null;
     }
 
@@ -136,7 +138,7 @@ class IosAvailableUpdateVersion extends Entity
     * Sets the supportedDevices
     * List of supported devices for the update.
     *
-    * @param string $val The value of the supportedDevices
+    * @param string[] $val The value of the supportedDevices
     *
     * @return IosAvailableUpdateVersion
     */

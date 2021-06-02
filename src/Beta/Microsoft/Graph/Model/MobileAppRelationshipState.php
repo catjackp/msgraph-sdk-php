@@ -88,14 +88,15 @@ class MobileAppRelationshipState extends Entity
     */
     public function getInstallState()
     {
-        if (array_key_exists("installState", $this->_propDict)) {
-            if (is_a($this->_propDict["installState"], "\Beta\Microsoft\Graph\Model\ResultantAppState") || is_null($this->_propDict["installState"])) {
+        if (array_key_exists("installState", $this->_propDict) && !is_null($this->_propDict["installState"])) {
+     
+            if (is_a($this->_propDict["installState"], "\Beta\Microsoft\Graph\Model\ResultantAppState")) {
                 return $this->_propDict["installState"];
             } else {
                 $this->_propDict["installState"] = new ResultantAppState($this->_propDict["installState"]);
                 return $this->_propDict["installState"];
-            }
-        }
+            } 
+             }
         return null;
     }
 
@@ -121,14 +122,15 @@ class MobileAppRelationshipState extends Entity
     */
     public function getInstallStateDetail()
     {
-        if (array_key_exists("installStateDetail", $this->_propDict)) {
-            if (is_a($this->_propDict["installStateDetail"], "\Beta\Microsoft\Graph\Model\ResultantAppStateDetail") || is_null($this->_propDict["installStateDetail"])) {
+        if (array_key_exists("installStateDetail", $this->_propDict) && !is_null($this->_propDict["installStateDetail"])) {
+     
+            if (is_a($this->_propDict["installStateDetail"], "\Beta\Microsoft\Graph\Model\ResultantAppStateDetail")) {
                 return $this->_propDict["installStateDetail"];
             } else {
                 $this->_propDict["installStateDetail"] = new ResultantAppStateDetail($this->_propDict["installStateDetail"]);
                 return $this->_propDict["installStateDetail"];
-            }
-        }
+            } 
+             }
         return null;
     }
 
@@ -164,7 +166,7 @@ class MobileAppRelationshipState extends Entity
     * Sets the sourceIds
     * The collection of source mobile app's ids.
     *
-    * @param string $val The value of the sourceIds
+    * @param string[] $val The value of the sourceIds
     *
     * @return MobileAppRelationshipState
     */
@@ -238,14 +240,15 @@ class MobileAppRelationshipState extends Entity
     */
     public function getTargetLastSyncDateTime()
     {
-        if (array_key_exists("targetLastSyncDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["targetLastSyncDateTime"], "\DateTime") || is_null($this->_propDict["targetLastSyncDateTime"])) {
+        if (array_key_exists("targetLastSyncDateTime", $this->_propDict) && !is_null($this->_propDict["targetLastSyncDateTime"])) {
+     
+            if (is_a($this->_propDict["targetLastSyncDateTime"], "\DateTime")) {
                 return $this->_propDict["targetLastSyncDateTime"];
             } else {
                 $this->_propDict["targetLastSyncDateTime"] = new \DateTime($this->_propDict["targetLastSyncDateTime"]);
                 return $this->_propDict["targetLastSyncDateTime"];
-            }
-        }
+            } 
+             }
         return null;
     }
 

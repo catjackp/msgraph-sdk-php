@@ -54,6 +54,35 @@ class DeviceHealthScriptRunSummary extends Entity
     }
     
     /**
+    * Gets the detectionScriptNotApplicableDeviceCount
+    * Number of devices for which the detection script was not applicable
+    *
+    * @return int|null The detectionScriptNotApplicableDeviceCount
+    */
+    public function getDetectionScriptNotApplicableDeviceCount()
+    {
+        if (array_key_exists("detectionScriptNotApplicableDeviceCount", $this->_propDict)) {
+            return $this->_propDict["detectionScriptNotApplicableDeviceCount"];
+        } else {
+            return null;
+        }
+    }
+    
+    /**
+    * Sets the detectionScriptNotApplicableDeviceCount
+    * Number of devices for which the detection script was not applicable
+    *
+    * @param int $val The detectionScriptNotApplicableDeviceCount
+    *
+    * @return DeviceHealthScriptRunSummary
+    */
+    public function setDetectionScriptNotApplicableDeviceCount($val)
+    {
+        $this->_propDict["detectionScriptNotApplicableDeviceCount"] = intval($val);
+        return $this;
+    }
+    
+    /**
     * Gets the detectionScriptPendingDeviceCount
     * Number of devices which have not yet run the latest version of the device health script
     *
@@ -206,8 +235,8 @@ class DeviceHealthScriptRunSummary extends Entity
     */
     public function getLastScriptRunDateTime()
     {
-        if (array_key_exists("lastScriptRunDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastScriptRunDateTime"], "\DateTime") || is_null($this->_propDict["lastScriptRunDateTime"])) {
+        if (array_key_exists("lastScriptRunDateTime", $this->_propDict) && !is_null($this->_propDict["lastScriptRunDateTime"])) {
+            if (is_a($this->_propDict["lastScriptRunDateTime"], "\DateTime")) {
                 return $this->_propDict["lastScriptRunDateTime"];
             } else {
                 $this->_propDict["lastScriptRunDateTime"] = new \DateTime($this->_propDict["lastScriptRunDateTime"]);

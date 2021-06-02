@@ -32,14 +32,15 @@ class WindowsPackageInformation extends Entity
     */
     public function getApplicableArchitecture()
     {
-        if (array_key_exists("applicableArchitecture", $this->_propDict)) {
-            if (is_a($this->_propDict["applicableArchitecture"], "\Beta\Microsoft\Graph\Model\WindowsArchitecture") || is_null($this->_propDict["applicableArchitecture"])) {
+        if (array_key_exists("applicableArchitecture", $this->_propDict) && !is_null($this->_propDict["applicableArchitecture"])) {
+     
+            if (is_a($this->_propDict["applicableArchitecture"], "\Beta\Microsoft\Graph\Model\WindowsArchitecture")) {
                 return $this->_propDict["applicableArchitecture"];
             } else {
                 $this->_propDict["applicableArchitecture"] = new WindowsArchitecture($this->_propDict["applicableArchitecture"]);
                 return $this->_propDict["applicableArchitecture"];
-            }
-        }
+            } 
+             }
         return null;
     }
 
@@ -205,14 +206,15 @@ class WindowsPackageInformation extends Entity
     */
     public function getMinimumSupportedOperatingSystem()
     {
-        if (array_key_exists("minimumSupportedOperatingSystem", $this->_propDict)) {
-            if (is_a($this->_propDict["minimumSupportedOperatingSystem"], "\Beta\Microsoft\Graph\Model\WindowsMinimumOperatingSystem") || is_null($this->_propDict["minimumSupportedOperatingSystem"])) {
+        if (array_key_exists("minimumSupportedOperatingSystem", $this->_propDict) && !is_null($this->_propDict["minimumSupportedOperatingSystem"])) {
+     
+            if (is_a($this->_propDict["minimumSupportedOperatingSystem"], "\Beta\Microsoft\Graph\Model\WindowsMinimumOperatingSystem")) {
                 return $this->_propDict["minimumSupportedOperatingSystem"];
             } else {
                 $this->_propDict["minimumSupportedOperatingSystem"] = new WindowsMinimumOperatingSystem($this->_propDict["minimumSupportedOperatingSystem"]);
                 return $this->_propDict["minimumSupportedOperatingSystem"];
-            }
-        }
+            } 
+             }
         return null;
     }
 

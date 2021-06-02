@@ -29,22 +29,29 @@ class VirtualEndpoint extends Entity
      * Gets the cloudPCs
     * Cloud managed virtual desktops.
      *
-     * @return array|null The cloudPCs
+     * @return CloudPC[]|null The cloudPCs
      */
     public function getCloudPCs()
     {
-        if (array_key_exists("cloudPCs", $this->_propDict)) {
-           return $this->_propDict["cloudPCs"];
-        } else {
-            return null;
+        if (array_key_exists('cloudPCs', $this->_propDict) && !is_null($this->_propDict['cloudPCs'])) {
+           $cloudPCs = [];
+           if (count($this->_propDict['cloudPCs']) > 0 && is_a($this->_propDict['cloudPCs'][0], 'CloudPC')) {
+              return $this->_propDict;
+           }
+           foreach ($this->_propDict['cloudPCs'] as $singleValue) {
+              $cloudPCs []= new CloudPC($singleValue);
+           }
+           $this->_propDict['cloudPCs'] = $cloudPCs;
+           return $this->_propDict['cloudPCs'];
         }
+        return null;
     }
     
     /** 
     * Sets the cloudPCs
     * Cloud managed virtual desktops.
     *
-    * @param CloudPC $val The cloudPCs
+    * @param CloudPC[] $val The cloudPCs
     *
     * @return VirtualEndpoint
     */
@@ -59,22 +66,29 @@ class VirtualEndpoint extends Entity
      * Gets the deviceImages
     * The image resource on cloud PC.
      *
-     * @return array|null The deviceImages
+     * @return CloudPcDeviceImage[]|null The deviceImages
      */
     public function getDeviceImages()
     {
-        if (array_key_exists("deviceImages", $this->_propDict)) {
-           return $this->_propDict["deviceImages"];
-        } else {
-            return null;
+        if (array_key_exists('deviceImages', $this->_propDict) && !is_null($this->_propDict['deviceImages'])) {
+           $deviceImages = [];
+           if (count($this->_propDict['deviceImages']) > 0 && is_a($this->_propDict['deviceImages'][0], 'CloudPcDeviceImage')) {
+              return $this->_propDict;
+           }
+           foreach ($this->_propDict['deviceImages'] as $singleValue) {
+              $deviceImages []= new CloudPcDeviceImage($singleValue);
+           }
+           $this->_propDict['deviceImages'] = $deviceImages;
+           return $this->_propDict['deviceImages'];
         }
+        return null;
     }
     
     /** 
     * Sets the deviceImages
     * The image resource on cloud PC.
     *
-    * @param CloudPcDeviceImage $val The deviceImages
+    * @param CloudPcDeviceImage[] $val The deviceImages
     *
     * @return VirtualEndpoint
     */
@@ -89,22 +103,29 @@ class VirtualEndpoint extends Entity
      * Gets the onPremisesConnections
     * A defined collection of Azure resource information that can be used to establish on-premises network connectivity for cloud PCs.
      *
-     * @return array|null The onPremisesConnections
+     * @return CloudPcOnPremisesConnection[]|null The onPremisesConnections
      */
     public function getOnPremisesConnections()
     {
-        if (array_key_exists("onPremisesConnections", $this->_propDict)) {
-           return $this->_propDict["onPremisesConnections"];
-        } else {
-            return null;
+        if (array_key_exists('onPremisesConnections', $this->_propDict) && !is_null($this->_propDict['onPremisesConnections'])) {
+           $onPremisesConnections = [];
+           if (count($this->_propDict['onPremisesConnections']) > 0 && is_a($this->_propDict['onPremisesConnections'][0], 'CloudPcOnPremisesConnection')) {
+              return $this->_propDict;
+           }
+           foreach ($this->_propDict['onPremisesConnections'] as $singleValue) {
+              $onPremisesConnections []= new CloudPcOnPremisesConnection($singleValue);
+           }
+           $this->_propDict['onPremisesConnections'] = $onPremisesConnections;
+           return $this->_propDict['onPremisesConnections'];
         }
+        return null;
     }
     
     /** 
     * Sets the onPremisesConnections
     * A defined collection of Azure resource information that can be used to establish on-premises network connectivity for cloud PCs.
     *
-    * @param CloudPcOnPremisesConnection $val The onPremisesConnections
+    * @param CloudPcOnPremisesConnection[] $val The onPremisesConnections
     *
     * @return VirtualEndpoint
     */
@@ -119,28 +140,70 @@ class VirtualEndpoint extends Entity
      * Gets the provisioningPolicies
     * cloud PC provisioning policy.
      *
-     * @return array|null The provisioningPolicies
+     * @return CloudPcProvisioningPolicy[]|null The provisioningPolicies
      */
     public function getProvisioningPolicies()
     {
-        if (array_key_exists("provisioningPolicies", $this->_propDict)) {
-           return $this->_propDict["provisioningPolicies"];
-        } else {
-            return null;
+        if (array_key_exists('provisioningPolicies', $this->_propDict) && !is_null($this->_propDict['provisioningPolicies'])) {
+           $provisioningPolicies = [];
+           if (count($this->_propDict['provisioningPolicies']) > 0 && is_a($this->_propDict['provisioningPolicies'][0], 'CloudPcProvisioningPolicy')) {
+              return $this->_propDict;
+           }
+           foreach ($this->_propDict['provisioningPolicies'] as $singleValue) {
+              $provisioningPolicies []= new CloudPcProvisioningPolicy($singleValue);
+           }
+           $this->_propDict['provisioningPolicies'] = $provisioningPolicies;
+           return $this->_propDict['provisioningPolicies'];
         }
+        return null;
     }
     
     /** 
     * Sets the provisioningPolicies
     * cloud PC provisioning policy.
     *
-    * @param CloudPcProvisioningPolicy $val The provisioningPolicies
+    * @param CloudPcProvisioningPolicy[] $val The provisioningPolicies
     *
     * @return VirtualEndpoint
     */
     public function setProvisioningPolicies($val)
     {
         $this->_propDict["provisioningPolicies"] = $val;
+        return $this;
+    }
+    
+
+     /** 
+     * Gets the userSettings
+     *
+     * @return CloudPcUserSetting[]|null The userSettings
+     */
+    public function getUserSettings()
+    {
+        if (array_key_exists('userSettings', $this->_propDict) && !is_null($this->_propDict['userSettings'])) {
+           $userSettings = [];
+           if (count($this->_propDict['userSettings']) > 0 && is_a($this->_propDict['userSettings'][0], 'CloudPcUserSetting')) {
+              return $this->_propDict;
+           }
+           foreach ($this->_propDict['userSettings'] as $singleValue) {
+              $userSettings []= new CloudPcUserSetting($singleValue);
+           }
+           $this->_propDict['userSettings'] = $userSettings;
+           return $this->_propDict['userSettings'];
+        }
+        return null;
+    }
+    
+    /** 
+    * Sets the userSettings
+    *
+    * @param CloudPcUserSetting[] $val The userSettings
+    *
+    * @return VirtualEndpoint
+    */
+    public function setUserSettings($val)
+    {
+        $this->_propDict["userSettings"] = $val;
         return $this;
     }
     

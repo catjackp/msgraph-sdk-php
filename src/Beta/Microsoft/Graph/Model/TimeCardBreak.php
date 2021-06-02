@@ -57,14 +57,15 @@ class TimeCardBreak extends Entity
     */
     public function getEnd()
     {
-        if (array_key_exists("end", $this->_propDict)) {
-            if (is_a($this->_propDict["end"], "\Beta\Microsoft\Graph\Model\TimeCardEvent") || is_null($this->_propDict["end"])) {
+        if (array_key_exists("end", $this->_propDict) && !is_null($this->_propDict["end"])) {
+     
+            if (is_a($this->_propDict["end"], "\Beta\Microsoft\Graph\Model\TimeCardEvent")) {
                 return $this->_propDict["end"];
             } else {
                 $this->_propDict["end"] = new TimeCardEvent($this->_propDict["end"]);
                 return $this->_propDict["end"];
-            }
-        }
+            } 
+             }
         return null;
     }
 
@@ -88,14 +89,15 @@ class TimeCardBreak extends Entity
     */
     public function getNotes()
     {
-        if (array_key_exists("notes", $this->_propDict)) {
-            if (is_a($this->_propDict["notes"], "\Beta\Microsoft\Graph\Model\ItemBody") || is_null($this->_propDict["notes"])) {
+        if (array_key_exists("notes", $this->_propDict) && !is_null($this->_propDict["notes"])) {
+     
+            if (is_a($this->_propDict["notes"], "\Beta\Microsoft\Graph\Model\ItemBody")) {
                 return $this->_propDict["notes"];
             } else {
                 $this->_propDict["notes"] = new ItemBody($this->_propDict["notes"]);
                 return $this->_propDict["notes"];
-            }
-        }
+            } 
+             }
         return null;
     }
 
@@ -119,14 +121,15 @@ class TimeCardBreak extends Entity
     */
     public function getStart()
     {
-        if (array_key_exists("start", $this->_propDict)) {
-            if (is_a($this->_propDict["start"], "\Beta\Microsoft\Graph\Model\TimeCardEvent") || is_null($this->_propDict["start"])) {
+        if (array_key_exists("start", $this->_propDict) && !is_null($this->_propDict["start"])) {
+     
+            if (is_a($this->_propDict["start"], "\Beta\Microsoft\Graph\Model\TimeCardEvent")) {
                 return $this->_propDict["start"];
             } else {
                 $this->_propDict["start"] = new TimeCardEvent($this->_propDict["start"]);
                 return $this->_propDict["start"];
-            }
-        }
+            } 
+             }
         return null;
     }
 

@@ -32,14 +32,15 @@ class EducationSynchronizationCustomizations extends EducationSynchronizationCus
     */
     public function getSchool()
     {
-        if (array_key_exists("school", $this->_propDict)) {
-            if (is_a($this->_propDict["school"], "\Beta\Microsoft\Graph\Model\EducationSynchronizationCustomization") || is_null($this->_propDict["school"])) {
+        if (array_key_exists("school", $this->_propDict) && !is_null($this->_propDict["school"])) {
+     
+            if (is_a($this->_propDict["school"], "\Beta\Microsoft\Graph\Model\EducationSynchronizationCustomization")) {
                 return $this->_propDict["school"];
             } else {
                 $this->_propDict["school"] = new EducationSynchronizationCustomization($this->_propDict["school"]);
                 return $this->_propDict["school"];
-            }
-        }
+            } 
+             }
         return null;
     }
 
@@ -65,14 +66,15 @@ class EducationSynchronizationCustomizations extends EducationSynchronizationCus
     */
     public function getSection()
     {
-        if (array_key_exists("section", $this->_propDict)) {
-            if (is_a($this->_propDict["section"], "\Beta\Microsoft\Graph\Model\EducationSynchronizationCustomization") || is_null($this->_propDict["section"])) {
+        if (array_key_exists("section", $this->_propDict) && !is_null($this->_propDict["section"])) {
+     
+            if (is_a($this->_propDict["section"], "\Beta\Microsoft\Graph\Model\EducationSynchronizationCustomization")) {
                 return $this->_propDict["section"];
             } else {
                 $this->_propDict["section"] = new EducationSynchronizationCustomization($this->_propDict["section"]);
                 return $this->_propDict["section"];
-            }
-        }
+            } 
+             }
         return null;
     }
 
@@ -98,14 +100,15 @@ class EducationSynchronizationCustomizations extends EducationSynchronizationCus
     */
     public function getStudent()
     {
-        if (array_key_exists("student", $this->_propDict)) {
-            if (is_a($this->_propDict["student"], "\Beta\Microsoft\Graph\Model\EducationSynchronizationCustomization") || is_null($this->_propDict["student"])) {
+        if (array_key_exists("student", $this->_propDict) && !is_null($this->_propDict["student"])) {
+     
+            if (is_a($this->_propDict["student"], "\Beta\Microsoft\Graph\Model\EducationSynchronizationCustomization")) {
                 return $this->_propDict["student"];
             } else {
                 $this->_propDict["student"] = new EducationSynchronizationCustomization($this->_propDict["student"]);
                 return $this->_propDict["student"];
-            }
-        }
+            } 
+             }
         return null;
     }
 
@@ -131,14 +134,15 @@ class EducationSynchronizationCustomizations extends EducationSynchronizationCus
     */
     public function getStudentEnrollment()
     {
-        if (array_key_exists("studentEnrollment", $this->_propDict)) {
-            if (is_a($this->_propDict["studentEnrollment"], "\Beta\Microsoft\Graph\Model\EducationSynchronizationCustomization") || is_null($this->_propDict["studentEnrollment"])) {
+        if (array_key_exists("studentEnrollment", $this->_propDict) && !is_null($this->_propDict["studentEnrollment"])) {
+     
+            if (is_a($this->_propDict["studentEnrollment"], "\Beta\Microsoft\Graph\Model\EducationSynchronizationCustomization")) {
                 return $this->_propDict["studentEnrollment"];
             } else {
                 $this->_propDict["studentEnrollment"] = new EducationSynchronizationCustomization($this->_propDict["studentEnrollment"]);
                 return $this->_propDict["studentEnrollment"];
-            }
-        }
+            } 
+             }
         return null;
     }
 
@@ -164,14 +168,15 @@ class EducationSynchronizationCustomizations extends EducationSynchronizationCus
     */
     public function getTeacher()
     {
-        if (array_key_exists("teacher", $this->_propDict)) {
-            if (is_a($this->_propDict["teacher"], "\Beta\Microsoft\Graph\Model\EducationSynchronizationCustomization") || is_null($this->_propDict["teacher"])) {
+        if (array_key_exists("teacher", $this->_propDict) && !is_null($this->_propDict["teacher"])) {
+     
+            if (is_a($this->_propDict["teacher"], "\Beta\Microsoft\Graph\Model\EducationSynchronizationCustomization")) {
                 return $this->_propDict["teacher"];
             } else {
                 $this->_propDict["teacher"] = new EducationSynchronizationCustomization($this->_propDict["teacher"]);
                 return $this->_propDict["teacher"];
-            }
-        }
+            } 
+             }
         return null;
     }
 
@@ -197,14 +202,15 @@ class EducationSynchronizationCustomizations extends EducationSynchronizationCus
     */
     public function getTeacherRoster()
     {
-        if (array_key_exists("teacherRoster", $this->_propDict)) {
-            if (is_a($this->_propDict["teacherRoster"], "\Beta\Microsoft\Graph\Model\EducationSynchronizationCustomization") || is_null($this->_propDict["teacherRoster"])) {
+        if (array_key_exists("teacherRoster", $this->_propDict) && !is_null($this->_propDict["teacherRoster"])) {
+     
+            if (is_a($this->_propDict["teacherRoster"], "\Beta\Microsoft\Graph\Model\EducationSynchronizationCustomization")) {
                 return $this->_propDict["teacherRoster"];
             } else {
                 $this->_propDict["teacherRoster"] = new EducationSynchronizationCustomization($this->_propDict["teacherRoster"]);
                 return $this->_propDict["teacherRoster"];
-            }
-        }
+            } 
+             }
         return null;
     }
 

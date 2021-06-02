@@ -32,14 +32,15 @@ class PrinterDefaults extends Entity
     */
     public function getColorMode()
     {
-        if (array_key_exists("colorMode", $this->_propDict)) {
-            if (is_a($this->_propDict["colorMode"], "\Beta\Microsoft\Graph\Model\PrintColorMode") || is_null($this->_propDict["colorMode"])) {
+        if (array_key_exists("colorMode", $this->_propDict) && !is_null($this->_propDict["colorMode"])) {
+     
+            if (is_a($this->_propDict["colorMode"], "\Beta\Microsoft\Graph\Model\PrintColorMode")) {
                 return $this->_propDict["colorMode"];
             } else {
                 $this->_propDict["colorMode"] = new PrintColorMode($this->_propDict["colorMode"]);
                 return $this->_propDict["colorMode"];
-            }
-        }
+            } 
+             }
         return null;
     }
 
@@ -174,14 +175,15 @@ class PrinterDefaults extends Entity
     */
     public function getDuplexConfiguration()
     {
-        if (array_key_exists("duplexConfiguration", $this->_propDict)) {
-            if (is_a($this->_propDict["duplexConfiguration"], "\Beta\Microsoft\Graph\Model\PrintDuplexConfiguration") || is_null($this->_propDict["duplexConfiguration"])) {
+        if (array_key_exists("duplexConfiguration", $this->_propDict) && !is_null($this->_propDict["duplexConfiguration"])) {
+     
+            if (is_a($this->_propDict["duplexConfiguration"], "\Beta\Microsoft\Graph\Model\PrintDuplexConfiguration")) {
                 return $this->_propDict["duplexConfiguration"];
             } else {
                 $this->_propDict["duplexConfiguration"] = new PrintDuplexConfiguration($this->_propDict["duplexConfiguration"]);
                 return $this->_propDict["duplexConfiguration"];
-            }
-        }
+            } 
+             }
         return null;
     }
 
@@ -206,14 +208,15 @@ class PrinterDefaults extends Entity
     */
     public function getDuplexMode()
     {
-        if (array_key_exists("duplexMode", $this->_propDict)) {
-            if (is_a($this->_propDict["duplexMode"], "\Beta\Microsoft\Graph\Model\PrintDuplexMode") || is_null($this->_propDict["duplexMode"])) {
+        if (array_key_exists("duplexMode", $this->_propDict) && !is_null($this->_propDict["duplexMode"])) {
+     
+            if (is_a($this->_propDict["duplexMode"], "\Beta\Microsoft\Graph\Model\PrintDuplexMode")) {
                 return $this->_propDict["duplexMode"];
             } else {
                 $this->_propDict["duplexMode"] = new PrintDuplexMode($this->_propDict["duplexMode"]);
                 return $this->_propDict["duplexMode"];
-            }
-        }
+            } 
+             }
         return null;
     }
 
@@ -235,18 +238,25 @@ class PrinterDefaults extends Entity
     * Gets the finishings
     * The default set of finishings to apply to print jobs. Valid values are described in the following table.
     *
-    * @return PrintFinishing|null The finishings
+    * @return PrintFinishing[]|null The finishings
     */
     public function getFinishings()
     {
-        if (array_key_exists("finishings", $this->_propDict)) {
-            if (is_a($this->_propDict["finishings"], "\Beta\Microsoft\Graph\Model\PrintFinishing") || is_null($this->_propDict["finishings"])) {
-                return $this->_propDict["finishings"];
-            } else {
-                $this->_propDict["finishings"] = new PrintFinishing($this->_propDict["finishings"]);
-                return $this->_propDict["finishings"];
+        if (array_key_exists("finishings", $this->_propDict) && !is_null($this->_propDict["finishings"])) {
+       
+            if(count($this->_propDict['finishings']) === 0){
+              return $this->_propDict['finishings'];
             }
-        }
+            if (is_a($this->_propDict['finishings'][0], ' PrintFinishing')) {
+               return $this->_propDict['finishings'];
+            }
+            $finishings = [];
+            foreach ($this->_propDict['finishings'] as $singleValue) {
+               $finishings []= new PrintFinishing($singleValue);
+            }
+            $this->_propDict['finishings'] = $finishings;
+            return $this->_propDict['finishings'];
+            }
         return null;
     }
 
@@ -254,7 +264,7 @@ class PrinterDefaults extends Entity
     * Sets the finishings
     * The default set of finishings to apply to print jobs. Valid values are described in the following table.
     *
-    * @param PrintFinishing $val The value to assign to the finishings
+    * @param PrintFinishing[] $val The value to assign to the finishings
     *
     * @return PrinterDefaults The PrinterDefaults
     */
@@ -412,14 +422,15 @@ class PrinterDefaults extends Entity
     */
     public function getMultipageLayout()
     {
-        if (array_key_exists("multipageLayout", $this->_propDict)) {
-            if (is_a($this->_propDict["multipageLayout"], "\Beta\Microsoft\Graph\Model\PrintMultipageLayout") || is_null($this->_propDict["multipageLayout"])) {
+        if (array_key_exists("multipageLayout", $this->_propDict) && !is_null($this->_propDict["multipageLayout"])) {
+     
+            if (is_a($this->_propDict["multipageLayout"], "\Beta\Microsoft\Graph\Model\PrintMultipageLayout")) {
                 return $this->_propDict["multipageLayout"];
             } else {
                 $this->_propDict["multipageLayout"] = new PrintMultipageLayout($this->_propDict["multipageLayout"]);
                 return $this->_propDict["multipageLayout"];
-            }
-        }
+            } 
+             }
         return null;
     }
 
@@ -445,14 +456,15 @@ class PrinterDefaults extends Entity
     */
     public function getOrientation()
     {
-        if (array_key_exists("orientation", $this->_propDict)) {
-            if (is_a($this->_propDict["orientation"], "\Beta\Microsoft\Graph\Model\PrintOrientation") || is_null($this->_propDict["orientation"])) {
+        if (array_key_exists("orientation", $this->_propDict) && !is_null($this->_propDict["orientation"])) {
+     
+            if (is_a($this->_propDict["orientation"], "\Beta\Microsoft\Graph\Model\PrintOrientation")) {
                 return $this->_propDict["orientation"];
             } else {
                 $this->_propDict["orientation"] = new PrintOrientation($this->_propDict["orientation"]);
                 return $this->_propDict["orientation"];
-            }
-        }
+            } 
+             }
         return null;
     }
 
@@ -559,14 +571,15 @@ class PrinterDefaults extends Entity
     */
     public function getPresentationDirection()
     {
-        if (array_key_exists("presentationDirection", $this->_propDict)) {
-            if (is_a($this->_propDict["presentationDirection"], "\Beta\Microsoft\Graph\Model\PrintPresentationDirection") || is_null($this->_propDict["presentationDirection"])) {
+        if (array_key_exists("presentationDirection", $this->_propDict) && !is_null($this->_propDict["presentationDirection"])) {
+     
+            if (is_a($this->_propDict["presentationDirection"], "\Beta\Microsoft\Graph\Model\PrintPresentationDirection")) {
                 return $this->_propDict["presentationDirection"];
             } else {
                 $this->_propDict["presentationDirection"] = new PrintPresentationDirection($this->_propDict["presentationDirection"]);
                 return $this->_propDict["presentationDirection"];
-            }
-        }
+            } 
+             }
         return null;
     }
 
@@ -590,14 +603,15 @@ class PrinterDefaults extends Entity
     */
     public function getPrintColorConfiguration()
     {
-        if (array_key_exists("printColorConfiguration", $this->_propDict)) {
-            if (is_a($this->_propDict["printColorConfiguration"], "\Beta\Microsoft\Graph\Model\PrintColorConfiguration") || is_null($this->_propDict["printColorConfiguration"])) {
+        if (array_key_exists("printColorConfiguration", $this->_propDict) && !is_null($this->_propDict["printColorConfiguration"])) {
+     
+            if (is_a($this->_propDict["printColorConfiguration"], "\Beta\Microsoft\Graph\Model\PrintColorConfiguration")) {
                 return $this->_propDict["printColorConfiguration"];
             } else {
                 $this->_propDict["printColorConfiguration"] = new PrintColorConfiguration($this->_propDict["printColorConfiguration"]);
                 return $this->_propDict["printColorConfiguration"];
-            }
-        }
+            } 
+             }
         return null;
     }
 
@@ -621,14 +635,15 @@ class PrinterDefaults extends Entity
     */
     public function getPrintQuality()
     {
-        if (array_key_exists("printQuality", $this->_propDict)) {
-            if (is_a($this->_propDict["printQuality"], "\Beta\Microsoft\Graph\Model\PrintQuality") || is_null($this->_propDict["printQuality"])) {
+        if (array_key_exists("printQuality", $this->_propDict) && !is_null($this->_propDict["printQuality"])) {
+     
+            if (is_a($this->_propDict["printQuality"], "\Beta\Microsoft\Graph\Model\PrintQuality")) {
                 return $this->_propDict["printQuality"];
             } else {
                 $this->_propDict["printQuality"] = new PrintQuality($this->_propDict["printQuality"]);
                 return $this->_propDict["printQuality"];
-            }
-        }
+            } 
+             }
         return null;
     }
 
@@ -653,14 +668,15 @@ class PrinterDefaults extends Entity
     */
     public function getQuality()
     {
-        if (array_key_exists("quality", $this->_propDict)) {
-            if (is_a($this->_propDict["quality"], "\Beta\Microsoft\Graph\Model\PrintQuality") || is_null($this->_propDict["quality"])) {
+        if (array_key_exists("quality", $this->_propDict) && !is_null($this->_propDict["quality"])) {
+     
+            if (is_a($this->_propDict["quality"], "\Beta\Microsoft\Graph\Model\PrintQuality")) {
                 return $this->_propDict["quality"];
             } else {
                 $this->_propDict["quality"] = new PrintQuality($this->_propDict["quality"]);
                 return $this->_propDict["quality"];
-            }
-        }
+            } 
+             }
         return null;
     }
 
@@ -686,14 +702,15 @@ class PrinterDefaults extends Entity
     */
     public function getScaling()
     {
-        if (array_key_exists("scaling", $this->_propDict)) {
-            if (is_a($this->_propDict["scaling"], "\Beta\Microsoft\Graph\Model\PrintScaling") || is_null($this->_propDict["scaling"])) {
+        if (array_key_exists("scaling", $this->_propDict) && !is_null($this->_propDict["scaling"])) {
+     
+            if (is_a($this->_propDict["scaling"], "\Beta\Microsoft\Graph\Model\PrintScaling")) {
                 return $this->_propDict["scaling"];
             } else {
                 $this->_propDict["scaling"] = new PrintScaling($this->_propDict["scaling"]);
                 return $this->_propDict["scaling"];
-            }
-        }
+            } 
+             }
         return null;
     }
 

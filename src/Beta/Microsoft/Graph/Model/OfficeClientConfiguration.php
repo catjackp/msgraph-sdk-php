@@ -27,22 +27,31 @@ class OfficeClientConfiguration extends Entity
 
      /** 
      * Gets the checkinStatuses
+    * List of office Client check-in status.
      *
-     * @return array|null The checkinStatuses
+     * @return OfficeClientCheckinStatus[]|null The checkinStatuses
      */
     public function getCheckinStatuses()
     {
-        if (array_key_exists("checkinStatuses", $this->_propDict)) {
-           return $this->_propDict["checkinStatuses"];
-        } else {
-            return null;
+        if (array_key_exists('checkinStatuses', $this->_propDict) && !is_null($this->_propDict['checkinStatuses'])) {
+           $checkinStatuses = [];
+           if (count($this->_propDict['checkinStatuses']) > 0 && is_a($this->_propDict['checkinStatuses'][0], 'OfficeClientCheckinStatus')) {
+              return $this->_propDict;
+           }
+           foreach ($this->_propDict['checkinStatuses'] as $singleValue) {
+              $checkinStatuses []= new OfficeClientCheckinStatus($singleValue);
+           }
+           $this->_propDict['checkinStatuses'] = $checkinStatuses;
+           return $this->_propDict['checkinStatuses'];
         }
+        return null;
     }
     
     /** 
     * Sets the checkinStatuses
+    * List of office Client check-in status.
     *
-    * @param OfficeClientCheckinStatus $val The checkinStatuses
+    * @param OfficeClientCheckinStatus[] $val The checkinStatuses
     *
     * @return OfficeClientConfiguration
     */
@@ -54,6 +63,7 @@ class OfficeClientConfiguration extends Entity
     
     /**
     * Gets the description
+    * Not yet documented
     *
     * @return string|null The description
     */
@@ -68,6 +78,7 @@ class OfficeClientConfiguration extends Entity
     
     /**
     * Sets the description
+    * Not yet documented
     *
     * @param string $val The description
     *
@@ -81,6 +92,7 @@ class OfficeClientConfiguration extends Entity
     
     /**
     * Gets the displayName
+    * Admin provided description of the office client configuration policy.
     *
     * @return string|null The displayName
     */
@@ -95,6 +107,7 @@ class OfficeClientConfiguration extends Entity
     
     /**
     * Sets the displayName
+    * Admin provided description of the office client configuration policy.
     *
     * @param string $val The displayName
     *
@@ -108,13 +121,14 @@ class OfficeClientConfiguration extends Entity
     
     /**
     * Gets the policyPayload
+    * Policy settings JSON string in binary format, these values cannot be changed by the user.
     *
     * @return \GuzzleHttp\Psr7\Stream|null The policyPayload
     */
     public function getPolicyPayload()
     {
-        if (array_key_exists("policyPayload", $this->_propDict)) {
-            if (is_a($this->_propDict["policyPayload"], "\GuzzleHttp\Psr7\Stream") || is_null($this->_propDict["policyPayload"])) {
+        if (array_key_exists("policyPayload", $this->_propDict) && !is_null($this->_propDict["policyPayload"])) {
+            if (is_a($this->_propDict["policyPayload"], "\GuzzleHttp\Psr7\Stream")) {
                 return $this->_propDict["policyPayload"];
             } else {
                 $this->_propDict["policyPayload"] = \GuzzleHttp\Psr7\stream_for($this->_propDict["policyPayload"]);
@@ -126,6 +140,7 @@ class OfficeClientConfiguration extends Entity
     
     /**
     * Sets the policyPayload
+    * Policy settings JSON string in binary format, these values cannot be changed by the user.
     *
     * @param \GuzzleHttp\Psr7\Stream $val The policyPayload
     *
@@ -139,6 +154,7 @@ class OfficeClientConfiguration extends Entity
     
     /**
     * Gets the priority
+    * Priority value should be unique value for each policy under a tenant and will be used for conflict resolution, lower values mean priority is high.
     *
     * @return int|null The priority
     */
@@ -153,6 +169,7 @@ class OfficeClientConfiguration extends Entity
     
     /**
     * Sets the priority
+    * Priority value should be unique value for each policy under a tenant and will be used for conflict resolution, lower values mean priority is high.
     *
     * @param int $val The priority
     *
@@ -166,13 +183,14 @@ class OfficeClientConfiguration extends Entity
     
     /**
     * Gets the userCheckinSummary
+    * User check-in summary for the policy.
     *
     * @return OfficeUserCheckinSummary|null The userCheckinSummary
     */
     public function getUserCheckinSummary()
     {
-        if (array_key_exists("userCheckinSummary", $this->_propDict)) {
-            if (is_a($this->_propDict["userCheckinSummary"], "\Beta\Microsoft\Graph\Model\OfficeUserCheckinSummary") || is_null($this->_propDict["userCheckinSummary"])) {
+        if (array_key_exists("userCheckinSummary", $this->_propDict) && !is_null($this->_propDict["userCheckinSummary"])) {
+            if (is_a($this->_propDict["userCheckinSummary"], "\Beta\Microsoft\Graph\Model\OfficeUserCheckinSummary")) {
                 return $this->_propDict["userCheckinSummary"];
             } else {
                 $this->_propDict["userCheckinSummary"] = new OfficeUserCheckinSummary($this->_propDict["userCheckinSummary"]);
@@ -184,6 +202,7 @@ class OfficeClientConfiguration extends Entity
     
     /**
     * Sets the userCheckinSummary
+    * User check-in summary for the policy.
     *
     * @param OfficeUserCheckinSummary $val The userCheckinSummary
     *
@@ -197,13 +216,14 @@ class OfficeClientConfiguration extends Entity
     
     /**
     * Gets the userPreferencePayload
+    * Preference settings JSON string in binary format, these values can be overridden by the user.
     *
     * @return \GuzzleHttp\Psr7\Stream|null The userPreferencePayload
     */
     public function getUserPreferencePayload()
     {
-        if (array_key_exists("userPreferencePayload", $this->_propDict)) {
-            if (is_a($this->_propDict["userPreferencePayload"], "\GuzzleHttp\Psr7\Stream") || is_null($this->_propDict["userPreferencePayload"])) {
+        if (array_key_exists("userPreferencePayload", $this->_propDict) && !is_null($this->_propDict["userPreferencePayload"])) {
+            if (is_a($this->_propDict["userPreferencePayload"], "\GuzzleHttp\Psr7\Stream")) {
                 return $this->_propDict["userPreferencePayload"];
             } else {
                 $this->_propDict["userPreferencePayload"] = \GuzzleHttp\Psr7\stream_for($this->_propDict["userPreferencePayload"]);
@@ -215,6 +235,7 @@ class OfficeClientConfiguration extends Entity
     
     /**
     * Sets the userPreferencePayload
+    * Preference settings JSON string in binary format, these values can be overridden by the user.
     *
     * @param \GuzzleHttp\Psr7\Stream $val The userPreferencePayload
     *
@@ -229,22 +250,31 @@ class OfficeClientConfiguration extends Entity
 
      /** 
      * Gets the assignments
+    * The list of group assignments for the policy.
      *
-     * @return array|null The assignments
+     * @return OfficeClientConfigurationAssignment[]|null The assignments
      */
     public function getAssignments()
     {
-        if (array_key_exists("assignments", $this->_propDict)) {
-           return $this->_propDict["assignments"];
-        } else {
-            return null;
+        if (array_key_exists('assignments', $this->_propDict) && !is_null($this->_propDict['assignments'])) {
+           $assignments = [];
+           if (count($this->_propDict['assignments']) > 0 && is_a($this->_propDict['assignments'][0], 'OfficeClientConfigurationAssignment')) {
+              return $this->_propDict;
+           }
+           foreach ($this->_propDict['assignments'] as $singleValue) {
+              $assignments []= new OfficeClientConfigurationAssignment($singleValue);
+           }
+           $this->_propDict['assignments'] = $assignments;
+           return $this->_propDict['assignments'];
         }
+        return null;
     }
     
     /** 
     * Sets the assignments
+    * The list of group assignments for the policy.
     *
-    * @param OfficeClientConfigurationAssignment $val The assignments
+    * @param OfficeClientConfigurationAssignment[] $val The assignments
     *
     * @return OfficeClientConfiguration
     */

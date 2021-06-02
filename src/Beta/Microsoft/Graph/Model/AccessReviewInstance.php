@@ -32,8 +32,8 @@ class AccessReviewInstance extends Entity
     */
     public function getEndDateTime()
     {
-        if (array_key_exists("endDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["endDateTime"], "\DateTime") || is_null($this->_propDict["endDateTime"])) {
+        if (array_key_exists("endDateTime", $this->_propDict) && !is_null($this->_propDict["endDateTime"])) {
+            if (is_a($this->_propDict["endDateTime"], "\DateTime")) {
                 return $this->_propDict["endDateTime"];
             } else {
                 $this->_propDict["endDateTime"] = new \DateTime($this->_propDict["endDateTime"]);
@@ -65,8 +65,8 @@ class AccessReviewInstance extends Entity
     */
     public function getScope()
     {
-        if (array_key_exists("scope", $this->_propDict)) {
-            if (is_a($this->_propDict["scope"], "\Beta\Microsoft\Graph\Model\AccessReviewScope") || is_null($this->_propDict["scope"])) {
+        if (array_key_exists("scope", $this->_propDict) && !is_null($this->_propDict["scope"])) {
+            if (is_a($this->_propDict["scope"], "\Beta\Microsoft\Graph\Model\AccessReviewScope")) {
                 return $this->_propDict["scope"];
             } else {
                 $this->_propDict["scope"] = new AccessReviewScope($this->_propDict["scope"]);
@@ -98,8 +98,8 @@ class AccessReviewInstance extends Entity
     */
     public function getStartDateTime()
     {
-        if (array_key_exists("startDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["startDateTime"], "\DateTime") || is_null($this->_propDict["startDateTime"])) {
+        if (array_key_exists("startDateTime", $this->_propDict) && !is_null($this->_propDict["startDateTime"])) {
+            if (is_a($this->_propDict["startDateTime"], "\DateTime")) {
                 return $this->_propDict["startDateTime"];
             } else {
                 $this->_propDict["startDateTime"] = new \DateTime($this->_propDict["startDateTime"]);
@@ -157,22 +157,29 @@ class AccessReviewInstance extends Entity
      * Gets the decisions
     * Each user reviewed in an accessReviewInstance has a decision item representing if their access was approved, denied, or not yet reviewed.
      *
-     * @return array|null The decisions
+     * @return AccessReviewInstanceDecisionItem[]|null The decisions
      */
     public function getDecisions()
     {
-        if (array_key_exists("decisions", $this->_propDict)) {
-           return $this->_propDict["decisions"];
-        } else {
-            return null;
+        if (array_key_exists('decisions', $this->_propDict) && !is_null($this->_propDict['decisions'])) {
+           $decisions = [];
+           if (count($this->_propDict['decisions']) > 0 && is_a($this->_propDict['decisions'][0], 'AccessReviewInstanceDecisionItem')) {
+              return $this->_propDict;
+           }
+           foreach ($this->_propDict['decisions'] as $singleValue) {
+              $decisions []= new AccessReviewInstanceDecisionItem($singleValue);
+           }
+           $this->_propDict['decisions'] = $decisions;
+           return $this->_propDict['decisions'];
         }
+        return null;
     }
     
     /** 
     * Sets the decisions
     * Each user reviewed in an accessReviewInstance has a decision item representing if their access was approved, denied, or not yet reviewed.
     *
-    * @param AccessReviewInstanceDecisionItem $val The decisions
+    * @param AccessReviewInstanceDecisionItem[] $val The decisions
     *
     * @return AccessReviewInstance
     */
@@ -190,8 +197,8 @@ class AccessReviewInstance extends Entity
     */
     public function getDefinition()
     {
-        if (array_key_exists("definition", $this->_propDict)) {
-            if (is_a($this->_propDict["definition"], "\Beta\Microsoft\Graph\Model\AccessReviewScheduleDefinition") || is_null($this->_propDict["definition"])) {
+        if (array_key_exists("definition", $this->_propDict) && !is_null($this->_propDict["definition"])) {
+            if (is_a($this->_propDict["definition"], "\Beta\Microsoft\Graph\Model\AccessReviewScheduleDefinition")) {
                 return $this->_propDict["definition"];
             } else {
                 $this->_propDict["definition"] = new AccessReviewScheduleDefinition($this->_propDict["definition"]);

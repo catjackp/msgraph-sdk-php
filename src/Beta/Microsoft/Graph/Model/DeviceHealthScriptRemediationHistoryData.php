@@ -32,14 +32,15 @@ class DeviceHealthScriptRemediationHistoryData extends Entity
     */
     public function getDate()
     {
-        if (array_key_exists("date", $this->_propDict)) {
-            if (is_a($this->_propDict["date"], "\DateTime") || is_null($this->_propDict["date"])) {
+        if (array_key_exists("date", $this->_propDict) && !is_null($this->_propDict["date"])) {
+     
+            if (is_a($this->_propDict["date"], "\DateTime")) {
                 return $this->_propDict["date"];
             } else {
                 $this->_propDict["date"] = new \DateTime($this->_propDict["date"]);
                 return $this->_propDict["date"];
-            }
-        }
+            } 
+             }
         return null;
     }
 

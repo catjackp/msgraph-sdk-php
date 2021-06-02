@@ -32,14 +32,15 @@ class ChatMessageReaction extends Entity
     */
     public function getCreatedDateTime()
     {
-        if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
+        if (array_key_exists("createdDateTime", $this->_propDict) && !is_null($this->_propDict["createdDateTime"])) {
+     
+            if (is_a($this->_propDict["createdDateTime"], "\DateTime")) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
                 return $this->_propDict["createdDateTime"];
-            }
-        }
+            } 
+             }
         return null;
     }
 
@@ -93,14 +94,15 @@ class ChatMessageReaction extends Entity
     */
     public function getUser()
     {
-        if (array_key_exists("user", $this->_propDict)) {
-            if (is_a($this->_propDict["user"], "\Beta\Microsoft\Graph\Model\IdentitySet") || is_null($this->_propDict["user"])) {
+        if (array_key_exists("user", $this->_propDict) && !is_null($this->_propDict["user"])) {
+     
+            if (is_a($this->_propDict["user"], "\Beta\Microsoft\Graph\Model\IdentitySet")) {
                 return $this->_propDict["user"];
             } else {
                 $this->_propDict["user"] = new IdentitySet($this->_propDict["user"]);
                 return $this->_propDict["user"];
-            }
-        }
+            } 
+             }
         return null;
     }
 

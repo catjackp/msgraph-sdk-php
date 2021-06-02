@@ -60,14 +60,15 @@ class UserRegistrationCount extends Entity
     */
     public function getRegistrationStatus()
     {
-        if (array_key_exists("registrationStatus", $this->_propDict)) {
-            if (is_a($this->_propDict["registrationStatus"], "\Beta\Microsoft\Graph\Model\RegistrationStatusType") || is_null($this->_propDict["registrationStatus"])) {
+        if (array_key_exists("registrationStatus", $this->_propDict) && !is_null($this->_propDict["registrationStatus"])) {
+     
+            if (is_a($this->_propDict["registrationStatus"], "\Beta\Microsoft\Graph\Model\RegistrationStatusType")) {
                 return $this->_propDict["registrationStatus"];
             } else {
                 $this->_propDict["registrationStatus"] = new RegistrationStatusType($this->_propDict["registrationStatus"]);
                 return $this->_propDict["registrationStatus"];
-            }
-        }
+            } 
+             }
         return null;
     }
 

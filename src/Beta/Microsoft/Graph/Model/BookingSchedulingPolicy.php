@@ -60,14 +60,15 @@ class BookingSchedulingPolicy extends Entity
     */
     public function getMaximumAdvance()
     {
-        if (array_key_exists("maximumAdvance", $this->_propDict)) {
-            if (is_a($this->_propDict["maximumAdvance"], "\Beta\Microsoft\Graph\Model\Duration") || is_null($this->_propDict["maximumAdvance"])) {
+        if (array_key_exists("maximumAdvance", $this->_propDict) && !is_null($this->_propDict["maximumAdvance"])) {
+     
+            if (is_a($this->_propDict["maximumAdvance"], "\Beta\Microsoft\Graph\Model\Duration")) {
                 return $this->_propDict["maximumAdvance"];
             } else {
                 $this->_propDict["maximumAdvance"] = new Duration($this->_propDict["maximumAdvance"]);
                 return $this->_propDict["maximumAdvance"];
-            }
-        }
+            } 
+             }
         return null;
     }
 
@@ -93,14 +94,15 @@ class BookingSchedulingPolicy extends Entity
     */
     public function getMinimumLeadTime()
     {
-        if (array_key_exists("minimumLeadTime", $this->_propDict)) {
-            if (is_a($this->_propDict["minimumLeadTime"], "\Beta\Microsoft\Graph\Model\Duration") || is_null($this->_propDict["minimumLeadTime"])) {
+        if (array_key_exists("minimumLeadTime", $this->_propDict) && !is_null($this->_propDict["minimumLeadTime"])) {
+     
+            if (is_a($this->_propDict["minimumLeadTime"], "\Beta\Microsoft\Graph\Model\Duration")) {
                 return $this->_propDict["minimumLeadTime"];
             } else {
                 $this->_propDict["minimumLeadTime"] = new Duration($this->_propDict["minimumLeadTime"]);
                 return $this->_propDict["minimumLeadTime"];
-            }
-        }
+            } 
+             }
         return null;
     }
 
@@ -154,14 +156,15 @@ class BookingSchedulingPolicy extends Entity
     */
     public function getTimeSlotInterval()
     {
-        if (array_key_exists("timeSlotInterval", $this->_propDict)) {
-            if (is_a($this->_propDict["timeSlotInterval"], "\Beta\Microsoft\Graph\Model\Duration") || is_null($this->_propDict["timeSlotInterval"])) {
+        if (array_key_exists("timeSlotInterval", $this->_propDict) && !is_null($this->_propDict["timeSlotInterval"])) {
+     
+            if (is_a($this->_propDict["timeSlotInterval"], "\Beta\Microsoft\Graph\Model\Duration")) {
                 return $this->_propDict["timeSlotInterval"];
             } else {
                 $this->_propDict["timeSlotInterval"] = new Duration($this->_propDict["timeSlotInterval"]);
                 return $this->_propDict["timeSlotInterval"];
-            }
-        }
+            } 
+             }
         return null;
     }
 

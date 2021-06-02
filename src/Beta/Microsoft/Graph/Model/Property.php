@@ -42,7 +42,7 @@ class Property extends Entity
     * Sets the aliases
     * A set of aliases or a friendly names for the property. Maximum 32 characters. Each string must not contain control characters, whitespace, or any of the following: :, ;, ,, (, ), [, ], {, }, %, $, +, !, *, =, &amp;, ?, @, #, /, ~, ', ', &amp;lt;, &amp;gt;, `
     *
-    * @param string $val The value of the aliases
+    * @param string[] $val The value of the aliases
     *
     * @return Property
     */
@@ -168,18 +168,25 @@ class Property extends Entity
     * Gets the labels
     * Specifies one or more well-known tags added against a property. Labels help Microsoft Search understand the semantics of the data in the connection. Adding appropriate labels would result in an enhanced search experience (e.g. better relevance). Supported labels: title, url, createdBy, lastModifiedBy, authors, createdDateTime, lastModifiedDateTime, fileName and fileExtension. Optional.
     *
-    * @return Label|null The labels
+    * @return Label[]|null The labels
     */
     public function getLabels()
     {
-        if (array_key_exists("labels", $this->_propDict)) {
-            if (is_a($this->_propDict["labels"], "\Beta\Microsoft\Graph\Model\Label") || is_null($this->_propDict["labels"])) {
-                return $this->_propDict["labels"];
-            } else {
-                $this->_propDict["labels"] = new Label($this->_propDict["labels"]);
-                return $this->_propDict["labels"];
+        if (array_key_exists("labels", $this->_propDict) && !is_null($this->_propDict["labels"])) {
+       
+            if(count($this->_propDict['labels']) === 0){
+              return $this->_propDict['labels'];
             }
-        }
+            if (is_a($this->_propDict['labels'][0], ' Label')) {
+               return $this->_propDict['labels'];
+            }
+            $labels = [];
+            foreach ($this->_propDict['labels'] as $singleValue) {
+               $labels []= new Label($singleValue);
+            }
+            $this->_propDict['labels'] = $labels;
+            return $this->_propDict['labels'];
+            }
         return null;
     }
 
@@ -187,7 +194,7 @@ class Property extends Entity
     * Sets the labels
     * Specifies one or more well-known tags added against a property. Labels help Microsoft Search understand the semantics of the data in the connection. Adding appropriate labels would result in an enhanced search experience (e.g. better relevance). Supported labels: title, url, createdBy, lastModifiedBy, authors, createdDateTime, lastModifiedDateTime, fileName and fileExtension. Optional.
     *
-    * @param Label $val The value to assign to the labels
+    * @param Label[] $val The value to assign to the labels
     *
     * @return Property The Property
     */
@@ -233,14 +240,15 @@ class Property extends Entity
     */
     public function getType()
     {
-        if (array_key_exists("type", $this->_propDict)) {
-            if (is_a($this->_propDict["type"], "\Beta\Microsoft\Graph\Model\PropertyType") || is_null($this->_propDict["type"])) {
+        if (array_key_exists("type", $this->_propDict) && !is_null($this->_propDict["type"])) {
+     
+            if (is_a($this->_propDict["type"], "\Beta\Microsoft\Graph\Model\PropertyType")) {
                 return $this->_propDict["type"];
             } else {
                 $this->_propDict["type"] = new PropertyType($this->_propDict["type"]);
                 return $this->_propDict["type"];
-            }
-        }
+            } 
+             }
         return null;
     }
 

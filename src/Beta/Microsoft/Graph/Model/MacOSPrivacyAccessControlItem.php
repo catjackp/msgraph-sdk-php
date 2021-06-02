@@ -32,14 +32,15 @@ class MacOSPrivacyAccessControlItem extends Entity
     */
     public function getAccessibility()
     {
-        if (array_key_exists("accessibility", $this->_propDict)) {
-            if (is_a($this->_propDict["accessibility"], "\Beta\Microsoft\Graph\Model\Enablement") || is_null($this->_propDict["accessibility"])) {
+        if (array_key_exists("accessibility", $this->_propDict) && !is_null($this->_propDict["accessibility"])) {
+     
+            if (is_a($this->_propDict["accessibility"], "\Beta\Microsoft\Graph\Model\Enablement")) {
                 return $this->_propDict["accessibility"];
             } else {
                 $this->_propDict["accessibility"] = new Enablement($this->_propDict["accessibility"]);
                 return $this->_propDict["accessibility"];
-            }
-        }
+            } 
+             }
         return null;
     }
 
@@ -65,14 +66,15 @@ class MacOSPrivacyAccessControlItem extends Entity
     */
     public function getAddressBook()
     {
-        if (array_key_exists("addressBook", $this->_propDict)) {
-            if (is_a($this->_propDict["addressBook"], "\Beta\Microsoft\Graph\Model\Enablement") || is_null($this->_propDict["addressBook"])) {
+        if (array_key_exists("addressBook", $this->_propDict) && !is_null($this->_propDict["addressBook"])) {
+     
+            if (is_a($this->_propDict["addressBook"], "\Beta\Microsoft\Graph\Model\Enablement")) {
                 return $this->_propDict["addressBook"];
             } else {
                 $this->_propDict["addressBook"] = new Enablement($this->_propDict["addressBook"]);
                 return $this->_propDict["addressBook"];
-            }
-        }
+            } 
+             }
         return null;
     }
 
@@ -94,18 +96,25 @@ class MacOSPrivacyAccessControlItem extends Entity
     * Gets the appleEventsAllowedReceivers
     * Allow or deny the app or process to send a restricted Apple event to another app or process. You will need to know the identifier, identifier type, and code requirement of the receiving app or process. This collection can contain a maximum of 500 elements.
     *
-    * @return MacOSAppleEventReceiver|null The appleEventsAllowedReceivers
+    * @return MacOSAppleEventReceiver[]|null The appleEventsAllowedReceivers
     */
     public function getAppleEventsAllowedReceivers()
     {
-        if (array_key_exists("appleEventsAllowedReceivers", $this->_propDict)) {
-            if (is_a($this->_propDict["appleEventsAllowedReceivers"], "\Beta\Microsoft\Graph\Model\MacOSAppleEventReceiver") || is_null($this->_propDict["appleEventsAllowedReceivers"])) {
-                return $this->_propDict["appleEventsAllowedReceivers"];
-            } else {
-                $this->_propDict["appleEventsAllowedReceivers"] = new MacOSAppleEventReceiver($this->_propDict["appleEventsAllowedReceivers"]);
-                return $this->_propDict["appleEventsAllowedReceivers"];
+        if (array_key_exists("appleEventsAllowedReceivers", $this->_propDict) && !is_null($this->_propDict["appleEventsAllowedReceivers"])) {
+       
+            if(count($this->_propDict['appleEventsAllowedReceivers']) === 0){
+              return $this->_propDict['appleEventsAllowedReceivers'];
             }
-        }
+            if (is_a($this->_propDict['appleEventsAllowedReceivers'][0], ' MacOSAppleEventReceiver')) {
+               return $this->_propDict['appleEventsAllowedReceivers'];
+            }
+            $appleEventsAllowedReceivers = [];
+            foreach ($this->_propDict['appleEventsAllowedReceivers'] as $singleValue) {
+               $appleEventsAllowedReceivers []= new MacOSAppleEventReceiver($singleValue);
+            }
+            $this->_propDict['appleEventsAllowedReceivers'] = $appleEventsAllowedReceivers;
+            return $this->_propDict['appleEventsAllowedReceivers'];
+            }
         return null;
     }
 
@@ -113,7 +122,7 @@ class MacOSPrivacyAccessControlItem extends Entity
     * Sets the appleEventsAllowedReceivers
     * Allow or deny the app or process to send a restricted Apple event to another app or process. You will need to know the identifier, identifier type, and code requirement of the receiving app or process. This collection can contain a maximum of 500 elements.
     *
-    * @param MacOSAppleEventReceiver $val The value to assign to the appleEventsAllowedReceivers
+    * @param MacOSAppleEventReceiver[] $val The value to assign to the appleEventsAllowedReceivers
     *
     * @return MacOSPrivacyAccessControlItem The MacOSPrivacyAccessControlItem
     */
@@ -243,14 +252,15 @@ class MacOSPrivacyAccessControlItem extends Entity
     */
     public function getCalendar()
     {
-        if (array_key_exists("calendar", $this->_propDict)) {
-            if (is_a($this->_propDict["calendar"], "\Beta\Microsoft\Graph\Model\Enablement") || is_null($this->_propDict["calendar"])) {
+        if (array_key_exists("calendar", $this->_propDict) && !is_null($this->_propDict["calendar"])) {
+     
+            if (is_a($this->_propDict["calendar"], "\Beta\Microsoft\Graph\Model\Enablement")) {
                 return $this->_propDict["calendar"];
             } else {
                 $this->_propDict["calendar"] = new Enablement($this->_propDict["calendar"]);
                 return $this->_propDict["calendar"];
-            }
-        }
+            } 
+             }
         return null;
     }
 
@@ -332,14 +342,15 @@ class MacOSPrivacyAccessControlItem extends Entity
     */
     public function getFileProviderPresence()
     {
-        if (array_key_exists("fileProviderPresence", $this->_propDict)) {
-            if (is_a($this->_propDict["fileProviderPresence"], "\Beta\Microsoft\Graph\Model\Enablement") || is_null($this->_propDict["fileProviderPresence"])) {
+        if (array_key_exists("fileProviderPresence", $this->_propDict) && !is_null($this->_propDict["fileProviderPresence"])) {
+     
+            if (is_a($this->_propDict["fileProviderPresence"], "\Beta\Microsoft\Graph\Model\Enablement")) {
                 return $this->_propDict["fileProviderPresence"];
             } else {
                 $this->_propDict["fileProviderPresence"] = new Enablement($this->_propDict["fileProviderPresence"]);
                 return $this->_propDict["fileProviderPresence"];
-            }
-        }
+            } 
+             }
         return null;
     }
 
@@ -393,14 +404,15 @@ class MacOSPrivacyAccessControlItem extends Entity
     */
     public function getIdentifierType()
     {
-        if (array_key_exists("identifierType", $this->_propDict)) {
-            if (is_a($this->_propDict["identifierType"], "\Beta\Microsoft\Graph\Model\MacOSProcessIdentifierType") || is_null($this->_propDict["identifierType"])) {
+        if (array_key_exists("identifierType", $this->_propDict) && !is_null($this->_propDict["identifierType"])) {
+     
+            if (is_a($this->_propDict["identifierType"], "\Beta\Microsoft\Graph\Model\MacOSProcessIdentifierType")) {
                 return $this->_propDict["identifierType"];
             } else {
                 $this->_propDict["identifierType"] = new MacOSProcessIdentifierType($this->_propDict["identifierType"]);
                 return $this->_propDict["identifierType"];
-            }
-        }
+            } 
+             }
         return null;
     }
 
@@ -426,14 +438,15 @@ class MacOSPrivacyAccessControlItem extends Entity
     */
     public function getMediaLibrary()
     {
-        if (array_key_exists("mediaLibrary", $this->_propDict)) {
-            if (is_a($this->_propDict["mediaLibrary"], "\Beta\Microsoft\Graph\Model\Enablement") || is_null($this->_propDict["mediaLibrary"])) {
+        if (array_key_exists("mediaLibrary", $this->_propDict) && !is_null($this->_propDict["mediaLibrary"])) {
+     
+            if (is_a($this->_propDict["mediaLibrary"], "\Beta\Microsoft\Graph\Model\Enablement")) {
                 return $this->_propDict["mediaLibrary"];
             } else {
                 $this->_propDict["mediaLibrary"] = new Enablement($this->_propDict["mediaLibrary"]);
                 return $this->_propDict["mediaLibrary"];
-            }
-        }
+            } 
+             }
         return null;
     }
 
@@ -459,14 +472,15 @@ class MacOSPrivacyAccessControlItem extends Entity
     */
     public function getPhotos()
     {
-        if (array_key_exists("photos", $this->_propDict)) {
-            if (is_a($this->_propDict["photos"], "\Beta\Microsoft\Graph\Model\Enablement") || is_null($this->_propDict["photos"])) {
+        if (array_key_exists("photos", $this->_propDict) && !is_null($this->_propDict["photos"])) {
+     
+            if (is_a($this->_propDict["photos"], "\Beta\Microsoft\Graph\Model\Enablement")) {
                 return $this->_propDict["photos"];
             } else {
                 $this->_propDict["photos"] = new Enablement($this->_propDict["photos"]);
                 return $this->_propDict["photos"];
-            }
-        }
+            } 
+             }
         return null;
     }
 
@@ -492,14 +506,15 @@ class MacOSPrivacyAccessControlItem extends Entity
     */
     public function getPostEvent()
     {
-        if (array_key_exists("postEvent", $this->_propDict)) {
-            if (is_a($this->_propDict["postEvent"], "\Beta\Microsoft\Graph\Model\Enablement") || is_null($this->_propDict["postEvent"])) {
+        if (array_key_exists("postEvent", $this->_propDict) && !is_null($this->_propDict["postEvent"])) {
+     
+            if (is_a($this->_propDict["postEvent"], "\Beta\Microsoft\Graph\Model\Enablement")) {
                 return $this->_propDict["postEvent"];
             } else {
                 $this->_propDict["postEvent"] = new Enablement($this->_propDict["postEvent"]);
                 return $this->_propDict["postEvent"];
-            }
-        }
+            } 
+             }
         return null;
     }
 
@@ -525,14 +540,15 @@ class MacOSPrivacyAccessControlItem extends Entity
     */
     public function getReminders()
     {
-        if (array_key_exists("reminders", $this->_propDict)) {
-            if (is_a($this->_propDict["reminders"], "\Beta\Microsoft\Graph\Model\Enablement") || is_null($this->_propDict["reminders"])) {
+        if (array_key_exists("reminders", $this->_propDict) && !is_null($this->_propDict["reminders"])) {
+     
+            if (is_a($this->_propDict["reminders"], "\Beta\Microsoft\Graph\Model\Enablement")) {
                 return $this->_propDict["reminders"];
             } else {
                 $this->_propDict["reminders"] = new Enablement($this->_propDict["reminders"]);
                 return $this->_propDict["reminders"];
-            }
-        }
+            } 
+             }
         return null;
     }
 
@@ -558,14 +574,15 @@ class MacOSPrivacyAccessControlItem extends Entity
     */
     public function getSpeechRecognition()
     {
-        if (array_key_exists("speechRecognition", $this->_propDict)) {
-            if (is_a($this->_propDict["speechRecognition"], "\Beta\Microsoft\Graph\Model\Enablement") || is_null($this->_propDict["speechRecognition"])) {
+        if (array_key_exists("speechRecognition", $this->_propDict) && !is_null($this->_propDict["speechRecognition"])) {
+     
+            if (is_a($this->_propDict["speechRecognition"], "\Beta\Microsoft\Graph\Model\Enablement")) {
                 return $this->_propDict["speechRecognition"];
             } else {
                 $this->_propDict["speechRecognition"] = new Enablement($this->_propDict["speechRecognition"]);
                 return $this->_propDict["speechRecognition"];
-            }
-        }
+            } 
+             }
         return null;
     }
 
@@ -619,14 +636,15 @@ class MacOSPrivacyAccessControlItem extends Entity
     */
     public function getSystemPolicyAllFiles()
     {
-        if (array_key_exists("systemPolicyAllFiles", $this->_propDict)) {
-            if (is_a($this->_propDict["systemPolicyAllFiles"], "\Beta\Microsoft\Graph\Model\Enablement") || is_null($this->_propDict["systemPolicyAllFiles"])) {
+        if (array_key_exists("systemPolicyAllFiles", $this->_propDict) && !is_null($this->_propDict["systemPolicyAllFiles"])) {
+     
+            if (is_a($this->_propDict["systemPolicyAllFiles"], "\Beta\Microsoft\Graph\Model\Enablement")) {
                 return $this->_propDict["systemPolicyAllFiles"];
             } else {
                 $this->_propDict["systemPolicyAllFiles"] = new Enablement($this->_propDict["systemPolicyAllFiles"]);
                 return $this->_propDict["systemPolicyAllFiles"];
-            }
-        }
+            } 
+             }
         return null;
     }
 
@@ -652,14 +670,15 @@ class MacOSPrivacyAccessControlItem extends Entity
     */
     public function getSystemPolicyDesktopFolder()
     {
-        if (array_key_exists("systemPolicyDesktopFolder", $this->_propDict)) {
-            if (is_a($this->_propDict["systemPolicyDesktopFolder"], "\Beta\Microsoft\Graph\Model\Enablement") || is_null($this->_propDict["systemPolicyDesktopFolder"])) {
+        if (array_key_exists("systemPolicyDesktopFolder", $this->_propDict) && !is_null($this->_propDict["systemPolicyDesktopFolder"])) {
+     
+            if (is_a($this->_propDict["systemPolicyDesktopFolder"], "\Beta\Microsoft\Graph\Model\Enablement")) {
                 return $this->_propDict["systemPolicyDesktopFolder"];
             } else {
                 $this->_propDict["systemPolicyDesktopFolder"] = new Enablement($this->_propDict["systemPolicyDesktopFolder"]);
                 return $this->_propDict["systemPolicyDesktopFolder"];
-            }
-        }
+            } 
+             }
         return null;
     }
 
@@ -685,14 +704,15 @@ class MacOSPrivacyAccessControlItem extends Entity
     */
     public function getSystemPolicyDocumentsFolder()
     {
-        if (array_key_exists("systemPolicyDocumentsFolder", $this->_propDict)) {
-            if (is_a($this->_propDict["systemPolicyDocumentsFolder"], "\Beta\Microsoft\Graph\Model\Enablement") || is_null($this->_propDict["systemPolicyDocumentsFolder"])) {
+        if (array_key_exists("systemPolicyDocumentsFolder", $this->_propDict) && !is_null($this->_propDict["systemPolicyDocumentsFolder"])) {
+     
+            if (is_a($this->_propDict["systemPolicyDocumentsFolder"], "\Beta\Microsoft\Graph\Model\Enablement")) {
                 return $this->_propDict["systemPolicyDocumentsFolder"];
             } else {
                 $this->_propDict["systemPolicyDocumentsFolder"] = new Enablement($this->_propDict["systemPolicyDocumentsFolder"]);
                 return $this->_propDict["systemPolicyDocumentsFolder"];
-            }
-        }
+            } 
+             }
         return null;
     }
 
@@ -718,14 +738,15 @@ class MacOSPrivacyAccessControlItem extends Entity
     */
     public function getSystemPolicyDownloadsFolder()
     {
-        if (array_key_exists("systemPolicyDownloadsFolder", $this->_propDict)) {
-            if (is_a($this->_propDict["systemPolicyDownloadsFolder"], "\Beta\Microsoft\Graph\Model\Enablement") || is_null($this->_propDict["systemPolicyDownloadsFolder"])) {
+        if (array_key_exists("systemPolicyDownloadsFolder", $this->_propDict) && !is_null($this->_propDict["systemPolicyDownloadsFolder"])) {
+     
+            if (is_a($this->_propDict["systemPolicyDownloadsFolder"], "\Beta\Microsoft\Graph\Model\Enablement")) {
                 return $this->_propDict["systemPolicyDownloadsFolder"];
             } else {
                 $this->_propDict["systemPolicyDownloadsFolder"] = new Enablement($this->_propDict["systemPolicyDownloadsFolder"]);
                 return $this->_propDict["systemPolicyDownloadsFolder"];
-            }
-        }
+            } 
+             }
         return null;
     }
 
@@ -751,14 +772,15 @@ class MacOSPrivacyAccessControlItem extends Entity
     */
     public function getSystemPolicyNetworkVolumes()
     {
-        if (array_key_exists("systemPolicyNetworkVolumes", $this->_propDict)) {
-            if (is_a($this->_propDict["systemPolicyNetworkVolumes"], "\Beta\Microsoft\Graph\Model\Enablement") || is_null($this->_propDict["systemPolicyNetworkVolumes"])) {
+        if (array_key_exists("systemPolicyNetworkVolumes", $this->_propDict) && !is_null($this->_propDict["systemPolicyNetworkVolumes"])) {
+     
+            if (is_a($this->_propDict["systemPolicyNetworkVolumes"], "\Beta\Microsoft\Graph\Model\Enablement")) {
                 return $this->_propDict["systemPolicyNetworkVolumes"];
             } else {
                 $this->_propDict["systemPolicyNetworkVolumes"] = new Enablement($this->_propDict["systemPolicyNetworkVolumes"]);
                 return $this->_propDict["systemPolicyNetworkVolumes"];
-            }
-        }
+            } 
+             }
         return null;
     }
 
@@ -784,14 +806,15 @@ class MacOSPrivacyAccessControlItem extends Entity
     */
     public function getSystemPolicyRemovableVolumes()
     {
-        if (array_key_exists("systemPolicyRemovableVolumes", $this->_propDict)) {
-            if (is_a($this->_propDict["systemPolicyRemovableVolumes"], "\Beta\Microsoft\Graph\Model\Enablement") || is_null($this->_propDict["systemPolicyRemovableVolumes"])) {
+        if (array_key_exists("systemPolicyRemovableVolumes", $this->_propDict) && !is_null($this->_propDict["systemPolicyRemovableVolumes"])) {
+     
+            if (is_a($this->_propDict["systemPolicyRemovableVolumes"], "\Beta\Microsoft\Graph\Model\Enablement")) {
                 return $this->_propDict["systemPolicyRemovableVolumes"];
             } else {
                 $this->_propDict["systemPolicyRemovableVolumes"] = new Enablement($this->_propDict["systemPolicyRemovableVolumes"]);
                 return $this->_propDict["systemPolicyRemovableVolumes"];
-            }
-        }
+            } 
+             }
         return null;
     }
 
@@ -817,14 +840,15 @@ class MacOSPrivacyAccessControlItem extends Entity
     */
     public function getSystemPolicySystemAdminFiles()
     {
-        if (array_key_exists("systemPolicySystemAdminFiles", $this->_propDict)) {
-            if (is_a($this->_propDict["systemPolicySystemAdminFiles"], "\Beta\Microsoft\Graph\Model\Enablement") || is_null($this->_propDict["systemPolicySystemAdminFiles"])) {
+        if (array_key_exists("systemPolicySystemAdminFiles", $this->_propDict) && !is_null($this->_propDict["systemPolicySystemAdminFiles"])) {
+     
+            if (is_a($this->_propDict["systemPolicySystemAdminFiles"], "\Beta\Microsoft\Graph\Model\Enablement")) {
                 return $this->_propDict["systemPolicySystemAdminFiles"];
             } else {
                 $this->_propDict["systemPolicySystemAdminFiles"] = new Enablement($this->_propDict["systemPolicySystemAdminFiles"]);
                 return $this->_propDict["systemPolicySystemAdminFiles"];
-            }
-        }
+            } 
+             }
         return null;
     }
 

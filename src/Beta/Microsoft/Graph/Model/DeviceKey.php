@@ -57,14 +57,15 @@ class DeviceKey extends Entity
     */
     public function getKeyMaterial()
     {
-        if (array_key_exists("keyMaterial", $this->_propDict)) {
-            if (is_a($this->_propDict["keyMaterial"], "\GuzzleHttp\Psr7\Stream") || is_null($this->_propDict["keyMaterial"])) {
+        if (array_key_exists("keyMaterial", $this->_propDict) && !is_null($this->_propDict["keyMaterial"])) {
+     
+            if (is_a($this->_propDict["keyMaterial"], "\GuzzleHttp\Psr7\Stream")) {
                 return $this->_propDict["keyMaterial"];
             } else {
                 $this->_propDict["keyMaterial"] = \GuzzleHttp\Psr7\stream_for($this->_propDict["keyMaterial"]);
                 return $this->_propDict["keyMaterial"];
-            }
-        }
+            } 
+             }
         return null;
     }
 

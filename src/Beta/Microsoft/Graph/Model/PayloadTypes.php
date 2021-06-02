@@ -60,14 +60,15 @@ class PayloadTypes extends Entity
     */
     public function getVisualContent()
     {
-        if (array_key_exists("visualContent", $this->_propDict)) {
-            if (is_a($this->_propDict["visualContent"], "\Beta\Microsoft\Graph\Model\VisualProperties") || is_null($this->_propDict["visualContent"])) {
+        if (array_key_exists("visualContent", $this->_propDict) && !is_null($this->_propDict["visualContent"])) {
+     
+            if (is_a($this->_propDict["visualContent"], "\Beta\Microsoft\Graph\Model\VisualProperties")) {
                 return $this->_propDict["visualContent"];
             } else {
                 $this->_propDict["visualContent"] = new VisualProperties($this->_propDict["visualContent"]);
                 return $this->_propDict["visualContent"];
-            }
-        }
+            } 
+             }
         return null;
     }
 

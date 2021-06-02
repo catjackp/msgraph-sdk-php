@@ -60,14 +60,15 @@ class PrintOperationStatus extends Entity
     */
     public function getState()
     {
-        if (array_key_exists("state", $this->_propDict)) {
-            if (is_a($this->_propDict["state"], "\Beta\Microsoft\Graph\Model\PrintOperationProcessingState") || is_null($this->_propDict["state"])) {
+        if (array_key_exists("state", $this->_propDict) && !is_null($this->_propDict["state"])) {
+     
+            if (is_a($this->_propDict["state"], "\Beta\Microsoft\Graph\Model\PrintOperationProcessingState")) {
                 return $this->_propDict["state"];
             } else {
                 $this->_propDict["state"] = new PrintOperationProcessingState($this->_propDict["state"]);
                 return $this->_propDict["state"];
-            }
-        }
+            } 
+             }
         return null;
     }
 

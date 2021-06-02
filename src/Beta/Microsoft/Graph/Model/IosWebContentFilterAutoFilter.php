@@ -51,7 +51,7 @@ class IosWebContentFilterAutoFilter extends IosWebContentFilterBase
     * Sets the allowedUrls
     * Additional URLs allowed for access
     *
-    * @param string $val The value of the allowedUrls
+    * @param string[] $val The value of the allowedUrls
     *
     * @return IosWebContentFilterAutoFilter
     */
@@ -79,7 +79,7 @@ class IosWebContentFilterAutoFilter extends IosWebContentFilterBase
     * Sets the blockedUrls
     * Additional URLs blocked for access
     *
-    * @param string $val The value of the blockedUrls
+    * @param string[] $val The value of the blockedUrls
     *
     * @return IosWebContentFilterAutoFilter
     */

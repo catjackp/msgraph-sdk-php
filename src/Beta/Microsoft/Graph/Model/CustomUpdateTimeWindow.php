@@ -32,14 +32,15 @@ class CustomUpdateTimeWindow extends Entity
     */
     public function getEndDay()
     {
-        if (array_key_exists("endDay", $this->_propDict)) {
-            if (is_a($this->_propDict["endDay"], "\Beta\Microsoft\Graph\Model\DayOfWeek") || is_null($this->_propDict["endDay"])) {
+        if (array_key_exists("endDay", $this->_propDict) && !is_null($this->_propDict["endDay"])) {
+     
+            if (is_a($this->_propDict["endDay"], "\Beta\Microsoft\Graph\Model\DayOfWeek")) {
                 return $this->_propDict["endDay"];
             } else {
                 $this->_propDict["endDay"] = new DayOfWeek($this->_propDict["endDay"]);
                 return $this->_propDict["endDay"];
-            }
-        }
+            } 
+             }
         return null;
     }
 
@@ -65,14 +66,15 @@ class CustomUpdateTimeWindow extends Entity
     */
     public function getEndTime()
     {
-        if (array_key_exists("endTime", $this->_propDict)) {
-            if (is_a($this->_propDict["endTime"], "\Beta\Microsoft\Graph\Model\TimeOfDay") || is_null($this->_propDict["endTime"])) {
+        if (array_key_exists("endTime", $this->_propDict) && !is_null($this->_propDict["endTime"])) {
+     
+            if (is_a($this->_propDict["endTime"], "\Beta\Microsoft\Graph\Model\TimeOfDay")) {
                 return $this->_propDict["endTime"];
             } else {
                 $this->_propDict["endTime"] = new TimeOfDay($this->_propDict["endTime"]);
                 return $this->_propDict["endTime"];
-            }
-        }
+            } 
+             }
         return null;
     }
 
@@ -98,14 +100,15 @@ class CustomUpdateTimeWindow extends Entity
     */
     public function getStartDay()
     {
-        if (array_key_exists("startDay", $this->_propDict)) {
-            if (is_a($this->_propDict["startDay"], "\Beta\Microsoft\Graph\Model\DayOfWeek") || is_null($this->_propDict["startDay"])) {
+        if (array_key_exists("startDay", $this->_propDict) && !is_null($this->_propDict["startDay"])) {
+     
+            if (is_a($this->_propDict["startDay"], "\Beta\Microsoft\Graph\Model\DayOfWeek")) {
                 return $this->_propDict["startDay"];
             } else {
                 $this->_propDict["startDay"] = new DayOfWeek($this->_propDict["startDay"]);
                 return $this->_propDict["startDay"];
-            }
-        }
+            } 
+             }
         return null;
     }
 
@@ -131,14 +134,15 @@ class CustomUpdateTimeWindow extends Entity
     */
     public function getStartTime()
     {
-        if (array_key_exists("startTime", $this->_propDict)) {
-            if (is_a($this->_propDict["startTime"], "\Beta\Microsoft\Graph\Model\TimeOfDay") || is_null($this->_propDict["startTime"])) {
+        if (array_key_exists("startTime", $this->_propDict) && !is_null($this->_propDict["startTime"])) {
+     
+            if (is_a($this->_propDict["startTime"], "\Beta\Microsoft\Graph\Model\TimeOfDay")) {
                 return $this->_propDict["startTime"];
             } else {
                 $this->_propDict["startTime"] = new TimeOfDay($this->_propDict["startTime"]);
                 return $this->_propDict["startTime"];
-            }
-        }
+            } 
+             }
         return null;
     }
 

@@ -32,14 +32,15 @@ class PositionDetail extends Entity
     */
     public function getCompany()
     {
-        if (array_key_exists("company", $this->_propDict)) {
-            if (is_a($this->_propDict["company"], "\Beta\Microsoft\Graph\Model\CompanyDetail") || is_null($this->_propDict["company"])) {
+        if (array_key_exists("company", $this->_propDict) && !is_null($this->_propDict["company"])) {
+     
+            if (is_a($this->_propDict["company"], "\Beta\Microsoft\Graph\Model\CompanyDetail")) {
                 return $this->_propDict["company"];
             } else {
                 $this->_propDict["company"] = new CompanyDetail($this->_propDict["company"]);
                 return $this->_propDict["company"];
-            }
-        }
+            } 
+             }
         return null;
     }
 
@@ -93,14 +94,15 @@ class PositionDetail extends Entity
     */
     public function getEndMonthYear()
     {
-        if (array_key_exists("endMonthYear", $this->_propDict)) {
-            if (is_a($this->_propDict["endMonthYear"], "\DateTime") || is_null($this->_propDict["endMonthYear"])) {
+        if (array_key_exists("endMonthYear", $this->_propDict) && !is_null($this->_propDict["endMonthYear"])) {
+     
+            if (is_a($this->_propDict["endMonthYear"], "\DateTime")) {
                 return $this->_propDict["endMonthYear"];
             } else {
                 $this->_propDict["endMonthYear"] = new \DateTime($this->_propDict["endMonthYear"]);
                 return $this->_propDict["endMonthYear"];
-            }
-        }
+            } 
+             }
         return null;
     }
 
@@ -182,14 +184,15 @@ class PositionDetail extends Entity
     */
     public function getStartMonthYear()
     {
-        if (array_key_exists("startMonthYear", $this->_propDict)) {
-            if (is_a($this->_propDict["startMonthYear"], "\DateTime") || is_null($this->_propDict["startMonthYear"])) {
+        if (array_key_exists("startMonthYear", $this->_propDict) && !is_null($this->_propDict["startMonthYear"])) {
+     
+            if (is_a($this->_propDict["startMonthYear"], "\DateTime")) {
                 return $this->_propDict["startMonthYear"];
             } else {
                 $this->_propDict["startMonthYear"] = new \DateTime($this->_propDict["startMonthYear"]);
                 return $this->_propDict["startMonthYear"];
-            }
-        }
+            } 
+             }
         return null;
     }
 

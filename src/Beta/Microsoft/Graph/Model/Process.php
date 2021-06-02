@@ -88,14 +88,15 @@ class Process extends Entity
     */
     public function getCreatedDateTime()
     {
-        if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
+        if (array_key_exists("createdDateTime", $this->_propDict) && !is_null($this->_propDict["createdDateTime"])) {
+     
+            if (is_a($this->_propDict["createdDateTime"], "\DateTime")) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
                 return $this->_propDict["createdDateTime"];
-            }
-        }
+            } 
+             }
         return null;
     }
 
@@ -121,14 +122,15 @@ class Process extends Entity
     */
     public function getFileHash()
     {
-        if (array_key_exists("fileHash", $this->_propDict)) {
-            if (is_a($this->_propDict["fileHash"], "\Beta\Microsoft\Graph\Model\FileHash") || is_null($this->_propDict["fileHash"])) {
+        if (array_key_exists("fileHash", $this->_propDict) && !is_null($this->_propDict["fileHash"])) {
+     
+            if (is_a($this->_propDict["fileHash"], "\Beta\Microsoft\Graph\Model\FileHash")) {
                 return $this->_propDict["fileHash"];
             } else {
                 $this->_propDict["fileHash"] = new FileHash($this->_propDict["fileHash"]);
                 return $this->_propDict["fileHash"];
-            }
-        }
+            } 
+             }
         return null;
     }
 
@@ -154,14 +156,15 @@ class Process extends Entity
     */
     public function getIntegrityLevel()
     {
-        if (array_key_exists("integrityLevel", $this->_propDict)) {
-            if (is_a($this->_propDict["integrityLevel"], "\Beta\Microsoft\Graph\Model\ProcessIntegrityLevel") || is_null($this->_propDict["integrityLevel"])) {
+        if (array_key_exists("integrityLevel", $this->_propDict) && !is_null($this->_propDict["integrityLevel"])) {
+     
+            if (is_a($this->_propDict["integrityLevel"], "\Beta\Microsoft\Graph\Model\ProcessIntegrityLevel")) {
                 return $this->_propDict["integrityLevel"];
             } else {
                 $this->_propDict["integrityLevel"] = new ProcessIntegrityLevel($this->_propDict["integrityLevel"]);
                 return $this->_propDict["integrityLevel"];
-            }
-        }
+            } 
+             }
         return null;
     }
 
@@ -243,14 +246,15 @@ class Process extends Entity
     */
     public function getParentProcessCreatedDateTime()
     {
-        if (array_key_exists("parentProcessCreatedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["parentProcessCreatedDateTime"], "\DateTime") || is_null($this->_propDict["parentProcessCreatedDateTime"])) {
+        if (array_key_exists("parentProcessCreatedDateTime", $this->_propDict) && !is_null($this->_propDict["parentProcessCreatedDateTime"])) {
+     
+            if (is_a($this->_propDict["parentProcessCreatedDateTime"], "\DateTime")) {
                 return $this->_propDict["parentProcessCreatedDateTime"];
             } else {
                 $this->_propDict["parentProcessCreatedDateTime"] = new \DateTime($this->_propDict["parentProcessCreatedDateTime"]);
                 return $this->_propDict["parentProcessCreatedDateTime"];
-            }
-        }
+            } 
+             }
         return null;
     }
 

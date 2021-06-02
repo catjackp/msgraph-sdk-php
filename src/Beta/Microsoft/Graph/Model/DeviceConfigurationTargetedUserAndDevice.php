@@ -88,14 +88,15 @@ class DeviceConfigurationTargetedUserAndDevice extends Entity
     */
     public function getLastCheckinDateTime()
     {
-        if (array_key_exists("lastCheckinDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastCheckinDateTime"], "\DateTime") || is_null($this->_propDict["lastCheckinDateTime"])) {
+        if (array_key_exists("lastCheckinDateTime", $this->_propDict) && !is_null($this->_propDict["lastCheckinDateTime"])) {
+     
+            if (is_a($this->_propDict["lastCheckinDateTime"], "\DateTime")) {
                 return $this->_propDict["lastCheckinDateTime"];
             } else {
                 $this->_propDict["lastCheckinDateTime"] = new \DateTime($this->_propDict["lastCheckinDateTime"]);
                 return $this->_propDict["lastCheckinDateTime"];
-            }
-        }
+            } 
+             }
         return null;
     }
 

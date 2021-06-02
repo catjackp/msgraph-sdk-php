@@ -32,14 +32,15 @@ class RemoteItem extends Entity
     */
     public function getCreatedBy()
     {
-        if (array_key_exists("createdBy", $this->_propDict)) {
-            if (is_a($this->_propDict["createdBy"], "\Beta\Microsoft\Graph\Model\IdentitySet") || is_null($this->_propDict["createdBy"])) {
+        if (array_key_exists("createdBy", $this->_propDict) && !is_null($this->_propDict["createdBy"])) {
+     
+            if (is_a($this->_propDict["createdBy"], "\Beta\Microsoft\Graph\Model\IdentitySet")) {
                 return $this->_propDict["createdBy"];
             } else {
                 $this->_propDict["createdBy"] = new IdentitySet($this->_propDict["createdBy"]);
                 return $this->_propDict["createdBy"];
-            }
-        }
+            } 
+             }
         return null;
     }
 
@@ -65,14 +66,15 @@ class RemoteItem extends Entity
     */
     public function getCreatedDateTime()
     {
-        if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
+        if (array_key_exists("createdDateTime", $this->_propDict) && !is_null($this->_propDict["createdDateTime"])) {
+     
+            if (is_a($this->_propDict["createdDateTime"], "\DateTime")) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
                 return $this->_propDict["createdDateTime"];
-            }
-        }
+            } 
+             }
         return null;
     }
 
@@ -98,14 +100,15 @@ class RemoteItem extends Entity
     */
     public function getFile()
     {
-        if (array_key_exists("file", $this->_propDict)) {
-            if (is_a($this->_propDict["file"], "\Beta\Microsoft\Graph\Model\File") || is_null($this->_propDict["file"])) {
+        if (array_key_exists("file", $this->_propDict) && !is_null($this->_propDict["file"])) {
+     
+            if (is_a($this->_propDict["file"], "\Beta\Microsoft\Graph\Model\File")) {
                 return $this->_propDict["file"];
             } else {
                 $this->_propDict["file"] = new File($this->_propDict["file"]);
                 return $this->_propDict["file"];
-            }
-        }
+            } 
+             }
         return null;
     }
 
@@ -131,14 +134,15 @@ class RemoteItem extends Entity
     */
     public function getFileSystemInfo()
     {
-        if (array_key_exists("fileSystemInfo", $this->_propDict)) {
-            if (is_a($this->_propDict["fileSystemInfo"], "\Beta\Microsoft\Graph\Model\FileSystemInfo") || is_null($this->_propDict["fileSystemInfo"])) {
+        if (array_key_exists("fileSystemInfo", $this->_propDict) && !is_null($this->_propDict["fileSystemInfo"])) {
+     
+            if (is_a($this->_propDict["fileSystemInfo"], "\Beta\Microsoft\Graph\Model\FileSystemInfo")) {
                 return $this->_propDict["fileSystemInfo"];
             } else {
                 $this->_propDict["fileSystemInfo"] = new FileSystemInfo($this->_propDict["fileSystemInfo"]);
                 return $this->_propDict["fileSystemInfo"];
-            }
-        }
+            } 
+             }
         return null;
     }
 
@@ -164,14 +168,15 @@ class RemoteItem extends Entity
     */
     public function getFolder()
     {
-        if (array_key_exists("folder", $this->_propDict)) {
-            if (is_a($this->_propDict["folder"], "\Beta\Microsoft\Graph\Model\Folder") || is_null($this->_propDict["folder"])) {
+        if (array_key_exists("folder", $this->_propDict) && !is_null($this->_propDict["folder"])) {
+     
+            if (is_a($this->_propDict["folder"], "\Beta\Microsoft\Graph\Model\Folder")) {
                 return $this->_propDict["folder"];
             } else {
                 $this->_propDict["folder"] = new Folder($this->_propDict["folder"]);
                 return $this->_propDict["folder"];
-            }
-        }
+            } 
+             }
         return null;
     }
 
@@ -225,14 +230,15 @@ class RemoteItem extends Entity
     */
     public function getImage()
     {
-        if (array_key_exists("image", $this->_propDict)) {
-            if (is_a($this->_propDict["image"], "\Beta\Microsoft\Graph\Model\Image") || is_null($this->_propDict["image"])) {
+        if (array_key_exists("image", $this->_propDict) && !is_null($this->_propDict["image"])) {
+     
+            if (is_a($this->_propDict["image"], "\Beta\Microsoft\Graph\Model\Image")) {
                 return $this->_propDict["image"];
             } else {
                 $this->_propDict["image"] = new Image($this->_propDict["image"]);
                 return $this->_propDict["image"];
-            }
-        }
+            } 
+             }
         return null;
     }
 
@@ -258,14 +264,15 @@ class RemoteItem extends Entity
     */
     public function getLastModifiedBy()
     {
-        if (array_key_exists("lastModifiedBy", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedBy"], "\Beta\Microsoft\Graph\Model\IdentitySet") || is_null($this->_propDict["lastModifiedBy"])) {
+        if (array_key_exists("lastModifiedBy", $this->_propDict) && !is_null($this->_propDict["lastModifiedBy"])) {
+     
+            if (is_a($this->_propDict["lastModifiedBy"], "\Beta\Microsoft\Graph\Model\IdentitySet")) {
                 return $this->_propDict["lastModifiedBy"];
             } else {
                 $this->_propDict["lastModifiedBy"] = new IdentitySet($this->_propDict["lastModifiedBy"]);
                 return $this->_propDict["lastModifiedBy"];
-            }
-        }
+            } 
+             }
         return null;
     }
 
@@ -291,14 +298,15 @@ class RemoteItem extends Entity
     */
     public function getLastModifiedDateTime()
     {
-        if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
+        if (array_key_exists("lastModifiedDateTime", $this->_propDict) && !is_null($this->_propDict["lastModifiedDateTime"])) {
+     
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime")) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
                 return $this->_propDict["lastModifiedDateTime"];
-            }
-        }
+            } 
+             }
         return null;
     }
 
@@ -352,14 +360,15 @@ class RemoteItem extends Entity
     */
     public function getPackage()
     {
-        if (array_key_exists("package", $this->_propDict)) {
-            if (is_a($this->_propDict["package"], "\Beta\Microsoft\Graph\Model\Package") || is_null($this->_propDict["package"])) {
+        if (array_key_exists("package", $this->_propDict) && !is_null($this->_propDict["package"])) {
+     
+            if (is_a($this->_propDict["package"], "\Beta\Microsoft\Graph\Model\Package")) {
                 return $this->_propDict["package"];
             } else {
                 $this->_propDict["package"] = new Package($this->_propDict["package"]);
                 return $this->_propDict["package"];
-            }
-        }
+            } 
+             }
         return null;
     }
 
@@ -385,14 +394,15 @@ class RemoteItem extends Entity
     */
     public function getParentReference()
     {
-        if (array_key_exists("parentReference", $this->_propDict)) {
-            if (is_a($this->_propDict["parentReference"], "\Beta\Microsoft\Graph\Model\ItemReference") || is_null($this->_propDict["parentReference"])) {
+        if (array_key_exists("parentReference", $this->_propDict) && !is_null($this->_propDict["parentReference"])) {
+     
+            if (is_a($this->_propDict["parentReference"], "\Beta\Microsoft\Graph\Model\ItemReference")) {
                 return $this->_propDict["parentReference"];
             } else {
                 $this->_propDict["parentReference"] = new ItemReference($this->_propDict["parentReference"]);
                 return $this->_propDict["parentReference"];
-            }
-        }
+            } 
+             }
         return null;
     }
 
@@ -418,14 +428,15 @@ class RemoteItem extends Entity
     */
     public function getShared()
     {
-        if (array_key_exists("shared", $this->_propDict)) {
-            if (is_a($this->_propDict["shared"], "\Beta\Microsoft\Graph\Model\Shared") || is_null($this->_propDict["shared"])) {
+        if (array_key_exists("shared", $this->_propDict) && !is_null($this->_propDict["shared"])) {
+     
+            if (is_a($this->_propDict["shared"], "\Beta\Microsoft\Graph\Model\Shared")) {
                 return $this->_propDict["shared"];
             } else {
                 $this->_propDict["shared"] = new Shared($this->_propDict["shared"]);
                 return $this->_propDict["shared"];
-            }
-        }
+            } 
+             }
         return null;
     }
 
@@ -451,14 +462,15 @@ class RemoteItem extends Entity
     */
     public function getSharepointIds()
     {
-        if (array_key_exists("sharepointIds", $this->_propDict)) {
-            if (is_a($this->_propDict["sharepointIds"], "\Beta\Microsoft\Graph\Model\SharepointIds") || is_null($this->_propDict["sharepointIds"])) {
+        if (array_key_exists("sharepointIds", $this->_propDict) && !is_null($this->_propDict["sharepointIds"])) {
+     
+            if (is_a($this->_propDict["sharepointIds"], "\Beta\Microsoft\Graph\Model\SharepointIds")) {
                 return $this->_propDict["sharepointIds"];
             } else {
                 $this->_propDict["sharepointIds"] = new SharepointIds($this->_propDict["sharepointIds"]);
                 return $this->_propDict["sharepointIds"];
-            }
-        }
+            } 
+             }
         return null;
     }
 
@@ -512,14 +524,15 @@ class RemoteItem extends Entity
     */
     public function getSpecialFolder()
     {
-        if (array_key_exists("specialFolder", $this->_propDict)) {
-            if (is_a($this->_propDict["specialFolder"], "\Beta\Microsoft\Graph\Model\SpecialFolder") || is_null($this->_propDict["specialFolder"])) {
+        if (array_key_exists("specialFolder", $this->_propDict) && !is_null($this->_propDict["specialFolder"])) {
+     
+            if (is_a($this->_propDict["specialFolder"], "\Beta\Microsoft\Graph\Model\SpecialFolder")) {
                 return $this->_propDict["specialFolder"];
             } else {
                 $this->_propDict["specialFolder"] = new SpecialFolder($this->_propDict["specialFolder"]);
                 return $this->_propDict["specialFolder"];
-            }
-        }
+            } 
+             }
         return null;
     }
 
@@ -545,14 +558,15 @@ class RemoteItem extends Entity
     */
     public function getVideo()
     {
-        if (array_key_exists("video", $this->_propDict)) {
-            if (is_a($this->_propDict["video"], "\Beta\Microsoft\Graph\Model\Video") || is_null($this->_propDict["video"])) {
+        if (array_key_exists("video", $this->_propDict) && !is_null($this->_propDict["video"])) {
+     
+            if (is_a($this->_propDict["video"], "\Beta\Microsoft\Graph\Model\Video")) {
                 return $this->_propDict["video"];
             } else {
                 $this->_propDict["video"] = new Video($this->_propDict["video"]);
                 return $this->_propDict["video"];
-            }
-        }
+            } 
+             }
         return null;
     }
 

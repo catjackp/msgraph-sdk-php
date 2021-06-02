@@ -40,7 +40,7 @@ class Configuration extends Entity
     /**
     * Sets the authorizedAppIds
     *
-    * @param string $val The value of the authorizedAppIds
+    * @param string[] $val The value of the authorizedAppIds
     *
     * @return Configuration
     */
@@ -68,7 +68,7 @@ class Configuration extends Entity
     * Sets the authorizedApps
     * A collection of application IDs for registered Azure Active Directory apps that are allowed to manage the externalConnection and to index content in the externalConnection.
     *
-    * @param string $val The value of the authorizedApps
+    * @param string[] $val The value of the authorizedApps
     *
     * @return Configuration
     */

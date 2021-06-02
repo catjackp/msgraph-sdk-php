@@ -41,14 +41,15 @@ class OmaSettingDateTime extends OmaSetting
     */
     public function getValue()
     {
-        if (array_key_exists("value", $this->_propDict)) {
-            if (is_a($this->_propDict["value"], "\DateTime") || is_null($this->_propDict["value"])) {
+        if (array_key_exists("value", $this->_propDict) && !is_null($this->_propDict["value"])) {
+     
+            if (is_a($this->_propDict["value"], "\DateTime")) {
                 return $this->_propDict["value"];
             } else {
                 $this->_propDict["value"] = new \DateTime($this->_propDict["value"]);
                 return $this->_propDict["value"];
-            }
-        }
+            } 
+             }
         return null;
     }
 

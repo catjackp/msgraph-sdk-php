@@ -31,14 +31,15 @@ class ConditionalAccessRuleSatisfied extends Entity
     */
     public function getConditionalAccessCondition()
     {
-        if (array_key_exists("conditionalAccessCondition", $this->_propDict)) {
-            if (is_a($this->_propDict["conditionalAccessCondition"], "\Beta\Microsoft\Graph\Model\ConditionalAccessConditions") || is_null($this->_propDict["conditionalAccessCondition"])) {
+        if (array_key_exists("conditionalAccessCondition", $this->_propDict) && !is_null($this->_propDict["conditionalAccessCondition"])) {
+     
+            if (is_a($this->_propDict["conditionalAccessCondition"], "\Beta\Microsoft\Graph\Model\ConditionalAccessConditions")) {
                 return $this->_propDict["conditionalAccessCondition"];
             } else {
                 $this->_propDict["conditionalAccessCondition"] = new ConditionalAccessConditions($this->_propDict["conditionalAccessCondition"]);
                 return $this->_propDict["conditionalAccessCondition"];
-            }
-        }
+            } 
+             }
         return null;
     }
 
@@ -62,14 +63,15 @@ class ConditionalAccessRuleSatisfied extends Entity
     */
     public function getRuleSatisfied()
     {
-        if (array_key_exists("ruleSatisfied", $this->_propDict)) {
-            if (is_a($this->_propDict["ruleSatisfied"], "\Beta\Microsoft\Graph\Model\ConditionalAccessRule") || is_null($this->_propDict["ruleSatisfied"])) {
+        if (array_key_exists("ruleSatisfied", $this->_propDict) && !is_null($this->_propDict["ruleSatisfied"])) {
+     
+            if (is_a($this->_propDict["ruleSatisfied"], "\Beta\Microsoft\Graph\Model\ConditionalAccessRule")) {
                 return $this->_propDict["ruleSatisfied"];
             } else {
                 $this->_propDict["ruleSatisfied"] = new ConditionalAccessRule($this->_propDict["ruleSatisfied"]);
                 return $this->_propDict["ruleSatisfied"];
-            }
-        }
+            } 
+             }
         return null;
     }
 

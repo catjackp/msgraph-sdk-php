@@ -32,14 +32,15 @@ class DocumentSetContent extends Entity
     */
     public function getContentType()
     {
-        if (array_key_exists("contentType", $this->_propDict)) {
-            if (is_a($this->_propDict["contentType"], "\Beta\Microsoft\Graph\Model\ContentTypeInfo") || is_null($this->_propDict["contentType"])) {
+        if (array_key_exists("contentType", $this->_propDict) && !is_null($this->_propDict["contentType"])) {
+     
+            if (is_a($this->_propDict["contentType"], "\Beta\Microsoft\Graph\Model\ContentTypeInfo")) {
                 return $this->_propDict["contentType"];
             } else {
                 $this->_propDict["contentType"] = new ContentTypeInfo($this->_propDict["contentType"]);
                 return $this->_propDict["contentType"];
-            }
-        }
+            } 
+             }
         return null;
     }
 

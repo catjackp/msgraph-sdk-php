@@ -32,14 +32,15 @@ class TermsExpiration extends Entity
     */
     public function getFrequency()
     {
-        if (array_key_exists("frequency", $this->_propDict)) {
-            if (is_a($this->_propDict["frequency"], "\Beta\Microsoft\Graph\Model\Duration") || is_null($this->_propDict["frequency"])) {
+        if (array_key_exists("frequency", $this->_propDict) && !is_null($this->_propDict["frequency"])) {
+     
+            if (is_a($this->_propDict["frequency"], "\Beta\Microsoft\Graph\Model\Duration")) {
                 return $this->_propDict["frequency"];
             } else {
                 $this->_propDict["frequency"] = new Duration($this->_propDict["frequency"]);
                 return $this->_propDict["frequency"];
-            }
-        }
+            } 
+             }
         return null;
     }
 
@@ -65,14 +66,15 @@ class TermsExpiration extends Entity
     */
     public function getStartDateTime()
     {
-        if (array_key_exists("startDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["startDateTime"], "\DateTime") || is_null($this->_propDict["startDateTime"])) {
+        if (array_key_exists("startDateTime", $this->_propDict) && !is_null($this->_propDict["startDateTime"])) {
+     
+            if (is_a($this->_propDict["startDateTime"], "\DateTime")) {
                 return $this->_propDict["startDateTime"];
             } else {
                 $this->_propDict["startDateTime"] = new \DateTime($this->_propDict["startDateTime"]);
                 return $this->_propDict["startDateTime"];
-            }
-        }
+            } 
+             }
         return null;
     }
 

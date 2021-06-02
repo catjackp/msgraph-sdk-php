@@ -42,7 +42,7 @@ class ConditionalAccessDevices extends Entity
     * Sets the excludeDevices
     * States excluded from the scope of the policy. Possible values: Compliant, DomainJoined.
     *
-    * @param string $val The value of the excludeDevices
+    * @param string[] $val The value of the excludeDevices
     *
     * @return ConditionalAccessDevices
     */
@@ -68,7 +68,7 @@ class ConditionalAccessDevices extends Entity
     /**
     * Sets the excludeDeviceStates
     *
-    * @param string $val The value of the excludeDeviceStates
+    * @param string[] $val The value of the excludeDeviceStates
     *
     * @return ConditionalAccessDevices
     */
@@ -96,7 +96,7 @@ class ConditionalAccessDevices extends Entity
     * Sets the includeDevices
     * States in the scope of the policy. All is the only allowed value.
     *
-    * @param string $val The value of the includeDevices
+    * @param string[] $val The value of the includeDevices
     *
     * @return ConditionalAccessDevices
     */
@@ -122,7 +122,7 @@ class ConditionalAccessDevices extends Entity
     /**
     * Sets the includeDeviceStates
     *
-    * @param string $val The value of the includeDeviceStates
+    * @param string[] $val The value of the includeDeviceStates
     *
     * @return ConditionalAccessDevices
     */

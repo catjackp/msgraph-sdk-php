@@ -32,14 +32,15 @@ class PlannerRecentPlanReference extends Entity
     */
     public function getLastAccessedDateTime()
     {
-        if (array_key_exists("lastAccessedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastAccessedDateTime"], "\DateTime") || is_null($this->_propDict["lastAccessedDateTime"])) {
+        if (array_key_exists("lastAccessedDateTime", $this->_propDict) && !is_null($this->_propDict["lastAccessedDateTime"])) {
+     
+            if (is_a($this->_propDict["lastAccessedDateTime"], "\DateTime")) {
                 return $this->_propDict["lastAccessedDateTime"];
             } else {
                 $this->_propDict["lastAccessedDateTime"] = new \DateTime($this->_propDict["lastAccessedDateTime"]);
                 return $this->_propDict["lastAccessedDateTime"];
-            }
-        }
+            } 
+             }
         return null;
     }
 

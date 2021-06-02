@@ -57,14 +57,15 @@ class ClassifcationErrorBase extends Entity
     */
     public function getInnerError()
     {
-        if (array_key_exists("innerError", $this->_propDict)) {
-            if (is_a($this->_propDict["innerError"], "\Beta\Microsoft\Graph\Model\ClassificationInnerError") || is_null($this->_propDict["innerError"])) {
+        if (array_key_exists("innerError", $this->_propDict) && !is_null($this->_propDict["innerError"])) {
+     
+            if (is_a($this->_propDict["innerError"], "\Beta\Microsoft\Graph\Model\ClassificationInnerError")) {
                 return $this->_propDict["innerError"];
             } else {
                 $this->_propDict["innerError"] = new ClassificationInnerError($this->_propDict["innerError"]);
                 return $this->_propDict["innerError"];
-            }
-        }
+            } 
+             }
         return null;
     }
 

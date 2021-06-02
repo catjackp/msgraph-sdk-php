@@ -32,14 +32,15 @@ class OnPremisesPublishingSingleSignOn extends Entity
     */
     public function getKerberosSignOnSettings()
     {
-        if (array_key_exists("kerberosSignOnSettings", $this->_propDict)) {
-            if (is_a($this->_propDict["kerberosSignOnSettings"], "\Beta\Microsoft\Graph\Model\KerberosSignOnSettings") || is_null($this->_propDict["kerberosSignOnSettings"])) {
+        if (array_key_exists("kerberosSignOnSettings", $this->_propDict) && !is_null($this->_propDict["kerberosSignOnSettings"])) {
+     
+            if (is_a($this->_propDict["kerberosSignOnSettings"], "\Beta\Microsoft\Graph\Model\KerberosSignOnSettings")) {
                 return $this->_propDict["kerberosSignOnSettings"];
             } else {
                 $this->_propDict["kerberosSignOnSettings"] = new KerberosSignOnSettings($this->_propDict["kerberosSignOnSettings"]);
                 return $this->_propDict["kerberosSignOnSettings"];
-            }
-        }
+            } 
+             }
         return null;
     }
 
@@ -65,14 +66,15 @@ class OnPremisesPublishingSingleSignOn extends Entity
     */
     public function getSingleSignOnMode()
     {
-        if (array_key_exists("singleSignOnMode", $this->_propDict)) {
-            if (is_a($this->_propDict["singleSignOnMode"], "\Beta\Microsoft\Graph\Model\SingleSignOnMode") || is_null($this->_propDict["singleSignOnMode"])) {
+        if (array_key_exists("singleSignOnMode", $this->_propDict) && !is_null($this->_propDict["singleSignOnMode"])) {
+     
+            if (is_a($this->_propDict["singleSignOnMode"], "\Beta\Microsoft\Graph\Model\SingleSignOnMode")) {
                 return $this->_propDict["singleSignOnMode"];
             } else {
                 $this->_propDict["singleSignOnMode"] = new SingleSignOnMode($this->_propDict["singleSignOnMode"]);
                 return $this->_propDict["singleSignOnMode"];
-            }
-        }
+            } 
+             }
         return null;
     }
 

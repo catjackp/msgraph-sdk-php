@@ -32,14 +32,15 @@ class SignInActivity extends Entity
     */
     public function getLastSignInDateTime()
     {
-        if (array_key_exists("lastSignInDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastSignInDateTime"], "\DateTime") || is_null($this->_propDict["lastSignInDateTime"])) {
+        if (array_key_exists("lastSignInDateTime", $this->_propDict) && !is_null($this->_propDict["lastSignInDateTime"])) {
+     
+            if (is_a($this->_propDict["lastSignInDateTime"], "\DateTime")) {
                 return $this->_propDict["lastSignInDateTime"];
             } else {
                 $this->_propDict["lastSignInDateTime"] = new \DateTime($this->_propDict["lastSignInDateTime"]);
                 return $this->_propDict["lastSignInDateTime"];
-            }
-        }
+            } 
+             }
         return null;
     }
 

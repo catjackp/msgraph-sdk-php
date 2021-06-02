@@ -31,14 +31,15 @@ class DlpEvaluatePoliciesRequest extends Entity
     */
     public function getEvaluationInput()
     {
-        if (array_key_exists("evaluationInput", $this->_propDict)) {
-            if (is_a($this->_propDict["evaluationInput"], "\Beta\Microsoft\Graph\Model\DlpEvaluationInput") || is_null($this->_propDict["evaluationInput"])) {
+        if (array_key_exists("evaluationInput", $this->_propDict) && !is_null($this->_propDict["evaluationInput"])) {
+     
+            if (is_a($this->_propDict["evaluationInput"], "\Beta\Microsoft\Graph\Model\DlpEvaluationInput")) {
                 return $this->_propDict["evaluationInput"];
             } else {
                 $this->_propDict["evaluationInput"] = new DlpEvaluationInput($this->_propDict["evaluationInput"]);
                 return $this->_propDict["evaluationInput"];
-            }
-        }
+            } 
+             }
         return null;
     }
 
@@ -62,14 +63,15 @@ class DlpEvaluatePoliciesRequest extends Entity
     */
     public function getNotificationInfo()
     {
-        if (array_key_exists("notificationInfo", $this->_propDict)) {
-            if (is_a($this->_propDict["notificationInfo"], "\Beta\Microsoft\Graph\Model\DlpNotification") || is_null($this->_propDict["notificationInfo"])) {
+        if (array_key_exists("notificationInfo", $this->_propDict) && !is_null($this->_propDict["notificationInfo"])) {
+     
+            if (is_a($this->_propDict["notificationInfo"], "\Beta\Microsoft\Graph\Model\DlpNotification")) {
                 return $this->_propDict["notificationInfo"];
             } else {
                 $this->_propDict["notificationInfo"] = new DlpNotification($this->_propDict["notificationInfo"]);
                 return $this->_propDict["notificationInfo"];
-            }
-        }
+            } 
+             }
         return null;
     }
 

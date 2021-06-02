@@ -60,14 +60,15 @@ class AlterationResponse extends Entity
     */
     public function getQueryAlteration()
     {
-        if (array_key_exists("queryAlteration", $this->_propDict)) {
-            if (is_a($this->_propDict["queryAlteration"], "\Beta\Microsoft\Graph\Model\SearchAlteration") || is_null($this->_propDict["queryAlteration"])) {
+        if (array_key_exists("queryAlteration", $this->_propDict) && !is_null($this->_propDict["queryAlteration"])) {
+     
+            if (is_a($this->_propDict["queryAlteration"], "\Beta\Microsoft\Graph\Model\SearchAlteration")) {
                 return $this->_propDict["queryAlteration"];
             } else {
                 $this->_propDict["queryAlteration"] = new SearchAlteration($this->_propDict["queryAlteration"]);
                 return $this->_propDict["queryAlteration"];
-            }
-        }
+            } 
+             }
         return null;
     }
 
@@ -93,14 +94,15 @@ class AlterationResponse extends Entity
     */
     public function getQueryAlterationType()
     {
-        if (array_key_exists("queryAlterationType", $this->_propDict)) {
-            if (is_a($this->_propDict["queryAlterationType"], "\Beta\Microsoft\Graph\Model\SearchAlterationType") || is_null($this->_propDict["queryAlterationType"])) {
+        if (array_key_exists("queryAlterationType", $this->_propDict) && !is_null($this->_propDict["queryAlterationType"])) {
+     
+            if (is_a($this->_propDict["queryAlterationType"], "\Beta\Microsoft\Graph\Model\SearchAlterationType")) {
                 return $this->_propDict["queryAlterationType"];
             } else {
                 $this->_propDict["queryAlterationType"] = new SearchAlterationType($this->_propDict["queryAlterationType"]);
                 return $this->_propDict["queryAlterationType"];
-            }
-        }
+            } 
+             }
         return null;
     }
 

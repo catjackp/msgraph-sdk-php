@@ -32,14 +32,15 @@ class AdminConsent extends Entity
     */
     public function getShareAPNSData()
     {
-        if (array_key_exists("shareAPNSData", $this->_propDict)) {
-            if (is_a($this->_propDict["shareAPNSData"], "\Beta\Microsoft\Graph\Model\AdminConsentState") || is_null($this->_propDict["shareAPNSData"])) {
+        if (array_key_exists("shareAPNSData", $this->_propDict) && !is_null($this->_propDict["shareAPNSData"])) {
+     
+            if (is_a($this->_propDict["shareAPNSData"], "\Beta\Microsoft\Graph\Model\AdminConsentState")) {
                 return $this->_propDict["shareAPNSData"];
             } else {
                 $this->_propDict["shareAPNSData"] = new AdminConsentState($this->_propDict["shareAPNSData"]);
                 return $this->_propDict["shareAPNSData"];
-            }
-        }
+            } 
+             }
         return null;
     }
 
@@ -65,14 +66,15 @@ class AdminConsent extends Entity
     */
     public function getShareUserExperienceAnalyticsData()
     {
-        if (array_key_exists("shareUserExperienceAnalyticsData", $this->_propDict)) {
-            if (is_a($this->_propDict["shareUserExperienceAnalyticsData"], "\Beta\Microsoft\Graph\Model\AdminConsentState") || is_null($this->_propDict["shareUserExperienceAnalyticsData"])) {
+        if (array_key_exists("shareUserExperienceAnalyticsData", $this->_propDict) && !is_null($this->_propDict["shareUserExperienceAnalyticsData"])) {
+     
+            if (is_a($this->_propDict["shareUserExperienceAnalyticsData"], "\Beta\Microsoft\Graph\Model\AdminConsentState")) {
                 return $this->_propDict["shareUserExperienceAnalyticsData"];
             } else {
                 $this->_propDict["shareUserExperienceAnalyticsData"] = new AdminConsentState($this->_propDict["shareUserExperienceAnalyticsData"]);
                 return $this->_propDict["shareUserExperienceAnalyticsData"];
-            }
-        }
+            } 
+             }
         return null;
     }
 

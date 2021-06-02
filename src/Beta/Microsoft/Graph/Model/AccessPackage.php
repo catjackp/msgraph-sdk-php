@@ -90,8 +90,8 @@ class AccessPackage extends Entity
     */
     public function getCreatedDateTime()
     {
-        if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
+        if (array_key_exists("createdDateTime", $this->_propDict) && !is_null($this->_propDict["createdDateTime"])) {
+            if (is_a($this->_propDict["createdDateTime"], "\DateTime")) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -268,8 +268,8 @@ class AccessPackage extends Entity
     */
     public function getModifiedDateTime()
     {
-        if (array_key_exists("modifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["modifiedDateTime"], "\DateTime") || is_null($this->_propDict["modifiedDateTime"])) {
+        if (array_key_exists("modifiedDateTime", $this->_propDict) && !is_null($this->_propDict["modifiedDateTime"])) {
+            if (is_a($this->_propDict["modifiedDateTime"], "\DateTime")) {
                 return $this->_propDict["modifiedDateTime"];
             } else {
                 $this->_propDict["modifiedDateTime"] = new \DateTime($this->_propDict["modifiedDateTime"]);
@@ -298,22 +298,29 @@ class AccessPackage extends Entity
      * Gets the accessPackageAssignmentPolicies
     * Read-only. Nullable.
      *
-     * @return array|null The accessPackageAssignmentPolicies
+     * @return AccessPackageAssignmentPolicy[]|null The accessPackageAssignmentPolicies
      */
     public function getAccessPackageAssignmentPolicies()
     {
-        if (array_key_exists("accessPackageAssignmentPolicies", $this->_propDict)) {
-           return $this->_propDict["accessPackageAssignmentPolicies"];
-        } else {
-            return null;
+        if (array_key_exists('accessPackageAssignmentPolicies', $this->_propDict) && !is_null($this->_propDict['accessPackageAssignmentPolicies'])) {
+           $accessPackageAssignmentPolicies = [];
+           if (count($this->_propDict['accessPackageAssignmentPolicies']) > 0 && is_a($this->_propDict['accessPackageAssignmentPolicies'][0], 'AccessPackageAssignmentPolicy')) {
+              return $this->_propDict;
+           }
+           foreach ($this->_propDict['accessPackageAssignmentPolicies'] as $singleValue) {
+              $accessPackageAssignmentPolicies []= new AccessPackageAssignmentPolicy($singleValue);
+           }
+           $this->_propDict['accessPackageAssignmentPolicies'] = $accessPackageAssignmentPolicies;
+           return $this->_propDict['accessPackageAssignmentPolicies'];
         }
+        return null;
     }
     
     /** 
     * Sets the accessPackageAssignmentPolicies
     * Read-only. Nullable.
     *
-    * @param AccessPackageAssignmentPolicy $val The accessPackageAssignmentPolicies
+    * @param AccessPackageAssignmentPolicy[] $val The accessPackageAssignmentPolicies
     *
     * @return AccessPackage
     */
@@ -331,8 +338,8 @@ class AccessPackage extends Entity
     */
     public function getAccessPackageCatalog()
     {
-        if (array_key_exists("accessPackageCatalog", $this->_propDict)) {
-            if (is_a($this->_propDict["accessPackageCatalog"], "\Beta\Microsoft\Graph\Model\AccessPackageCatalog") || is_null($this->_propDict["accessPackageCatalog"])) {
+        if (array_key_exists("accessPackageCatalog", $this->_propDict) && !is_null($this->_propDict["accessPackageCatalog"])) {
+            if (is_a($this->_propDict["accessPackageCatalog"], "\Beta\Microsoft\Graph\Model\AccessPackageCatalog")) {
                 return $this->_propDict["accessPackageCatalog"];
             } else {
                 $this->_propDict["accessPackageCatalog"] = new AccessPackageCatalog($this->_propDict["accessPackageCatalog"]);
@@ -361,22 +368,29 @@ class AccessPackage extends Entity
      * Gets the accessPackageResourceRoleScopes
     * Nullable.
      *
-     * @return array|null The accessPackageResourceRoleScopes
+     * @return AccessPackageResourceRoleScope[]|null The accessPackageResourceRoleScopes
      */
     public function getAccessPackageResourceRoleScopes()
     {
-        if (array_key_exists("accessPackageResourceRoleScopes", $this->_propDict)) {
-           return $this->_propDict["accessPackageResourceRoleScopes"];
-        } else {
-            return null;
+        if (array_key_exists('accessPackageResourceRoleScopes', $this->_propDict) && !is_null($this->_propDict['accessPackageResourceRoleScopes'])) {
+           $accessPackageResourceRoleScopes = [];
+           if (count($this->_propDict['accessPackageResourceRoleScopes']) > 0 && is_a($this->_propDict['accessPackageResourceRoleScopes'][0], 'AccessPackageResourceRoleScope')) {
+              return $this->_propDict;
+           }
+           foreach ($this->_propDict['accessPackageResourceRoleScopes'] as $singleValue) {
+              $accessPackageResourceRoleScopes []= new AccessPackageResourceRoleScope($singleValue);
+           }
+           $this->_propDict['accessPackageResourceRoleScopes'] = $accessPackageResourceRoleScopes;
+           return $this->_propDict['accessPackageResourceRoleScopes'];
         }
+        return null;
     }
     
     /** 
     * Sets the accessPackageResourceRoleScopes
     * Nullable.
     *
-    * @param AccessPackageResourceRoleScope $val The accessPackageResourceRoleScopes
+    * @param AccessPackageResourceRoleScope[] $val The accessPackageResourceRoleScopes
     *
     * @return AccessPackage
     */

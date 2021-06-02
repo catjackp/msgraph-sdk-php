@@ -79,7 +79,7 @@ class DeviceManagementSettingProfileConstraint extends DeviceManagementConstrain
     * Sets the types
     * A collection of types this entity carries
     *
-    * @param string $val The value of the types
+    * @param string[] $val The value of the types
     *
     * @return DeviceManagementSettingProfileConstraint
     */

@@ -60,14 +60,15 @@ class ChatMessageMention extends Entity
     */
     public function getMentioned()
     {
-        if (array_key_exists("mentioned", $this->_propDict)) {
-            if (is_a($this->_propDict["mentioned"], "\Beta\Microsoft\Graph\Model\IdentitySet") || is_null($this->_propDict["mentioned"])) {
+        if (array_key_exists("mentioned", $this->_propDict) && !is_null($this->_propDict["mentioned"])) {
+     
+            if (is_a($this->_propDict["mentioned"], "\Beta\Microsoft\Graph\Model\IdentitySet")) {
                 return $this->_propDict["mentioned"];
             } else {
                 $this->_propDict["mentioned"] = new IdentitySet($this->_propDict["mentioned"]);
                 return $this->_propDict["mentioned"];
-            }
-        }
+            } 
+             }
         return null;
     }
 
