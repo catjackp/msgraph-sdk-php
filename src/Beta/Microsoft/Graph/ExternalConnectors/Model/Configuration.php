@@ -40,7 +40,7 @@ class Configuration extends \Beta\Microsoft\Graph\Model\Entity
     /**
     * Sets the authorizedAppIds
     *
-    * @param string $val The value of the authorizedAppIds
+    * @param string[] $val The value of the authorizedAppIds
     *
     * @return Configuration
     */

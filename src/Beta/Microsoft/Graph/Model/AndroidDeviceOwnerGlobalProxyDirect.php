@@ -51,7 +51,7 @@ class AndroidDeviceOwnerGlobalProxyDirect extends AndroidDeviceOwnerGlobalProxy
     * Sets the excludedHosts
     * The excluded hosts
     *
-    * @param string $val The value of the excludedHosts
+    * @param string[] $val The value of the excludedHosts
     *
     * @return AndroidDeviceOwnerGlobalProxyDirect
     */

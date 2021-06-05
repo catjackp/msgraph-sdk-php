@@ -26,13 +26,14 @@ class OfficeClientConfigurationAssignment extends Entity
 {
     /**
     * Gets the target
+    * The target assignment defined by the admin.
     *
     * @return OfficeConfigurationAssignmentTarget|null The target
     */
     public function getTarget()
     {
-        if (array_key_exists("target", $this->_propDict)) {
-            if (is_a($this->_propDict["target"], "\Beta\Microsoft\Graph\Model\OfficeConfigurationAssignmentTarget") || is_null($this->_propDict["target"])) {
+        if (array_key_exists("target", $this->_propDict) && !is_null($this->_propDict["target"])) {
+            if (is_a($this->_propDict["target"], "\Beta\Microsoft\Graph\Model\OfficeConfigurationAssignmentTarget")) {
                 return $this->_propDict["target"];
             } else {
                 $this->_propDict["target"] = new OfficeConfigurationAssignmentTarget($this->_propDict["target"]);
@@ -44,6 +45,7 @@ class OfficeClientConfigurationAssignment extends Entity
     
     /**
     * Sets the target
+    * The target assignment defined by the admin.
     *
     * @param OfficeConfigurationAssignmentTarget $val The target
     *

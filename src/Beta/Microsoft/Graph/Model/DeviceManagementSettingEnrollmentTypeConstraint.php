@@ -51,7 +51,7 @@ class DeviceManagementSettingEnrollmentTypeConstraint extends DeviceManagementCo
     * Sets the enrollmentTypes
     * List of enrollment types
     *
-    * @param string $val The value of the enrollmentTypes
+    * @param string[] $val The value of the enrollmentTypes
     *
     * @return DeviceManagementSettingEnrollmentTypeConstraint
     */

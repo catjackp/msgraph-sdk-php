@@ -41,8 +41,9 @@ class DeliveryOptimizationBandwidthHoursWithPercentage extends DeliveryOptimizat
     */
     public function getBandwidthBackgroundPercentageHours()
     {
-        if (array_key_exists("bandwidthBackgroundPercentageHours", $this->_propDict)) {
-            if (is_a($this->_propDict["bandwidthBackgroundPercentageHours"], "\Beta\Microsoft\Graph\Model\DeliveryOptimizationBandwidthBusinessHoursLimit") || is_null($this->_propDict["bandwidthBackgroundPercentageHours"])) {
+        if (array_key_exists("bandwidthBackgroundPercentageHours", $this->_propDict) && !is_null($this->_propDict["bandwidthBackgroundPercentageHours"])) {
+     
+            if (is_a($this->_propDict["bandwidthBackgroundPercentageHours"], "\Beta\Microsoft\Graph\Model\DeliveryOptimizationBandwidthBusinessHoursLimit")) {
                 return $this->_propDict["bandwidthBackgroundPercentageHours"];
             } else {
                 $this->_propDict["bandwidthBackgroundPercentageHours"] = new DeliveryOptimizationBandwidthBusinessHoursLimit($this->_propDict["bandwidthBackgroundPercentageHours"]);
@@ -74,8 +75,9 @@ class DeliveryOptimizationBandwidthHoursWithPercentage extends DeliveryOptimizat
     */
     public function getBandwidthForegroundPercentageHours()
     {
-        if (array_key_exists("bandwidthForegroundPercentageHours", $this->_propDict)) {
-            if (is_a($this->_propDict["bandwidthForegroundPercentageHours"], "\Beta\Microsoft\Graph\Model\DeliveryOptimizationBandwidthBusinessHoursLimit") || is_null($this->_propDict["bandwidthForegroundPercentageHours"])) {
+        if (array_key_exists("bandwidthForegroundPercentageHours", $this->_propDict) && !is_null($this->_propDict["bandwidthForegroundPercentageHours"])) {
+     
+            if (is_a($this->_propDict["bandwidthForegroundPercentageHours"], "\Beta\Microsoft\Graph\Model\DeliveryOptimizationBandwidthBusinessHoursLimit")) {
                 return $this->_propDict["bandwidthForegroundPercentageHours"];
             } else {
                 $this->_propDict["bandwidthForegroundPercentageHours"] = new DeliveryOptimizationBandwidthBusinessHoursLimit($this->_propDict["bandwidthForegroundPercentageHours"]);

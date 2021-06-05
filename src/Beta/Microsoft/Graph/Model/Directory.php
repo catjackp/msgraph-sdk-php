@@ -28,21 +28,28 @@ class Directory extends Entity
      /** 
      * Gets the administrativeUnits
      *
-     * @return array|null The administrativeUnits
+     * @return AdministrativeUnit[]|null The administrativeUnits
      */
     public function getAdministrativeUnits()
     {
-        if (array_key_exists("administrativeUnits", $this->_propDict)) {
-           return $this->_propDict["administrativeUnits"];
-        } else {
-            return null;
+        if (array_key_exists('administrativeUnits', $this->_propDict) && !is_null($this->_propDict['administrativeUnits'])) {
+           $administrativeUnits = [];
+           if (count($this->_propDict['administrativeUnits']) > 0 && is_a($this->_propDict['administrativeUnits'][0], 'AdministrativeUnit')) {
+              return $this->_propDict['administrativeUnits'];
+           }
+           foreach ($this->_propDict['administrativeUnits'] as $singleValue) {
+              $administrativeUnits []= new AdministrativeUnit($singleValue);
+           }
+           $this->_propDict['administrativeUnits'] = $administrativeUnits;
+           return $this->_propDict['administrativeUnits'];
         }
+        return null;
     }
     
     /** 
     * Sets the administrativeUnits
     *
-    * @param AdministrativeUnit $val The administrativeUnits
+    * @param AdministrativeUnit[] $val The administrativeUnits
     *
     * @return Directory
     */
@@ -57,22 +64,29 @@ class Directory extends Entity
      * Gets the deletedItems
     * Recently deleted items. Read-only. Nullable.
      *
-     * @return array|null The deletedItems
+     * @return DirectoryObject[]|null The deletedItems
      */
     public function getDeletedItems()
     {
-        if (array_key_exists("deletedItems", $this->_propDict)) {
-           return $this->_propDict["deletedItems"];
-        } else {
-            return null;
+        if (array_key_exists('deletedItems', $this->_propDict) && !is_null($this->_propDict['deletedItems'])) {
+           $deletedItems = [];
+           if (count($this->_propDict['deletedItems']) > 0 && is_a($this->_propDict['deletedItems'][0], 'DirectoryObject')) {
+              return $this->_propDict['deletedItems'];
+           }
+           foreach ($this->_propDict['deletedItems'] as $singleValue) {
+              $deletedItems []= new DirectoryObject($singleValue);
+           }
+           $this->_propDict['deletedItems'] = $deletedItems;
+           return $this->_propDict['deletedItems'];
         }
+        return null;
     }
     
     /** 
     * Sets the deletedItems
     * Recently deleted items. Read-only. Nullable.
     *
-    * @param DirectoryObject $val The deletedItems
+    * @param DirectoryObject[] $val The deletedItems
     *
     * @return Directory
     */
@@ -86,21 +100,28 @@ class Directory extends Entity
      /** 
      * Gets the sharedEmailDomains
      *
-     * @return array|null The sharedEmailDomains
+     * @return SharedEmailDomain[]|null The sharedEmailDomains
      */
     public function getSharedEmailDomains()
     {
-        if (array_key_exists("sharedEmailDomains", $this->_propDict)) {
-           return $this->_propDict["sharedEmailDomains"];
-        } else {
-            return null;
+        if (array_key_exists('sharedEmailDomains', $this->_propDict) && !is_null($this->_propDict['sharedEmailDomains'])) {
+           $sharedEmailDomains = [];
+           if (count($this->_propDict['sharedEmailDomains']) > 0 && is_a($this->_propDict['sharedEmailDomains'][0], 'SharedEmailDomain')) {
+              return $this->_propDict['sharedEmailDomains'];
+           }
+           foreach ($this->_propDict['sharedEmailDomains'] as $singleValue) {
+              $sharedEmailDomains []= new SharedEmailDomain($singleValue);
+           }
+           $this->_propDict['sharedEmailDomains'] = $sharedEmailDomains;
+           return $this->_propDict['sharedEmailDomains'];
         }
+        return null;
     }
     
     /** 
     * Sets the sharedEmailDomains
     *
-    * @param SharedEmailDomain $val The sharedEmailDomains
+    * @param SharedEmailDomain[] $val The sharedEmailDomains
     *
     * @return Directory
     */
@@ -115,22 +136,29 @@ class Directory extends Entity
      * Gets the featureRolloutPolicies
     * Nullable.
      *
-     * @return array|null The featureRolloutPolicies
+     * @return FeatureRolloutPolicy[]|null The featureRolloutPolicies
      */
     public function getFeatureRolloutPolicies()
     {
-        if (array_key_exists("featureRolloutPolicies", $this->_propDict)) {
-           return $this->_propDict["featureRolloutPolicies"];
-        } else {
-            return null;
+        if (array_key_exists('featureRolloutPolicies', $this->_propDict) && !is_null($this->_propDict['featureRolloutPolicies'])) {
+           $featureRolloutPolicies = [];
+           if (count($this->_propDict['featureRolloutPolicies']) > 0 && is_a($this->_propDict['featureRolloutPolicies'][0], 'FeatureRolloutPolicy')) {
+              return $this->_propDict['featureRolloutPolicies'];
+           }
+           foreach ($this->_propDict['featureRolloutPolicies'] as $singleValue) {
+              $featureRolloutPolicies []= new FeatureRolloutPolicy($singleValue);
+           }
+           $this->_propDict['featureRolloutPolicies'] = $featureRolloutPolicies;
+           return $this->_propDict['featureRolloutPolicies'];
         }
+        return null;
     }
     
     /** 
     * Sets the featureRolloutPolicies
     * Nullable.
     *
-    * @param FeatureRolloutPolicy $val The featureRolloutPolicies
+    * @param FeatureRolloutPolicy[] $val The featureRolloutPolicies
     *
     * @return Directory
     */

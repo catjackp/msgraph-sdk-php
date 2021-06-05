@@ -32,8 +32,8 @@ class Application extends DirectoryObject
     */
     public function getApi()
     {
-        if (array_key_exists("api", $this->_propDict)) {
-            if (is_a($this->_propDict["api"], "\Beta\Microsoft\Graph\Model\ApiApplication") || is_null($this->_propDict["api"])) {
+        if (array_key_exists("api", $this->_propDict) && !is_null($this->_propDict["api"])) {
+            if (is_a($this->_propDict["api"], "\Beta\Microsoft\Graph\Model\ApiApplication")) {
                 return $this->_propDict["api"];
             } else {
                 $this->_propDict["api"] = new ApiApplication($this->_propDict["api"]);
@@ -91,22 +91,29 @@ class Application extends DirectoryObject
      * Gets the appRoles
     * The collection of roles assigned to the application. With app role assignments, these roles can be assigned to users, groups, or service principals associated with other applications. Not nullable.
      *
-     * @return array|null The appRoles
+     * @return AppRole[]|null The appRoles
      */
     public function getAppRoles()
     {
-        if (array_key_exists("appRoles", $this->_propDict)) {
-           return $this->_propDict["appRoles"];
-        } else {
-            return null;
+        if (array_key_exists('appRoles', $this->_propDict) && !is_null($this->_propDict['appRoles'])) {
+           $appRoles = [];
+           if (count($this->_propDict['appRoles']) > 0 && is_a($this->_propDict['appRoles'][0], 'AppRole')) {
+              return $this->_propDict['appRoles'];
+           }
+           foreach ($this->_propDict['appRoles'] as $singleValue) {
+              $appRoles []= new AppRole($singleValue);
+           }
+           $this->_propDict['appRoles'] = $appRoles;
+           return $this->_propDict['appRoles'];
         }
+        return null;
     }
     
     /** 
     * Sets the appRoles
     * The collection of roles assigned to the application. With app role assignments, these roles can be assigned to users, groups, or service principals associated with other applications. Not nullable.
     *
-    * @param AppRole $val The appRoles
+    * @param AppRole[] $val The appRoles
     *
     * @return Application
     */
@@ -124,8 +131,8 @@ class Application extends DirectoryObject
     */
     public function getCreatedDateTime()
     {
-        if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
+        if (array_key_exists("createdDateTime", $this->_propDict) && !is_null($this->_propDict["createdDateTime"])) {
+            if (is_a($this->_propDict["createdDateTime"], "\DateTime")) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -298,8 +305,8 @@ class Application extends DirectoryObject
     */
     public function getInfo()
     {
-        if (array_key_exists("info", $this->_propDict)) {
-            if (is_a($this->_propDict["info"], "\Beta\Microsoft\Graph\Model\InformationalUrl") || is_null($this->_propDict["info"])) {
+        if (array_key_exists("info", $this->_propDict) && !is_null($this->_propDict["info"])) {
+            if (is_a($this->_propDict["info"], "\Beta\Microsoft\Graph\Model\InformationalUrl")) {
                 return $this->_propDict["info"];
             } else {
                 $this->_propDict["info"] = new InformationalUrl($this->_propDict["info"]);
@@ -386,22 +393,29 @@ class Application extends DirectoryObject
      * Gets the keyCredentials
     * The collection of key credentials associated with the application. Not nullable.
      *
-     * @return array|null The keyCredentials
+     * @return KeyCredential[]|null The keyCredentials
      */
     public function getKeyCredentials()
     {
-        if (array_key_exists("keyCredentials", $this->_propDict)) {
-           return $this->_propDict["keyCredentials"];
-        } else {
-            return null;
+        if (array_key_exists('keyCredentials', $this->_propDict) && !is_null($this->_propDict['keyCredentials'])) {
+           $keyCredentials = [];
+           if (count($this->_propDict['keyCredentials']) > 0 && is_a($this->_propDict['keyCredentials'][0], 'KeyCredential')) {
+              return $this->_propDict['keyCredentials'];
+           }
+           foreach ($this->_propDict['keyCredentials'] as $singleValue) {
+              $keyCredentials []= new KeyCredential($singleValue);
+           }
+           $this->_propDict['keyCredentials'] = $keyCredentials;
+           return $this->_propDict['keyCredentials'];
         }
+        return null;
     }
     
     /** 
     * Sets the keyCredentials
     * The collection of key credentials associated with the application. Not nullable.
     *
-    * @param KeyCredential $val The keyCredentials
+    * @param KeyCredential[] $val The keyCredentials
     *
     * @return Application
     */
@@ -419,8 +433,8 @@ class Application extends DirectoryObject
     */
     public function getLogo()
     {
-        if (array_key_exists("logo", $this->_propDict)) {
-            if (is_a($this->_propDict["logo"], "\GuzzleHttp\Psr7\Stream") || is_null($this->_propDict["logo"])) {
+        if (array_key_exists("logo", $this->_propDict) && !is_null($this->_propDict["logo"])) {
+            if (is_a($this->_propDict["logo"], "\GuzzleHttp\Psr7\Stream")) {
                 return $this->_propDict["logo"];
             } else {
                 $this->_propDict["logo"] = \GuzzleHttp\Psr7\stream_for($this->_propDict["logo"]);
@@ -481,8 +495,8 @@ class Application extends DirectoryObject
     */
     public function getOptionalClaims()
     {
-        if (array_key_exists("optionalClaims", $this->_propDict)) {
-            if (is_a($this->_propDict["optionalClaims"], "\Beta\Microsoft\Graph\Model\OptionalClaims") || is_null($this->_propDict["optionalClaims"])) {
+        if (array_key_exists("optionalClaims", $this->_propDict) && !is_null($this->_propDict["optionalClaims"])) {
+            if (is_a($this->_propDict["optionalClaims"], "\Beta\Microsoft\Graph\Model\OptionalClaims")) {
                 return $this->_propDict["optionalClaims"];
             } else {
                 $this->_propDict["optionalClaims"] = new OptionalClaims($this->_propDict["optionalClaims"]);
@@ -514,8 +528,8 @@ class Application extends DirectoryObject
     */
     public function getParentalControlSettings()
     {
-        if (array_key_exists("parentalControlSettings", $this->_propDict)) {
-            if (is_a($this->_propDict["parentalControlSettings"], "\Beta\Microsoft\Graph\Model\ParentalControlSettings") || is_null($this->_propDict["parentalControlSettings"])) {
+        if (array_key_exists("parentalControlSettings", $this->_propDict) && !is_null($this->_propDict["parentalControlSettings"])) {
+            if (is_a($this->_propDict["parentalControlSettings"], "\Beta\Microsoft\Graph\Model\ParentalControlSettings")) {
                 return $this->_propDict["parentalControlSettings"];
             } else {
                 $this->_propDict["parentalControlSettings"] = new ParentalControlSettings($this->_propDict["parentalControlSettings"]);
@@ -544,22 +558,29 @@ class Application extends DirectoryObject
      * Gets the passwordCredentials
     * The collection of password credentials associated with the application. Not nullable.
      *
-     * @return array|null The passwordCredentials
+     * @return PasswordCredential[]|null The passwordCredentials
      */
     public function getPasswordCredentials()
     {
-        if (array_key_exists("passwordCredentials", $this->_propDict)) {
-           return $this->_propDict["passwordCredentials"];
-        } else {
-            return null;
+        if (array_key_exists('passwordCredentials', $this->_propDict) && !is_null($this->_propDict['passwordCredentials'])) {
+           $passwordCredentials = [];
+           if (count($this->_propDict['passwordCredentials']) > 0 && is_a($this->_propDict['passwordCredentials'][0], 'PasswordCredential')) {
+              return $this->_propDict['passwordCredentials'];
+           }
+           foreach ($this->_propDict['passwordCredentials'] as $singleValue) {
+              $passwordCredentials []= new PasswordCredential($singleValue);
+           }
+           $this->_propDict['passwordCredentials'] = $passwordCredentials;
+           return $this->_propDict['passwordCredentials'];
         }
+        return null;
     }
     
     /** 
     * Sets the passwordCredentials
     * The collection of password credentials associated with the application. Not nullable.
     *
-    * @param PasswordCredential $val The passwordCredentials
+    * @param PasswordCredential[] $val The passwordCredentials
     *
     * @return Application
     */
@@ -577,8 +598,8 @@ class Application extends DirectoryObject
     */
     public function getPublicClient()
     {
-        if (array_key_exists("publicClient", $this->_propDict)) {
-            if (is_a($this->_propDict["publicClient"], "\Beta\Microsoft\Graph\Model\PublicClientApplication") || is_null($this->_propDict["publicClient"])) {
+        if (array_key_exists("publicClient", $this->_propDict) && !is_null($this->_propDict["publicClient"])) {
+            if (is_a($this->_propDict["publicClient"], "\Beta\Microsoft\Graph\Model\PublicClientApplication")) {
                 return $this->_propDict["publicClient"];
             } else {
                 $this->_propDict["publicClient"] = new PublicClientApplication($this->_propDict["publicClient"]);
@@ -636,22 +657,29 @@ class Application extends DirectoryObject
      * Gets the requiredResourceAccess
     * Specifies the resources that the application needs to access. This property also specifies the set of OAuth permission scopes and application roles that it needs for each of those resources. This configuration of access to the required resources drives the consent experience. Not nullable.
      *
-     * @return array|null The requiredResourceAccess
+     * @return RequiredResourceAccess[]|null The requiredResourceAccess
      */
     public function getRequiredResourceAccess()
     {
-        if (array_key_exists("requiredResourceAccess", $this->_propDict)) {
-           return $this->_propDict["requiredResourceAccess"];
-        } else {
-            return null;
+        if (array_key_exists('requiredResourceAccess', $this->_propDict) && !is_null($this->_propDict['requiredResourceAccess'])) {
+           $requiredResourceAccess = [];
+           if (count($this->_propDict['requiredResourceAccess']) > 0 && is_a($this->_propDict['requiredResourceAccess'][0], 'RequiredResourceAccess')) {
+              return $this->_propDict['requiredResourceAccess'];
+           }
+           foreach ($this->_propDict['requiredResourceAccess'] as $singleValue) {
+              $requiredResourceAccess []= new RequiredResourceAccess($singleValue);
+           }
+           $this->_propDict['requiredResourceAccess'] = $requiredResourceAccess;
+           return $this->_propDict['requiredResourceAccess'];
         }
+        return null;
     }
     
     /** 
     * Sets the requiredResourceAccess
     * Specifies the resources that the application needs to access. This property also specifies the set of OAuth permission scopes and application roles that it needs for each of those resources. This configuration of access to the required resources drives the consent experience. Not nullable.
     *
-    * @param RequiredResourceAccess $val The requiredResourceAccess
+    * @param RequiredResourceAccess[] $val The requiredResourceAccess
     *
     * @return Application
     */
@@ -698,8 +726,8 @@ class Application extends DirectoryObject
     */
     public function getSpa()
     {
-        if (array_key_exists("spa", $this->_propDict)) {
-            if (is_a($this->_propDict["spa"], "\Beta\Microsoft\Graph\Model\SpaApplication") || is_null($this->_propDict["spa"])) {
+        if (array_key_exists("spa", $this->_propDict) && !is_null($this->_propDict["spa"])) {
+            if (is_a($this->_propDict["spa"], "\Beta\Microsoft\Graph\Model\SpaApplication")) {
                 return $this->_propDict["spa"];
             } else {
                 $this->_propDict["spa"] = new SpaApplication($this->_propDict["spa"]);
@@ -818,8 +846,8 @@ class Application extends DirectoryObject
     */
     public function getWeb()
     {
-        if (array_key_exists("web", $this->_propDict)) {
-            if (is_a($this->_propDict["web"], "\Beta\Microsoft\Graph\Model\WebApplication") || is_null($this->_propDict["web"])) {
+        if (array_key_exists("web", $this->_propDict) && !is_null($this->_propDict["web"])) {
+            if (is_a($this->_propDict["web"], "\Beta\Microsoft\Graph\Model\WebApplication")) {
                 return $this->_propDict["web"];
             } else {
                 $this->_propDict["web"] = new WebApplication($this->_propDict["web"]);
@@ -851,8 +879,8 @@ class Application extends DirectoryObject
     */
     public function getOnPremisesPublishing()
     {
-        if (array_key_exists("onPremisesPublishing", $this->_propDict)) {
-            if (is_a($this->_propDict["onPremisesPublishing"], "\Beta\Microsoft\Graph\Model\OnPremisesPublishing") || is_null($this->_propDict["onPremisesPublishing"])) {
+        if (array_key_exists("onPremisesPublishing", $this->_propDict) && !is_null($this->_propDict["onPremisesPublishing"])) {
+            if (is_a($this->_propDict["onPremisesPublishing"], "\Beta\Microsoft\Graph\Model\OnPremisesPublishing")) {
                 return $this->_propDict["onPremisesPublishing"];
             } else {
                 $this->_propDict["onPremisesPublishing"] = new OnPremisesPublishing($this->_propDict["onPremisesPublishing"]);
@@ -884,8 +912,8 @@ class Application extends DirectoryObject
     */
     public function getCreatedOnBehalfOf()
     {
-        if (array_key_exists("createdOnBehalfOf", $this->_propDict)) {
-            if (is_a($this->_propDict["createdOnBehalfOf"], "\Beta\Microsoft\Graph\Model\DirectoryObject") || is_null($this->_propDict["createdOnBehalfOf"])) {
+        if (array_key_exists("createdOnBehalfOf", $this->_propDict) && !is_null($this->_propDict["createdOnBehalfOf"])) {
+            if (is_a($this->_propDict["createdOnBehalfOf"], "\Beta\Microsoft\Graph\Model\DirectoryObject")) {
                 return $this->_propDict["createdOnBehalfOf"];
             } else {
                 $this->_propDict["createdOnBehalfOf"] = new DirectoryObject($this->_propDict["createdOnBehalfOf"]);
@@ -914,22 +942,29 @@ class Application extends DirectoryObject
      * Gets the extensionProperties
     * Read-only. Nullable.
      *
-     * @return array|null The extensionProperties
+     * @return ExtensionProperty[]|null The extensionProperties
      */
     public function getExtensionProperties()
     {
-        if (array_key_exists("extensionProperties", $this->_propDict)) {
-           return $this->_propDict["extensionProperties"];
-        } else {
-            return null;
+        if (array_key_exists('extensionProperties', $this->_propDict) && !is_null($this->_propDict['extensionProperties'])) {
+           $extensionProperties = [];
+           if (count($this->_propDict['extensionProperties']) > 0 && is_a($this->_propDict['extensionProperties'][0], 'ExtensionProperty')) {
+              return $this->_propDict['extensionProperties'];
+           }
+           foreach ($this->_propDict['extensionProperties'] as $singleValue) {
+              $extensionProperties []= new ExtensionProperty($singleValue);
+           }
+           $this->_propDict['extensionProperties'] = $extensionProperties;
+           return $this->_propDict['extensionProperties'];
         }
+        return null;
     }
     
     /** 
     * Sets the extensionProperties
     * Read-only. Nullable.
     *
-    * @param ExtensionProperty $val The extensionProperties
+    * @param ExtensionProperty[] $val The extensionProperties
     *
     * @return Application
     */
@@ -943,21 +978,28 @@ class Application extends DirectoryObject
      /** 
      * Gets the homeRealmDiscoveryPolicies
      *
-     * @return array|null The homeRealmDiscoveryPolicies
+     * @return HomeRealmDiscoveryPolicy[]|null The homeRealmDiscoveryPolicies
      */
     public function getHomeRealmDiscoveryPolicies()
     {
-        if (array_key_exists("homeRealmDiscoveryPolicies", $this->_propDict)) {
-           return $this->_propDict["homeRealmDiscoveryPolicies"];
-        } else {
-            return null;
+        if (array_key_exists('homeRealmDiscoveryPolicies', $this->_propDict) && !is_null($this->_propDict['homeRealmDiscoveryPolicies'])) {
+           $homeRealmDiscoveryPolicies = [];
+           if (count($this->_propDict['homeRealmDiscoveryPolicies']) > 0 && is_a($this->_propDict['homeRealmDiscoveryPolicies'][0], 'HomeRealmDiscoveryPolicy')) {
+              return $this->_propDict['homeRealmDiscoveryPolicies'];
+           }
+           foreach ($this->_propDict['homeRealmDiscoveryPolicies'] as $singleValue) {
+              $homeRealmDiscoveryPolicies []= new HomeRealmDiscoveryPolicy($singleValue);
+           }
+           $this->_propDict['homeRealmDiscoveryPolicies'] = $homeRealmDiscoveryPolicies;
+           return $this->_propDict['homeRealmDiscoveryPolicies'];
         }
+        return null;
     }
     
     /** 
     * Sets the homeRealmDiscoveryPolicies
     *
-    * @param HomeRealmDiscoveryPolicy $val The homeRealmDiscoveryPolicies
+    * @param HomeRealmDiscoveryPolicy[] $val The homeRealmDiscoveryPolicies
     *
     * @return Application
     */
@@ -972,22 +1014,29 @@ class Application extends DirectoryObject
      * Gets the owners
     * Directory objects that are owners of the application. Read-only. Nullable.
      *
-     * @return array|null The owners
+     * @return DirectoryObject[]|null The owners
      */
     public function getOwners()
     {
-        if (array_key_exists("owners", $this->_propDict)) {
-           return $this->_propDict["owners"];
-        } else {
-            return null;
+        if (array_key_exists('owners', $this->_propDict) && !is_null($this->_propDict['owners'])) {
+           $owners = [];
+           if (count($this->_propDict['owners']) > 0 && is_a($this->_propDict['owners'][0], 'DirectoryObject')) {
+              return $this->_propDict['owners'];
+           }
+           foreach ($this->_propDict['owners'] as $singleValue) {
+              $owners []= new DirectoryObject($singleValue);
+           }
+           $this->_propDict['owners'] = $owners;
+           return $this->_propDict['owners'];
         }
+        return null;
     }
     
     /** 
     * Sets the owners
     * Directory objects that are owners of the application. Read-only. Nullable.
     *
-    * @param DirectoryObject $val The owners
+    * @param DirectoryObject[] $val The owners
     *
     * @return Application
     */
@@ -1001,21 +1050,28 @@ class Application extends DirectoryObject
      /** 
      * Gets the tokenIssuancePolicies
      *
-     * @return array|null The tokenIssuancePolicies
+     * @return TokenIssuancePolicy[]|null The tokenIssuancePolicies
      */
     public function getTokenIssuancePolicies()
     {
-        if (array_key_exists("tokenIssuancePolicies", $this->_propDict)) {
-           return $this->_propDict["tokenIssuancePolicies"];
-        } else {
-            return null;
+        if (array_key_exists('tokenIssuancePolicies', $this->_propDict) && !is_null($this->_propDict['tokenIssuancePolicies'])) {
+           $tokenIssuancePolicies = [];
+           if (count($this->_propDict['tokenIssuancePolicies']) > 0 && is_a($this->_propDict['tokenIssuancePolicies'][0], 'TokenIssuancePolicy')) {
+              return $this->_propDict['tokenIssuancePolicies'];
+           }
+           foreach ($this->_propDict['tokenIssuancePolicies'] as $singleValue) {
+              $tokenIssuancePolicies []= new TokenIssuancePolicy($singleValue);
+           }
+           $this->_propDict['tokenIssuancePolicies'] = $tokenIssuancePolicies;
+           return $this->_propDict['tokenIssuancePolicies'];
         }
+        return null;
     }
     
     /** 
     * Sets the tokenIssuancePolicies
     *
-    * @param TokenIssuancePolicy $val The tokenIssuancePolicies
+    * @param TokenIssuancePolicy[] $val The tokenIssuancePolicies
     *
     * @return Application
     */
@@ -1030,22 +1086,29 @@ class Application extends DirectoryObject
      * Gets the tokenLifetimePolicies
     * The tokenLifetimePolicies assigned to this application.
      *
-     * @return array|null The tokenLifetimePolicies
+     * @return TokenLifetimePolicy[]|null The tokenLifetimePolicies
      */
     public function getTokenLifetimePolicies()
     {
-        if (array_key_exists("tokenLifetimePolicies", $this->_propDict)) {
-           return $this->_propDict["tokenLifetimePolicies"];
-        } else {
-            return null;
+        if (array_key_exists('tokenLifetimePolicies', $this->_propDict) && !is_null($this->_propDict['tokenLifetimePolicies'])) {
+           $tokenLifetimePolicies = [];
+           if (count($this->_propDict['tokenLifetimePolicies']) > 0 && is_a($this->_propDict['tokenLifetimePolicies'][0], 'TokenLifetimePolicy')) {
+              return $this->_propDict['tokenLifetimePolicies'];
+           }
+           foreach ($this->_propDict['tokenLifetimePolicies'] as $singleValue) {
+              $tokenLifetimePolicies []= new TokenLifetimePolicy($singleValue);
+           }
+           $this->_propDict['tokenLifetimePolicies'] = $tokenLifetimePolicies;
+           return $this->_propDict['tokenLifetimePolicies'];
         }
+        return null;
     }
     
     /** 
     * Sets the tokenLifetimePolicies
     * The tokenLifetimePolicies assigned to this application.
     *
-    * @param TokenLifetimePolicy $val The tokenLifetimePolicies
+    * @param TokenLifetimePolicy[] $val The tokenLifetimePolicies
     *
     * @return Application
     */
@@ -1063,8 +1126,8 @@ class Application extends DirectoryObject
     */
     public function getConnectorGroup()
     {
-        if (array_key_exists("connectorGroup", $this->_propDict)) {
-            if (is_a($this->_propDict["connectorGroup"], "\Beta\Microsoft\Graph\Model\ConnectorGroup") || is_null($this->_propDict["connectorGroup"])) {
+        if (array_key_exists("connectorGroup", $this->_propDict) && !is_null($this->_propDict["connectorGroup"])) {
+            if (is_a($this->_propDict["connectorGroup"], "\Beta\Microsoft\Graph\Model\ConnectorGroup")) {
                 return $this->_propDict["connectorGroup"];
             } else {
                 $this->_propDict["connectorGroup"] = new ConnectorGroup($this->_propDict["connectorGroup"]);
@@ -1095,8 +1158,8 @@ class Application extends DirectoryObject
     */
     public function getSynchronization()
     {
-        if (array_key_exists("synchronization", $this->_propDict)) {
-            if (is_a($this->_propDict["synchronization"], "\Beta\Microsoft\Graph\Model\Synchronization") || is_null($this->_propDict["synchronization"])) {
+        if (array_key_exists("synchronization", $this->_propDict) && !is_null($this->_propDict["synchronization"])) {
+            if (is_a($this->_propDict["synchronization"], "\Beta\Microsoft\Graph\Model\Synchronization")) {
                 return $this->_propDict["synchronization"];
             } else {
                 $this->_propDict["synchronization"] = new Synchronization($this->_propDict["synchronization"]);

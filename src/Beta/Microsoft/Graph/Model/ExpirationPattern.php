@@ -32,8 +32,9 @@ class ExpirationPattern extends Entity
     */
     public function getDuration()
     {
-        if (array_key_exists("duration", $this->_propDict)) {
-            if (is_a($this->_propDict["duration"], "\Beta\Microsoft\Graph\Model\Duration") || is_null($this->_propDict["duration"])) {
+        if (array_key_exists("duration", $this->_propDict) && !is_null($this->_propDict["duration"])) {
+     
+            if (is_a($this->_propDict["duration"], "\Beta\Microsoft\Graph\Model\Duration")) {
                 return $this->_propDict["duration"];
             } else {
                 $this->_propDict["duration"] = new Duration($this->_propDict["duration"]);
@@ -65,8 +66,9 @@ class ExpirationPattern extends Entity
     */
     public function getEndDateTime()
     {
-        if (array_key_exists("endDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["endDateTime"], "\DateTime") || is_null($this->_propDict["endDateTime"])) {
+        if (array_key_exists("endDateTime", $this->_propDict) && !is_null($this->_propDict["endDateTime"])) {
+     
+            if (is_a($this->_propDict["endDateTime"], "\DateTime")) {
                 return $this->_propDict["endDateTime"];
             } else {
                 $this->_propDict["endDateTime"] = new \DateTime($this->_propDict["endDateTime"]);
@@ -98,8 +100,9 @@ class ExpirationPattern extends Entity
     */
     public function getType()
     {
-        if (array_key_exists("type", $this->_propDict)) {
-            if (is_a($this->_propDict["type"], "\Beta\Microsoft\Graph\Model\ExpirationPatternType") || is_null($this->_propDict["type"])) {
+        if (array_key_exists("type", $this->_propDict) && !is_null($this->_propDict["type"])) {
+     
+            if (is_a($this->_propDict["type"], "\Beta\Microsoft\Graph\Model\ExpirationPatternType")) {
                 return $this->_propDict["type"];
             } else {
                 $this->_propDict["type"] = new ExpirationPatternType($this->_propDict["type"]);

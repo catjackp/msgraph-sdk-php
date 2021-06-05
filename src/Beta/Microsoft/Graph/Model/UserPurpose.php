@@ -32,8 +32,9 @@ class UserPurpose extends Entity
     */
     public function getValue()
     {
-        if (array_key_exists("value", $this->_propDict)) {
-            if (is_a($this->_propDict["value"], "\Beta\Microsoft\Graph\Model\MailboxRecipientType") || is_null($this->_propDict["value"])) {
+        if (array_key_exists("value", $this->_propDict) && !is_null($this->_propDict["value"])) {
+     
+            if (is_a($this->_propDict["value"], "\Beta\Microsoft\Graph\Model\MailboxRecipientType")) {
                 return $this->_propDict["value"];
             } else {
                 $this->_propDict["value"] = new MailboxRecipientType($this->_propDict["value"]);

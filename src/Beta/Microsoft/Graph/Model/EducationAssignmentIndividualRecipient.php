@@ -51,7 +51,7 @@ class EducationAssignmentIndividualRecipient extends EducationAssignmentRecipien
     * Sets the recipients
     * A collection of ids of the recipients.
     *
-    * @param string $val The value of the recipients
+    * @param string[] $val The value of the recipients
     *
     * @return EducationAssignmentIndividualRecipient
     */

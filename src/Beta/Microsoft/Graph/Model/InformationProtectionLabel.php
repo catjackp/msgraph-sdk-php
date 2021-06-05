@@ -142,13 +142,14 @@ class InformationProtectionLabel extends Entity
     
     /**
     * Gets the parent
+    * The parent label associated with a child label. Null if label has no parent.
     *
     * @return ParentLabelDetails|null The parent
     */
     public function getParent()
     {
-        if (array_key_exists("parent", $this->_propDict)) {
-            if (is_a($this->_propDict["parent"], "\Beta\Microsoft\Graph\Model\ParentLabelDetails") || is_null($this->_propDict["parent"])) {
+        if (array_key_exists("parent", $this->_propDict) && !is_null($this->_propDict["parent"])) {
+            if (is_a($this->_propDict["parent"], "\Beta\Microsoft\Graph\Model\ParentLabelDetails")) {
                 return $this->_propDict["parent"];
             } else {
                 $this->_propDict["parent"] = new ParentLabelDetails($this->_propDict["parent"]);
@@ -160,6 +161,7 @@ class InformationProtectionLabel extends Entity
     
     /**
     * Sets the parent
+    * The parent label associated with a child label. Null if label has no parent.
     *
     * @param ParentLabelDetails $val The parent
     *

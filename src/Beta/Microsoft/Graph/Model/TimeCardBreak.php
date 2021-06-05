@@ -25,6 +25,7 @@ class TimeCardBreak extends Entity
 {
     /**
     * Gets the breakId
+    * ID of the timeCardBreak.
     *
     * @return string|null The breakId
     */
@@ -39,6 +40,7 @@ class TimeCardBreak extends Entity
 
     /**
     * Sets the breakId
+    * ID of the timeCardBreak.
     *
     * @param string $val The value of the breakId
     *
@@ -52,13 +54,15 @@ class TimeCardBreak extends Entity
 
     /**
     * Gets the end
+    * The start event of the timeCardBreak.
     *
     * @return TimeCardEvent|null The end
     */
     public function getEnd()
     {
-        if (array_key_exists("end", $this->_propDict)) {
-            if (is_a($this->_propDict["end"], "\Beta\Microsoft\Graph\Model\TimeCardEvent") || is_null($this->_propDict["end"])) {
+        if (array_key_exists("end", $this->_propDict) && !is_null($this->_propDict["end"])) {
+     
+            if (is_a($this->_propDict["end"], "\Beta\Microsoft\Graph\Model\TimeCardEvent")) {
                 return $this->_propDict["end"];
             } else {
                 $this->_propDict["end"] = new TimeCardEvent($this->_propDict["end"]);
@@ -70,6 +74,7 @@ class TimeCardBreak extends Entity
 
     /**
     * Sets the end
+    * The start event of the timeCardBreak.
     *
     * @param TimeCardEvent $val The value to assign to the end
     *
@@ -83,13 +88,15 @@ class TimeCardBreak extends Entity
 
     /**
     * Gets the notes
+    * Notes about the timeCardBreak.
     *
     * @return ItemBody|null The notes
     */
     public function getNotes()
     {
-        if (array_key_exists("notes", $this->_propDict)) {
-            if (is_a($this->_propDict["notes"], "\Beta\Microsoft\Graph\Model\ItemBody") || is_null($this->_propDict["notes"])) {
+        if (array_key_exists("notes", $this->_propDict) && !is_null($this->_propDict["notes"])) {
+     
+            if (is_a($this->_propDict["notes"], "\Beta\Microsoft\Graph\Model\ItemBody")) {
                 return $this->_propDict["notes"];
             } else {
                 $this->_propDict["notes"] = new ItemBody($this->_propDict["notes"]);
@@ -101,6 +108,7 @@ class TimeCardBreak extends Entity
 
     /**
     * Sets the notes
+    * Notes about the timeCardBreak.
     *
     * @param ItemBody $val The value to assign to the notes
     *
@@ -114,13 +122,15 @@ class TimeCardBreak extends Entity
 
     /**
     * Gets the start
+    * The start event of the timeCardBreak.
     *
     * @return TimeCardEvent|null The start
     */
     public function getStart()
     {
-        if (array_key_exists("start", $this->_propDict)) {
-            if (is_a($this->_propDict["start"], "\Beta\Microsoft\Graph\Model\TimeCardEvent") || is_null($this->_propDict["start"])) {
+        if (array_key_exists("start", $this->_propDict) && !is_null($this->_propDict["start"])) {
+     
+            if (is_a($this->_propDict["start"], "\Beta\Microsoft\Graph\Model\TimeCardEvent")) {
                 return $this->_propDict["start"];
             } else {
                 $this->_propDict["start"] = new TimeCardEvent($this->_propDict["start"]);
@@ -132,6 +142,7 @@ class TimeCardBreak extends Entity
 
     /**
     * Sets the start
+    * The start event of the timeCardBreak.
     *
     * @param TimeCardEvent $val The value to assign to the start
     *

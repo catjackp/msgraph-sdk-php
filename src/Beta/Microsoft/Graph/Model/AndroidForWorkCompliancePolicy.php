@@ -61,8 +61,8 @@ class AndroidForWorkCompliancePolicy extends DeviceCompliancePolicy
     */
     public function getDeviceThreatProtectionRequiredSecurityLevel()
     {
-        if (array_key_exists("deviceThreatProtectionRequiredSecurityLevel", $this->_propDict)) {
-            if (is_a($this->_propDict["deviceThreatProtectionRequiredSecurityLevel"], "\Beta\Microsoft\Graph\Model\DeviceThreatProtectionLevel") || is_null($this->_propDict["deviceThreatProtectionRequiredSecurityLevel"])) {
+        if (array_key_exists("deviceThreatProtectionRequiredSecurityLevel", $this->_propDict) && !is_null($this->_propDict["deviceThreatProtectionRequiredSecurityLevel"])) {
+            if (is_a($this->_propDict["deviceThreatProtectionRequiredSecurityLevel"], "\Beta\Microsoft\Graph\Model\DeviceThreatProtectionLevel")) {
                 return $this->_propDict["deviceThreatProtectionRequiredSecurityLevel"];
             } else {
                 $this->_propDict["deviceThreatProtectionRequiredSecurityLevel"] = new DeviceThreatProtectionLevel($this->_propDict["deviceThreatProtectionRequiredSecurityLevel"]);
@@ -326,8 +326,8 @@ class AndroidForWorkCompliancePolicy extends DeviceCompliancePolicy
     */
     public function getPasswordRequiredType()
     {
-        if (array_key_exists("passwordRequiredType", $this->_propDict)) {
-            if (is_a($this->_propDict["passwordRequiredType"], "\Beta\Microsoft\Graph\Model\AndroidRequiredPasswordType") || is_null($this->_propDict["passwordRequiredType"])) {
+        if (array_key_exists("passwordRequiredType", $this->_propDict) && !is_null($this->_propDict["passwordRequiredType"])) {
+            if (is_a($this->_propDict["passwordRequiredType"], "\Beta\Microsoft\Graph\Model\AndroidRequiredPasswordType")) {
                 return $this->_propDict["passwordRequiredType"];
             } else {
                 $this->_propDict["passwordRequiredType"] = new AndroidRequiredPasswordType($this->_propDict["passwordRequiredType"]);
@@ -493,6 +493,39 @@ class AndroidForWorkCompliancePolicy extends DeviceCompliancePolicy
     public function setSecurityRequireCompanyPortalAppIntegrity($val)
     {
         $this->_propDict["securityRequireCompanyPortalAppIntegrity"] = boolval($val);
+        return $this;
+    }
+    
+    /**
+    * Gets the securityRequiredAndroidSafetyNetEvaluationType
+    * Require a specific SafetyNet evaluation type for compliance. Possible values are: basic, hardwareBacked.
+    *
+    * @return AndroidSafetyNetEvaluationType|null The securityRequiredAndroidSafetyNetEvaluationType
+    */
+    public function getSecurityRequiredAndroidSafetyNetEvaluationType()
+    {
+        if (array_key_exists("securityRequiredAndroidSafetyNetEvaluationType", $this->_propDict) && !is_null($this->_propDict["securityRequiredAndroidSafetyNetEvaluationType"])) {
+            if (is_a($this->_propDict["securityRequiredAndroidSafetyNetEvaluationType"], "\Beta\Microsoft\Graph\Model\AndroidSafetyNetEvaluationType")) {
+                return $this->_propDict["securityRequiredAndroidSafetyNetEvaluationType"];
+            } else {
+                $this->_propDict["securityRequiredAndroidSafetyNetEvaluationType"] = new AndroidSafetyNetEvaluationType($this->_propDict["securityRequiredAndroidSafetyNetEvaluationType"]);
+                return $this->_propDict["securityRequiredAndroidSafetyNetEvaluationType"];
+            }
+        }
+        return null;
+    }
+    
+    /**
+    * Sets the securityRequiredAndroidSafetyNetEvaluationType
+    * Require a specific SafetyNet evaluation type for compliance. Possible values are: basic, hardwareBacked.
+    *
+    * @param AndroidSafetyNetEvaluationType $val The securityRequiredAndroidSafetyNetEvaluationType
+    *
+    * @return AndroidForWorkCompliancePolicy
+    */
+    public function setSecurityRequiredAndroidSafetyNetEvaluationType($val)
+    {
+        $this->_propDict["securityRequiredAndroidSafetyNetEvaluationType"] = $val;
         return $this;
     }
     

@@ -11,7 +11,7 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\WindowsUpdates\Model;
+namespace Beta\Microsoft\Graph\Model;
 
 /**
 * Admin class
@@ -56,18 +56,48 @@ class Admin implements \JsonSerializable
     }
     
     /**
-    * Gets the windows
-    * Entity that acts as a container for functionality. Read-only.
+    * Gets the serviceAnnouncement
     *
-    * @return Windows|null The windows
+    * @return ServiceAnnouncement|null The serviceAnnouncement
+    */
+    public function getServiceAnnouncement()
+    {
+        if (array_key_exists("serviceAnnouncement", $this->_propDict) && !is_null($this->_propDict["serviceAnnouncement"])) {
+            if (is_a($this->_propDict["serviceAnnouncement"], "\Beta\Microsoft\Graph\Model\ServiceAnnouncement")) {
+                return $this->_propDict["serviceAnnouncement"];
+            } else {
+                $this->_propDict["serviceAnnouncement"] = new ServiceAnnouncement($this->_propDict["serviceAnnouncement"]);
+                return $this->_propDict["serviceAnnouncement"];
+            }
+        }
+        return null;
+    }
+    
+    /**
+    * Sets the serviceAnnouncement
+    *
+    * @param ServiceAnnouncement $val The serviceAnnouncement
+    *
+    * @return Admin
+    */
+    public function setServiceAnnouncement($val)
+    {
+        $this->_propDict["serviceAnnouncement"] = $val;
+        return $this;
+    }
+    
+    /**
+    * Gets the windows
+    *
+    * @return \Beta\Microsoft\Graph\WindowsUpdates\Model\Windows|null The windows
     */
     public function getWindows()
     {
-        if (array_key_exists("windows", $this->_propDict)) {
-            if (is_a($this->_propDict["windows"], "\Beta\Microsoft\Graph\WindowsUpdates\Model\Windows") || is_null($this->_propDict["windows"])) {
+        if (array_key_exists("windows", $this->_propDict) && !is_null($this->_propDict["windows"])) {
+            if (is_a($this->_propDict["windows"], "\Beta\Microsoft\Graph\WindowsUpdates\Model\Windows")) {
                 return $this->_propDict["windows"];
             } else {
-                $this->_propDict["windows"] = new Windows($this->_propDict["windows"]);
+                $this->_propDict["windows"] = new \Beta\Microsoft\Graph\WindowsUpdates\Model\Windows($this->_propDict["windows"]);
                 return $this->_propDict["windows"];
             }
         }
@@ -76,9 +106,8 @@ class Admin implements \JsonSerializable
     
     /**
     * Sets the windows
-    * Entity that acts as a container for functionality. Read-only.
     *
-    * @param Windows $val The windows
+    * @param \Beta\Microsoft\Graph\WindowsUpdates\Model\Windows $val The windows
     *
     * @return Admin
     */
@@ -121,10 +150,22 @@ class Admin implements \JsonSerializable
     {
         $serializableProperties = $this->getProperties();
         foreach ($serializableProperties as $property => $val) {
-            if (is_a($val, "\DateTime")) {
-                $serializableProperties[$property] = $val->format(\DateTime::RFC3339);
-            } else if (is_a($val, "\Microsoft\Graph\Core\Enum")) {
+            if (is_a($val, '\DateTime')) {
+                $serializableProperties[$property] = $val->format(\DateTimeInterface::RFC3339);
+            } else if (is_a($val, '\Microsoft\Graph\Core\Enum')) {
                 $serializableProperties[$property] = $val->value();
+            } else if (is_array($val)) {
+                $values = [];
+                if (count($val) > 0 && is_a($val[0], '\DateTime')) {
+                   foreach ($values as $propertyValue) {
+                       $values []= $propertyValue->format(\DateTimeInterface::RFC3339);
+                   }
+                } else if(count > 0 && is_a($val[0], '\Microsoft\Graph\Core\Enum')) {
+                    foreach ($values as $propertyValue) {
+                       $values []= $propertyValue->value();
+                   }
+                }
+                $serializableProperties[$property] = $values;
             }
         }
         return $serializableProperties;

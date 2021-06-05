@@ -32,8 +32,8 @@ class EducationSubmission extends Entity
     */
     public function getRecipient()
     {
-        if (array_key_exists("recipient", $this->_propDict)) {
-            if (is_a($this->_propDict["recipient"], "\Beta\Microsoft\Graph\Model\EducationSubmissionRecipient") || is_null($this->_propDict["recipient"])) {
+        if (array_key_exists("recipient", $this->_propDict) && !is_null($this->_propDict["recipient"])) {
+            if (is_a($this->_propDict["recipient"], "\Beta\Microsoft\Graph\Model\EducationSubmissionRecipient")) {
                 return $this->_propDict["recipient"];
             } else {
                 $this->_propDict["recipient"] = new EducationSubmissionRecipient($this->_propDict["recipient"]);
@@ -54,68 +54,6 @@ class EducationSubmission extends Entity
     public function setRecipient($val)
     {
         $this->_propDict["recipient"] = $val;
-        return $this;
-    }
-    
-    /**
-    * Gets the releasedBy
-    *
-    * @return IdentitySet|null The releasedBy
-    */
-    public function getReleasedBy()
-    {
-        if (array_key_exists("releasedBy", $this->_propDict)) {
-            if (is_a($this->_propDict["releasedBy"], "\Beta\Microsoft\Graph\Model\IdentitySet") || is_null($this->_propDict["releasedBy"])) {
-                return $this->_propDict["releasedBy"];
-            } else {
-                $this->_propDict["releasedBy"] = new IdentitySet($this->_propDict["releasedBy"]);
-                return $this->_propDict["releasedBy"];
-            }
-        }
-        return null;
-    }
-    
-    /**
-    * Sets the releasedBy
-    *
-    * @param IdentitySet $val The releasedBy
-    *
-    * @return EducationSubmission
-    */
-    public function setReleasedBy($val)
-    {
-        $this->_propDict["releasedBy"] = $val;
-        return $this;
-    }
-    
-    /**
-    * Gets the releasedDateTime
-    *
-    * @return \DateTime|null The releasedDateTime
-    */
-    public function getReleasedDateTime()
-    {
-        if (array_key_exists("releasedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["releasedDateTime"], "\DateTime") || is_null($this->_propDict["releasedDateTime"])) {
-                return $this->_propDict["releasedDateTime"];
-            } else {
-                $this->_propDict["releasedDateTime"] = new \DateTime($this->_propDict["releasedDateTime"]);
-                return $this->_propDict["releasedDateTime"];
-            }
-        }
-        return null;
-    }
-    
-    /**
-    * Sets the releasedDateTime
-    *
-    * @param \DateTime $val The releasedDateTime
-    *
-    * @return EducationSubmission
-    */
-    public function setReleasedDateTime($val)
-    {
-        $this->_propDict["releasedDateTime"] = $val;
         return $this;
     }
     
@@ -156,8 +94,8 @@ class EducationSubmission extends Entity
     */
     public function getReturnedBy()
     {
-        if (array_key_exists("returnedBy", $this->_propDict)) {
-            if (is_a($this->_propDict["returnedBy"], "\Beta\Microsoft\Graph\Model\IdentitySet") || is_null($this->_propDict["returnedBy"])) {
+        if (array_key_exists("returnedBy", $this->_propDict) && !is_null($this->_propDict["returnedBy"])) {
+            if (is_a($this->_propDict["returnedBy"], "\Beta\Microsoft\Graph\Model\IdentitySet")) {
                 return $this->_propDict["returnedBy"];
             } else {
                 $this->_propDict["returnedBy"] = new IdentitySet($this->_propDict["returnedBy"]);
@@ -189,8 +127,8 @@ class EducationSubmission extends Entity
     */
     public function getReturnedDateTime()
     {
-        if (array_key_exists("returnedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["returnedDateTime"], "\DateTime") || is_null($this->_propDict["returnedDateTime"])) {
+        if (array_key_exists("returnedDateTime", $this->_propDict) && !is_null($this->_propDict["returnedDateTime"])) {
+            if (is_a($this->_propDict["returnedDateTime"], "\DateTime")) {
                 return $this->_propDict["returnedDateTime"];
             } else {
                 $this->_propDict["returnedDateTime"] = new \DateTime($this->_propDict["returnedDateTime"]);
@@ -222,8 +160,8 @@ class EducationSubmission extends Entity
     */
     public function getStatus()
     {
-        if (array_key_exists("status", $this->_propDict)) {
-            if (is_a($this->_propDict["status"], "\Beta\Microsoft\Graph\Model\EducationSubmissionStatus") || is_null($this->_propDict["status"])) {
+        if (array_key_exists("status", $this->_propDict) && !is_null($this->_propDict["status"])) {
+            if (is_a($this->_propDict["status"], "\Beta\Microsoft\Graph\Model\EducationSubmissionStatus")) {
                 return $this->_propDict["status"];
             } else {
                 $this->_propDict["status"] = new EducationSubmissionStatus($this->_propDict["status"]);
@@ -255,8 +193,8 @@ class EducationSubmission extends Entity
     */
     public function getSubmittedBy()
     {
-        if (array_key_exists("submittedBy", $this->_propDict)) {
-            if (is_a($this->_propDict["submittedBy"], "\Beta\Microsoft\Graph\Model\IdentitySet") || is_null($this->_propDict["submittedBy"])) {
+        if (array_key_exists("submittedBy", $this->_propDict) && !is_null($this->_propDict["submittedBy"])) {
+            if (is_a($this->_propDict["submittedBy"], "\Beta\Microsoft\Graph\Model\IdentitySet")) {
                 return $this->_propDict["submittedBy"];
             } else {
                 $this->_propDict["submittedBy"] = new IdentitySet($this->_propDict["submittedBy"]);
@@ -288,8 +226,8 @@ class EducationSubmission extends Entity
     */
     public function getSubmittedDateTime()
     {
-        if (array_key_exists("submittedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["submittedDateTime"], "\DateTime") || is_null($this->_propDict["submittedDateTime"])) {
+        if (array_key_exists("submittedDateTime", $this->_propDict) && !is_null($this->_propDict["submittedDateTime"])) {
+            if (is_a($this->_propDict["submittedDateTime"], "\DateTime")) {
                 return $this->_propDict["submittedDateTime"];
             } else {
                 $this->_propDict["submittedDateTime"] = new \DateTime($this->_propDict["submittedDateTime"]);
@@ -321,8 +259,8 @@ class EducationSubmission extends Entity
     */
     public function getUnsubmittedBy()
     {
-        if (array_key_exists("unsubmittedBy", $this->_propDict)) {
-            if (is_a($this->_propDict["unsubmittedBy"], "\Beta\Microsoft\Graph\Model\IdentitySet") || is_null($this->_propDict["unsubmittedBy"])) {
+        if (array_key_exists("unsubmittedBy", $this->_propDict) && !is_null($this->_propDict["unsubmittedBy"])) {
+            if (is_a($this->_propDict["unsubmittedBy"], "\Beta\Microsoft\Graph\Model\IdentitySet")) {
                 return $this->_propDict["unsubmittedBy"];
             } else {
                 $this->_propDict["unsubmittedBy"] = new IdentitySet($this->_propDict["unsubmittedBy"]);
@@ -354,8 +292,8 @@ class EducationSubmission extends Entity
     */
     public function getUnsubmittedDateTime()
     {
-        if (array_key_exists("unsubmittedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["unsubmittedDateTime"], "\DateTime") || is_null($this->_propDict["unsubmittedDateTime"])) {
+        if (array_key_exists("unsubmittedDateTime", $this->_propDict) && !is_null($this->_propDict["unsubmittedDateTime"])) {
+            if (is_a($this->_propDict["unsubmittedDateTime"], "\DateTime")) {
                 return $this->_propDict["unsubmittedDateTime"];
             } else {
                 $this->_propDict["unsubmittedDateTime"] = new \DateTime($this->_propDict["unsubmittedDateTime"]);
@@ -384,22 +322,29 @@ class EducationSubmission extends Entity
      * Gets the outcomes
     * Read-Write. Nullable.
      *
-     * @return array|null The outcomes
+     * @return EducationOutcome[]|null The outcomes
      */
     public function getOutcomes()
     {
-        if (array_key_exists("outcomes", $this->_propDict)) {
-           return $this->_propDict["outcomes"];
-        } else {
-            return null;
+        if (array_key_exists('outcomes', $this->_propDict) && !is_null($this->_propDict['outcomes'])) {
+           $outcomes = [];
+           if (count($this->_propDict['outcomes']) > 0 && is_a($this->_propDict['outcomes'][0], 'EducationOutcome')) {
+              return $this->_propDict['outcomes'];
+           }
+           foreach ($this->_propDict['outcomes'] as $singleValue) {
+              $outcomes []= new EducationOutcome($singleValue);
+           }
+           $this->_propDict['outcomes'] = $outcomes;
+           return $this->_propDict['outcomes'];
         }
+        return null;
     }
     
     /** 
     * Sets the outcomes
     * Read-Write. Nullable.
     *
-    * @param EducationOutcome $val The outcomes
+    * @param EducationOutcome[] $val The outcomes
     *
     * @return EducationSubmission
     */
@@ -414,22 +359,29 @@ class EducationSubmission extends Entity
      * Gets the resources
     * Nullable.
      *
-     * @return array|null The resources
+     * @return EducationSubmissionResource[]|null The resources
      */
     public function getResources()
     {
-        if (array_key_exists("resources", $this->_propDict)) {
-           return $this->_propDict["resources"];
-        } else {
-            return null;
+        if (array_key_exists('resources', $this->_propDict) && !is_null($this->_propDict['resources'])) {
+           $resources = [];
+           if (count($this->_propDict['resources']) > 0 && is_a($this->_propDict['resources'][0], 'EducationSubmissionResource')) {
+              return $this->_propDict['resources'];
+           }
+           foreach ($this->_propDict['resources'] as $singleValue) {
+              $resources []= new EducationSubmissionResource($singleValue);
+           }
+           $this->_propDict['resources'] = $resources;
+           return $this->_propDict['resources'];
         }
+        return null;
     }
     
     /** 
     * Sets the resources
     * Nullable.
     *
-    * @param EducationSubmissionResource $val The resources
+    * @param EducationSubmissionResource[] $val The resources
     *
     * @return EducationSubmission
     */
@@ -444,22 +396,29 @@ class EducationSubmission extends Entity
      * Gets the submittedResources
     * Read-only. Nullable.
      *
-     * @return array|null The submittedResources
+     * @return EducationSubmissionResource[]|null The submittedResources
      */
     public function getSubmittedResources()
     {
-        if (array_key_exists("submittedResources", $this->_propDict)) {
-           return $this->_propDict["submittedResources"];
-        } else {
-            return null;
+        if (array_key_exists('submittedResources', $this->_propDict) && !is_null($this->_propDict['submittedResources'])) {
+           $submittedResources = [];
+           if (count($this->_propDict['submittedResources']) > 0 && is_a($this->_propDict['submittedResources'][0], 'EducationSubmissionResource')) {
+              return $this->_propDict['submittedResources'];
+           }
+           foreach ($this->_propDict['submittedResources'] as $singleValue) {
+              $submittedResources []= new EducationSubmissionResource($singleValue);
+           }
+           $this->_propDict['submittedResources'] = $submittedResources;
+           return $this->_propDict['submittedResources'];
         }
+        return null;
     }
     
     /** 
     * Sets the submittedResources
     * Read-only. Nullable.
     *
-    * @param EducationSubmissionResource $val The submittedResources
+    * @param EducationSubmissionResource[] $val The submittedResources
     *
     * @return EducationSubmission
     */

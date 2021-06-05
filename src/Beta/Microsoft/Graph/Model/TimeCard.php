@@ -27,22 +27,31 @@ class TimeCard extends ChangeTrackedEntity
 
      /** 
      * Gets the breaks
+    * The list of breaks associated with the timeCard.
      *
-     * @return array|null The breaks
+     * @return TimeCardBreak[]|null The breaks
      */
     public function getBreaks()
     {
-        if (array_key_exists("breaks", $this->_propDict)) {
-           return $this->_propDict["breaks"];
-        } else {
-            return null;
+        if (array_key_exists('breaks', $this->_propDict) && !is_null($this->_propDict['breaks'])) {
+           $breaks = [];
+           if (count($this->_propDict['breaks']) > 0 && is_a($this->_propDict['breaks'][0], 'TimeCardBreak')) {
+              return $this->_propDict['breaks'];
+           }
+           foreach ($this->_propDict['breaks'] as $singleValue) {
+              $breaks []= new TimeCardBreak($singleValue);
+           }
+           $this->_propDict['breaks'] = $breaks;
+           return $this->_propDict['breaks'];
         }
+        return null;
     }
     
     /** 
     * Sets the breaks
+    * The list of breaks associated with the timeCard.
     *
-    * @param TimeCardBreak $val The breaks
+    * @param TimeCardBreak[] $val The breaks
     *
     * @return TimeCard
     */
@@ -54,13 +63,14 @@ class TimeCard extends ChangeTrackedEntity
     
     /**
     * Gets the clockInEvent
+    * The clock-in event of the timeCard.
     *
     * @return TimeCardEvent|null The clockInEvent
     */
     public function getClockInEvent()
     {
-        if (array_key_exists("clockInEvent", $this->_propDict)) {
-            if (is_a($this->_propDict["clockInEvent"], "\Beta\Microsoft\Graph\Model\TimeCardEvent") || is_null($this->_propDict["clockInEvent"])) {
+        if (array_key_exists("clockInEvent", $this->_propDict) && !is_null($this->_propDict["clockInEvent"])) {
+            if (is_a($this->_propDict["clockInEvent"], "\Beta\Microsoft\Graph\Model\TimeCardEvent")) {
                 return $this->_propDict["clockInEvent"];
             } else {
                 $this->_propDict["clockInEvent"] = new TimeCardEvent($this->_propDict["clockInEvent"]);
@@ -72,6 +82,7 @@ class TimeCard extends ChangeTrackedEntity
     
     /**
     * Sets the clockInEvent
+    * The clock-in event of the timeCard.
     *
     * @param TimeCardEvent $val The clockInEvent
     *
@@ -85,13 +96,14 @@ class TimeCard extends ChangeTrackedEntity
     
     /**
     * Gets the clockOutEvent
+    * The clock-out event of the timeCard.
     *
     * @return TimeCardEvent|null The clockOutEvent
     */
     public function getClockOutEvent()
     {
-        if (array_key_exists("clockOutEvent", $this->_propDict)) {
-            if (is_a($this->_propDict["clockOutEvent"], "\Beta\Microsoft\Graph\Model\TimeCardEvent") || is_null($this->_propDict["clockOutEvent"])) {
+        if (array_key_exists("clockOutEvent", $this->_propDict) && !is_null($this->_propDict["clockOutEvent"])) {
+            if (is_a($this->_propDict["clockOutEvent"], "\Beta\Microsoft\Graph\Model\TimeCardEvent")) {
                 return $this->_propDict["clockOutEvent"];
             } else {
                 $this->_propDict["clockOutEvent"] = new TimeCardEvent($this->_propDict["clockOutEvent"]);
@@ -103,6 +115,7 @@ class TimeCard extends ChangeTrackedEntity
     
     /**
     * Sets the clockOutEvent
+    * The clock-out event of the timeCard.
     *
     * @param TimeCardEvent $val The clockOutEvent
     *
@@ -116,13 +129,14 @@ class TimeCard extends ChangeTrackedEntity
     
     /**
     * Gets the confirmedBy
+    * Indicate if this timeCard entry is confirmed. Possible values are none, user, manager, unknownFutureValue.
     *
     * @return ConfirmedBy|null The confirmedBy
     */
     public function getConfirmedBy()
     {
-        if (array_key_exists("confirmedBy", $this->_propDict)) {
-            if (is_a($this->_propDict["confirmedBy"], "\Beta\Microsoft\Graph\Model\ConfirmedBy") || is_null($this->_propDict["confirmedBy"])) {
+        if (array_key_exists("confirmedBy", $this->_propDict) && !is_null($this->_propDict["confirmedBy"])) {
+            if (is_a($this->_propDict["confirmedBy"], "\Beta\Microsoft\Graph\Model\ConfirmedBy")) {
                 return $this->_propDict["confirmedBy"];
             } else {
                 $this->_propDict["confirmedBy"] = new ConfirmedBy($this->_propDict["confirmedBy"]);
@@ -134,6 +148,7 @@ class TimeCard extends ChangeTrackedEntity
     
     /**
     * Sets the confirmedBy
+    * Indicate if this timeCard entry is confirmed. Possible values are none, user, manager, unknownFutureValue.
     *
     * @param ConfirmedBy $val The confirmedBy
     *
@@ -147,13 +162,14 @@ class TimeCard extends ChangeTrackedEntity
     
     /**
     * Gets the notes
+    * Notes about the timeCard.
     *
     * @return ItemBody|null The notes
     */
     public function getNotes()
     {
-        if (array_key_exists("notes", $this->_propDict)) {
-            if (is_a($this->_propDict["notes"], "\Beta\Microsoft\Graph\Model\ItemBody") || is_null($this->_propDict["notes"])) {
+        if (array_key_exists("notes", $this->_propDict) && !is_null($this->_propDict["notes"])) {
+            if (is_a($this->_propDict["notes"], "\Beta\Microsoft\Graph\Model\ItemBody")) {
                 return $this->_propDict["notes"];
             } else {
                 $this->_propDict["notes"] = new ItemBody($this->_propDict["notes"]);
@@ -165,6 +181,7 @@ class TimeCard extends ChangeTrackedEntity
     
     /**
     * Sets the notes
+    * Notes about the timeCard.
     *
     * @param ItemBody $val The notes
     *
@@ -178,13 +195,14 @@ class TimeCard extends ChangeTrackedEntity
     
     /**
     * Gets the originalEntry
+    * The original timeCardEntry of the timeCard, before user edits.
     *
     * @return TimeCardEntry|null The originalEntry
     */
     public function getOriginalEntry()
     {
-        if (array_key_exists("originalEntry", $this->_propDict)) {
-            if (is_a($this->_propDict["originalEntry"], "\Beta\Microsoft\Graph\Model\TimeCardEntry") || is_null($this->_propDict["originalEntry"])) {
+        if (array_key_exists("originalEntry", $this->_propDict) && !is_null($this->_propDict["originalEntry"])) {
+            if (is_a($this->_propDict["originalEntry"], "\Beta\Microsoft\Graph\Model\TimeCardEntry")) {
                 return $this->_propDict["originalEntry"];
             } else {
                 $this->_propDict["originalEntry"] = new TimeCardEntry($this->_propDict["originalEntry"]);
@@ -196,6 +214,7 @@ class TimeCard extends ChangeTrackedEntity
     
     /**
     * Sets the originalEntry
+    * The original timeCardEntry of the timeCard, before user edits.
     *
     * @param TimeCardEntry $val The originalEntry
     *
@@ -209,13 +228,14 @@ class TimeCard extends ChangeTrackedEntity
     
     /**
     * Gets the state
+    * The current state of the timeCard during its life cycle.Possible values are: clockedIn, onBreak, clockedOut, unknownFutureValue.
     *
     * @return TimeCardState|null The state
     */
     public function getState()
     {
-        if (array_key_exists("state", $this->_propDict)) {
-            if (is_a($this->_propDict["state"], "\Beta\Microsoft\Graph\Model\TimeCardState") || is_null($this->_propDict["state"])) {
+        if (array_key_exists("state", $this->_propDict) && !is_null($this->_propDict["state"])) {
+            if (is_a($this->_propDict["state"], "\Beta\Microsoft\Graph\Model\TimeCardState")) {
                 return $this->_propDict["state"];
             } else {
                 $this->_propDict["state"] = new TimeCardState($this->_propDict["state"]);
@@ -227,6 +247,7 @@ class TimeCard extends ChangeTrackedEntity
     
     /**
     * Sets the state
+    * The current state of the timeCard during its life cycle.Possible values are: clockedIn, onBreak, clockedOut, unknownFutureValue.
     *
     * @param TimeCardState $val The state
     *
@@ -240,6 +261,7 @@ class TimeCard extends ChangeTrackedEntity
     
     /**
     * Gets the userId
+    * User ID to which  the timeCard belongs.
     *
     * @return string|null The userId
     */
@@ -254,6 +276,7 @@ class TimeCard extends ChangeTrackedEntity
     
     /**
     * Sets the userId
+    * User ID to which  the timeCard belongs.
     *
     * @param string $val The userId
     *
