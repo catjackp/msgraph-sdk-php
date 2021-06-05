@@ -28,18 +28,25 @@ class SearchHitsContainer extends Entity
     * Gets the hits
     * A collection of the search results.
     *
-    * @return SearchHit|null The hits
+    * @return SearchHit[]|null The hits
     */
     public function getHits()
     {
-        if (array_key_exists("hits", $this->_propDict)) {
-            if (is_a($this->_propDict["hits"], "\Microsoft\Graph\Model\SearchHit") || is_null($this->_propDict["hits"])) {
-                return $this->_propDict["hits"];
-            } else {
-                $this->_propDict["hits"] = new SearchHit($this->_propDict["hits"]);
-                return $this->_propDict["hits"];
+        if (array_key_exists("hits", $this->_propDict) && !is_null($this->_propDict["hits"])) {
+       
+            if (count($this->_propDict['hits']) === 0) {
+              return $this->_propDict['hits'];
             }
-        }
+            if (is_a($this->_propDict['hits'][0], ' SearchHit')) {
+               return $this->_propDict['hits'];
+            }
+            $hits = [];
+            foreach ($this->_propDict['hits'] as $singleValue) {
+               $hits []= new SearchHit($singleValue);
+            }
+            $this->_propDict['hits'] = $hits;
+            return $this->_propDict['hits'];
+            }
         return null;
     }
 
@@ -47,7 +54,7 @@ class SearchHitsContainer extends Entity
     * Sets the hits
     * A collection of the search results.
     *
-    * @param SearchHit $val The value to assign to the hits
+    * @param SearchHit[] $val The value to assign to the hits
     *
     * @return SearchHitsContainer The SearchHitsContainer
     */

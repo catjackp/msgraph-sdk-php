@@ -61,8 +61,8 @@ class EducationClass extends Entity
     */
     public function getCourse()
     {
-        if (array_key_exists("course", $this->_propDict)) {
-            if (is_a($this->_propDict["course"], "\Microsoft\Graph\Model\EducationCourse") || is_null($this->_propDict["course"])) {
+        if (array_key_exists("course", $this->_propDict) && !is_null($this->_propDict["course"])) {
+            if (is_a($this->_propDict["course"], "\Microsoft\Graph\Model\EducationCourse")) {
                 return $this->_propDict["course"];
             } else {
                 $this->_propDict["course"] = new EducationCourse($this->_propDict["course"]);
@@ -94,8 +94,8 @@ class EducationClass extends Entity
     */
     public function getCreatedBy()
     {
-        if (array_key_exists("createdBy", $this->_propDict)) {
-            if (is_a($this->_propDict["createdBy"], "\Microsoft\Graph\Model\IdentitySet") || is_null($this->_propDict["createdBy"])) {
+        if (array_key_exists("createdBy", $this->_propDict) && !is_null($this->_propDict["createdBy"])) {
+            if (is_a($this->_propDict["createdBy"], "\Microsoft\Graph\Model\IdentitySet")) {
                 return $this->_propDict["createdBy"];
             } else {
                 $this->_propDict["createdBy"] = new IdentitySet($this->_propDict["createdBy"]);
@@ -243,8 +243,8 @@ class EducationClass extends Entity
     */
     public function getExternalSource()
     {
-        if (array_key_exists("externalSource", $this->_propDict)) {
-            if (is_a($this->_propDict["externalSource"], "\Microsoft\Graph\Model\EducationExternalSource") || is_null($this->_propDict["externalSource"])) {
+        if (array_key_exists("externalSource", $this->_propDict) && !is_null($this->_propDict["externalSource"])) {
+            if (is_a($this->_propDict["externalSource"], "\Microsoft\Graph\Model\EducationExternalSource")) {
                 return $this->_propDict["externalSource"];
             } else {
                 $this->_propDict["externalSource"] = new EducationExternalSource($this->_propDict["externalSource"]);
@@ -363,8 +363,8 @@ class EducationClass extends Entity
     */
     public function getTerm()
     {
-        if (array_key_exists("term", $this->_propDict)) {
-            if (is_a($this->_propDict["term"], "\Microsoft\Graph\Model\EducationTerm") || is_null($this->_propDict["term"])) {
+        if (array_key_exists("term", $this->_propDict) && !is_null($this->_propDict["term"])) {
+            if (is_a($this->_propDict["term"], "\Microsoft\Graph\Model\EducationTerm")) {
                 return $this->_propDict["term"];
             } else {
                 $this->_propDict["term"] = new EducationTerm($this->_propDict["term"]);
@@ -396,8 +396,8 @@ class EducationClass extends Entity
     */
     public function getGroup()
     {
-        if (array_key_exists("group", $this->_propDict)) {
-            if (is_a($this->_propDict["group"], "\Microsoft\Graph\Model\Group") || is_null($this->_propDict["group"])) {
+        if (array_key_exists("group", $this->_propDict) && !is_null($this->_propDict["group"])) {
+            if (is_a($this->_propDict["group"], "\Microsoft\Graph\Model\Group")) {
                 return $this->_propDict["group"];
             } else {
                 $this->_propDict["group"] = new Group($this->_propDict["group"]);
@@ -426,22 +426,29 @@ class EducationClass extends Entity
      * Gets the members
     * All users in the class. Nullable.
      *
-     * @return array|null The members
+     * @return EducationUser[]|null The members
      */
     public function getMembers()
     {
-        if (array_key_exists("members", $this->_propDict)) {
-           return $this->_propDict["members"];
-        } else {
-            return null;
+        if (array_key_exists('members', $this->_propDict) && !is_null($this->_propDict['members'])) {
+           $members = [];
+           if (count($this->_propDict['members']) > 0 && is_a($this->_propDict['members'][0], 'EducationUser')) {
+              return $this->_propDict['members'];
+           }
+           foreach ($this->_propDict['members'] as $singleValue) {
+              $members []= new EducationUser($singleValue);
+           }
+           $this->_propDict['members'] = $members;
+           return $this->_propDict['members'];
         }
+        return null;
     }
     
     /** 
     * Sets the members
     * All users in the class. Nullable.
     *
-    * @param EducationUser $val The members
+    * @param EducationUser[] $val The members
     *
     * @return EducationClass
     */
@@ -456,22 +463,29 @@ class EducationClass extends Entity
      * Gets the schools
     * All schools that this class is associated with. Nullable.
      *
-     * @return array|null The schools
+     * @return EducationSchool[]|null The schools
      */
     public function getSchools()
     {
-        if (array_key_exists("schools", $this->_propDict)) {
-           return $this->_propDict["schools"];
-        } else {
-            return null;
+        if (array_key_exists('schools', $this->_propDict) && !is_null($this->_propDict['schools'])) {
+           $schools = [];
+           if (count($this->_propDict['schools']) > 0 && is_a($this->_propDict['schools'][0], 'EducationSchool')) {
+              return $this->_propDict['schools'];
+           }
+           foreach ($this->_propDict['schools'] as $singleValue) {
+              $schools []= new EducationSchool($singleValue);
+           }
+           $this->_propDict['schools'] = $schools;
+           return $this->_propDict['schools'];
         }
+        return null;
     }
     
     /** 
     * Sets the schools
     * All schools that this class is associated with. Nullable.
     *
-    * @param EducationSchool $val The schools
+    * @param EducationSchool[] $val The schools
     *
     * @return EducationClass
     */
@@ -486,22 +500,29 @@ class EducationClass extends Entity
      * Gets the teachers
     * All teachers in the class. Nullable.
      *
-     * @return array|null The teachers
+     * @return EducationUser[]|null The teachers
      */
     public function getTeachers()
     {
-        if (array_key_exists("teachers", $this->_propDict)) {
-           return $this->_propDict["teachers"];
-        } else {
-            return null;
+        if (array_key_exists('teachers', $this->_propDict) && !is_null($this->_propDict['teachers'])) {
+           $teachers = [];
+           if (count($this->_propDict['teachers']) > 0 && is_a($this->_propDict['teachers'][0], 'EducationUser')) {
+              return $this->_propDict['teachers'];
+           }
+           foreach ($this->_propDict['teachers'] as $singleValue) {
+              $teachers []= new EducationUser($singleValue);
+           }
+           $this->_propDict['teachers'] = $teachers;
+           return $this->_propDict['teachers'];
         }
+        return null;
     }
     
     /** 
     * Sets the teachers
     * All teachers in the class. Nullable.
     *
-    * @param EducationUser $val The teachers
+    * @param EducationUser[] $val The teachers
     *
     * @return EducationClass
     */
