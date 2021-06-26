@@ -61,14 +61,15 @@ class ExceptionWrapper
             if ($summary !== '') {
                 $message .= ":\n{$summary}\n";
 
+                return new Exception($message);
                 //return new $ex($message, $ex->getRequest(), $ex->getResponse(), $ex, $ex->getHandlerContext());
                 // Better: modify internal message inside original exception object (preserves the stack trace)
-                (new class() extends \Exception {
-                    public static function overwriteProtectedMessage(\Exception $ex, $message)
-                    {
-                        $ex->message = $message;
-                    }
-                })::overwriteProtectedMessage($ex, $message);
+//                 (new class() extends \Exception {
+//                     public static function overwriteProtectedMessage(\Exception $ex, $message)
+//                     {
+//                         $ex->message = $message;
+//                     }
+//                 })::overwriteProtectedMessage($ex, $message);
             }
         }
 
